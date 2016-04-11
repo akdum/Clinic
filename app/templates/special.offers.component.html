@@ -1,0 +1,14 @@
+<div class="hidden-md-down row special-offers-row" *ngIf="specialOffers.length > 0">
+<!-- Special offers title -->
+    <div class="col-md-3 col-lg-3">
+        <h2>Акции</h2>          
+    </div>
+    <!-- Special offers -->
+    <div class="col-md-8 col-lg-8 special-offers"  *ngFor="#offer of specialOffers">
+        <a href="#">
+        <div class="jumbotron jumbotron-fluid">
+            <img [src]="offer" />
+        </div>
+        </a>
+    </div>
+</div>

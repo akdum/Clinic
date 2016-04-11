@@ -1,0 +1,14 @@
+<!-- News -->
+<div class="hidden-sm-down row news-row" *ngIf="_newsList.length > 0">
+    <!-- News title -->
+    <div class="col-md-3 col-lg-3">
+        <h2>Новости</h2>          
+    </div>
+    <!-- News -->
+    <div class="col-md-8 col-lg-8 news">
+        <div *ngFor="#news of _newsList" class="row">
+            <div class="news-data">{{getFormatedDate(news.date)}}</div>
+            <div class="news-title"><a [href]="news.address">{{news.title}}</a></div>
+        </div>
+    </div>
+</div>

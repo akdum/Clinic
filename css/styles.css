@@ -1,0 +1,286 @@
+/* overwriten */
+body {
+	font-family: 'Roboto', sans-serif !important;
+}
+button.btn {
+	background-color: #0063B0;
+	color: #fff;
+	font-weight: normal;
+	height: 40px;
+	width: 280px;
+}
+nav {
+	font-weight: 600;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+/* main page */
+/* main page rows */
+.offset-row {
+	padding-top: 1rem;
+}
+.contacts-address-row {
+	background-color: #eee;
+	min-height: 51px;
+}
+.nav-row {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+.all-services-row {
+	padding-top: 1.5rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid #ddd;
+}
+.news-row {
+	padding-top: 2rem;
+}
+.special-offers-row {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	border-bottom: 1px solid #ddd;
+}
+.special-offers-row div.jumbotron {
+    padding: 0rem;
+}
+.footer-row {
+	border-bottom: 1px solid rgb(198, 206, 207);
+	background-color: #e6ecec;
+	color: #565656;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+.copyright-row {
+	background-color: #e6ecec;	
+	color: #565656;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+/* main page others */
+.address {
+	padding-top: 0.8rem;	
+}
+.all-services-row button:after {
+	background: url("../assets/arrow-right-white.png") no-repeat;
+	background-size: 8px 14px;
+	background-position: right 1px center;
+	content: ' ';
+	display: inline;
+	height: 12px;
+	margin-left: 11px;
+	margin-right: -21px;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+.cell-phone {
+	padding-right: 3rem;
+}
+.city-phone {
+	padding-right: 2rem;
+}
+.contacts-address-row .marker {
+	background: url("../assets/address-marker.gif") no-repeat scroll 20px 14px transparent;
+	float: left;
+	height: 51px;
+	width: 51px;	
+}
+.contacts {
+	list-style: none;
+	line-height: 1.3;
+	padding-left: 0px;
+}
+.contacts li.active-tab {
+	border: 1px solid #cdd1d4;
+	border-bottom-color: #fff;
+	color: #373a3c;
+	cursor: default;
+}
+.contacts li:hover {
+	background-color: #F6FAFC;
+}
+.contacts li.active-tab:hover {
+	background-color: #fff;
+}
+.contacts-footer div.center-block {
+	width: 100px;
+}
+.contacts-footer .phone {
+	padding-left: 3rem;
+}
+.contacts-footer .phone a {
+	color: #565656;
+}
+.contacts-footer .phone h4 {
+	font-size: 1rem;
+}
+.contacts-footer .cell-phone {
+    padding-right: 2.8rem;
+}
+.contacts-top div.row {
+	width: 350px;
+}
+.contact-tab-content h4{
+	font-size: 1.4rem;
+}
+.contact-tab-content .contacts-vk {
+    background: url("../assets/vk.png") 100% 100% no-repeat;
+    background-size: cover;
+    display: inline-block;
+    height: 2rem;
+    margin-left: 0.2rem;
+    position: relative;
+    top: 0.5rem;
+    width: 11rem;
+}
+.contacts-tab {
+	border-bottom: #cdd1d4 solid 1px;
+	color: #0263b0;
+	cursor: pointer;
+	display: block;
+	height: 66px;
+	float: left;
+	font-weight: 400;
+	padding: 20px 35px;
+}
+.contacts-tabs {
+	min-height: 212px;
+}
+.enroll-button-additional {
+	margin-top: 1rem;
+}
+.enroll-footer img {
+	padding-bottom: 1rem;
+}
+.enroll-footer h4 {
+	padding-bottom: 1rem;
+	width: 225px;
+}
+.footer-nav .nav-item {
+	float:none;
+	color: #565656;
+}
+.footer-nav .nav-item:nth-child(1) {
+	margin-left:1rem;
+}
+h1.trends {
+	font-weight: 300;
+	padding-bottom: 3rem;
+	padding-top: 1.5rem;
+}
+.header-row .logo{
+	max-width: 100%;
+}
+.popular-services-row .media {
+	cursor: pointer;
+	padding: 1rem;
+	border: 1px solid #fff;
+}
+.popular-services-row .media:hover {
+	background-color: #FAFDFE;
+	border: 1px solid #E4EEF5;
+	border-radius: 5px;
+}
+.popular-services-row .media .media-body {
+	padding-left: 0.6rem;
+}
+.popular-services-row .media .media-body span {
+	font-weight: 400;
+}
+.popular-services-row .media .media-body span:after {
+	background: url("../assets/arrow-right.png") no-repeat;
+	background-position-y: 3px;
+	content: ' ';
+	display: inline;
+	height: 12px;
+	margin-left: 11px;
+	margin-right: -21px;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+.popular-services-row .media .media-heading {
+	margin-bottom: 2rem;
+	font-weight: 500;
+}
+.popular-services-row .media .media-object {
+	width: 72px;
+	height: 72px;
+}
+.navbar-toggler {
+	height: 72px;
+}
+.navbar-nav a.nav-link.site-map{
+	padding-top: 2rem;
+}
+.nav-row a.nav-item {
+	margin-right: 30px;
+}
+.nav-row .nav {
+	font-weight: 400;
+	font-size: 1.2rem;
+}
+.nav-row .nav button {
+	float: right;
+}
+.nav-row .navbar {
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+}
+.news-row .news .row {
+	padding-bottom: 2rem;
+}
+.news-row .news-data {
+	padding-bottom: 0.7rem;
+	color:#969696;
+}
+.news-row .news-title a {
+	color: #373a3c;
+}
+.news-row .news-title a:hover, .news-row .news-title a:active, .news-row .news-title a:visited, .news-row .news-title a:link {
+	text-decoration: none;
+	color: #373a3c;
+}
+.phone {
+	padding-top: 0.5rem;
+	padding-left: 1rem;
+}
+.phone div {
+	display: inline-block;
+}
+.phone-call-big {
+	background: url("../assets/phone-big.png") no-repeat;
+	height: 96px;
+	width: 96px;	
+}
+.special-offer {
+	background: url("../assets/offer1.png") no-repeat;
+	height: 229px;
+}
+.vk {
+	padding-left: 1rem;
+}
+.vk h4 {
+	display: inline-block;
+}
+
+/* contacts page*/
+.map-row {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.map-container {
+    height: 30rem;
+}
+
+/* mobile custom */
+.mobile a {
+	margin-right: 1rem;
+}
+.mobile a:nth-child(1) {
+	margin-left: 1rem;
+}
+.enroll-modal-dialog button.btn {
+	width: initial;
+}
+.mobile .nav-item {
+	float: none;	
+}

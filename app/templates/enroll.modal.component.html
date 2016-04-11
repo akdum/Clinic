@@ -1,0 +1,40 @@
+<!-- Enroll modal dialog -->
+<div id="enroll-modal" tabindex="-1" class="modal fade enroll-modal-dialog" role="dialog" aria-labelledby="enrollLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="enrollLabel">Записаться на прием</h4>
+        </div>
+        <div class="modal-body">
+        <small class="text-muted">Просим Вас при заполнении формы указывать свои данные корректно. Администраторы Клиники свяжутся с Вами для подтверждения Вашего визита к врачу.</small>
+        <form #enrollForm="ngForm">              
+            <fieldset class="form-group">
+            <input type="text" class="form-control" required [(ngModel)]="model.name" ngControl="name" #name="ngForm" id="nameInputDialog" placeholder="Фамилия, имя" />
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                 Должны быть указаны Имя и Фамилия.
+            </div>
+            </fieldset>
+            <fieldset class="form-group">
+            <input type="text" class="form-control" required [(ngModel)]="model.phone" ngControl="phone" #phone="ngForm" id="phoneInputDialog" placeholder="Контактный телефон" />
+            <div [hidden]="phone.valid || phone.pristine" class="alert alert-danger">
+                 Должен быть указан номер телефона.
+            </div>
+            </fieldset>
+            <fieldset class="form-group">
+            <textarea class="form-control" required [(ngModel)]="model.reason" ngControl="reason" id="reasonInputDialog" #reason="ngForm" placeholder="Повод обращения" rows="3"></textarea>
+            <div [hidden]="reason.valid || reason.pristine" class="alert alert-danger">
+                 Должен быть указан повод обращения.
+            </div>
+            </fieldset>
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="dismiss()">Отмена</button>
+        <button type="button" class="btn btn-primary" [disabled]="!enrollForm.form.valid" (click)="onEnroll()">Записаться</button>
+        </div>
+    </div>
+    </div>
+</div>

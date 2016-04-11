@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row offset-row"></div>
+    <!-- Logo and contacts -->
+    <div class="header-row row">
+        <header-component></header-component>
+    </div>
+    <nav-component (onOpenEnrollModalNav)="onOpenEnrollModalNavHandler($event)"></nav-component>
+    <router-outlet></router-outlet>
+</div>
+<!-- Footer -->
+<div class="container-fluid">
+    <footer-component (onOpenEnrollModalFooter)="onOpenEnrollModalFooterHandler($event)"></footer-component>
+</div>
+
+<enroll-modal-component [open]="openEnrollModal" (onCloseEnrollModal)="onCloseEnrollModalHandler($event)"></enroll-modal-component>
