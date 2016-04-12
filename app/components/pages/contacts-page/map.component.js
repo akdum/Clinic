@@ -37,7 +37,7 @@ System.register(['angular2/core', '../../../services/contacts.service'], functio
                             center: [this._contact.location[0], this._contact.location[1]],
                             zoom: 16
                         });
-                        this._map.geoObjects.add(new ymaps.Placemark([56.86207381, 53.28129593], {
+                        this._map.geoObjects.add(new ymaps.Placemark([this._contact.baloon[0], this._contact.baloon[1]], {
                             hintContent: 'Клиника'
                         }));
                         clearInterval(this._intervalId);
