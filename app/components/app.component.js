@@ -57,8 +57,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                     core_1.Component({
                         selector: 'clinic-app',
                         templateUrl: '../app/templates/app.component.html',
-                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, enroll_modal_component_1.EnrollModalComponent, router_1.ROUTER_DIRECTIVES, contacts_page_component_1.ContactsPageComponent, nav_component_1.NavComponent],
-                        providers: [router_1.ROUTER_PROVIDERS]
+                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, enroll_modal_component_1.EnrollModalComponent, router_1.ROUTER_DIRECTIVES, contacts_page_component_1.ContactsPageComponent, nav_component_1.NavComponent]
                     }),
                     router_1.RouteConfig([
                         {

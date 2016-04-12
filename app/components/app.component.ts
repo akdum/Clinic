@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -10,8 +10,7 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts.page.compo
 @Component({
     selector:'clinic-app',
     templateUrl:'../app/templates/app.component.html',
-    directives: [HeaderComponent, FooterComponent, EnrollModalComponent, ROUTER_DIRECTIVES,ContactsPageComponent, NavComponent],
-    providers: [ROUTER_PROVIDERS]
+    directives: [HeaderComponent, FooterComponent, EnrollModalComponent, ROUTER_DIRECTIVES,ContactsPageComponent, NavComponent]
 })
 @RouteConfig([
     {

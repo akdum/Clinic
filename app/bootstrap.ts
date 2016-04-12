@@ -5,6 +5,7 @@ import { ContactsService } from './services/contacts.service';
 import { ServicesService } from './services/services.service';
 import { SpecialOffersService } from './services/special.offers.service';
 import { NewsService } from './services/news.service';
-import { DbService } from './services/db.service'
+import { DbService } from './services/db.service';
+import { ROUTER_PROVIDERS } from 'angular2/router';
 
-bootstrap(AppComponent, [AssetsService, ContactsService, ServicesService, SpecialOffersService, NewsService, DbService]);
+bootstrap(AppComponent, [AssetsService, ContactsService, ServicesService, SpecialOffersService, NewsService, DbService, ROUTER_PROVIDERS]);
