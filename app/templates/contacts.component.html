@@ -34,8 +34,8 @@
     <!-- work hours tab -->
     <div class="contact-tab-content" id="work-hours-tab" *ngIf="!isContactTabActive">
         <div><h4>График работы клиники</h4></div>
-        <div>Понедельник – пятница — с 09-00 до 18-00</div>
-        <div><a href="#">Схема проезда</a></div>
+        <div>{{contact.workHours}}</div>
+        <div><a [routerLink]="['ContactsPage']">Схема проезда</a></div>
     </div> 
     </div>
     <div class="row contacts-address-row clearfix">

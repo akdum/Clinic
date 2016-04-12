@@ -13,7 +13,7 @@ export class MapComponent implements AfterContentInit {
     private _contact: Contacts;
     
     constructor(private _contactsService: ContactsService) { 
-
+        this._contact = new Contacts("","",[],[],"","","");
     }
 
     ngAfterContentInit() {

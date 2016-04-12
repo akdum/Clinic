@@ -4,6 +4,7 @@ export class Contacts {
                 public location: number[],
                 public baloon: number[], 
                 public vkGroupAddress: string,
-                public address: string) {
+                public address: string,
+                public workHours: string) {
     }
 }

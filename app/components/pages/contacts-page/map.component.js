@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../services/contacts.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../services/contacts.service', '../../../data-interfaces/contacts'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../../services/contacts.service'], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contacts_service_1;
+    var core_1, contacts_service_1, contacts_1;
     var MapComponent;
     return {
         setters:[
@@ -19,11 +19,15 @@ System.register(['angular2/core', '../../../services/contacts.service'], functio
             },
             function (contacts_service_1_1) {
                 contacts_service_1 = contacts_service_1_1;
+            },
+            function (contacts_1_1) {
+                contacts_1 = contacts_1_1;
             }],
         execute: function() {
             MapComponent = (function () {
                 function MapComponent(_contactsService) {
                     this._contactsService = _contactsService;
+                    this._contact = new contacts_1.Contacts("", "", [], [], "", "", "");
                 }
                 MapComponent.prototype.ngAfterContentInit = function () {
                     this._contactsService.getContacts().then(function (data) {

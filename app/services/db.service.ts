@@ -67,7 +67,7 @@ export class DbService {
     getContacts() {
         var params = {
             "TableName": "Contacts",
-            "AttributesToGet": ["CityPhone", "Address", "MobilePhone", "VkGroupAddress", "Location", "Baloon"]
+            "AttributesToGet": ["CityPhone", "Address", "MobilePhone", "VkGroupAddress", "Location", "Baloon", "WorkHours"]
         }
          
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -78,9 +78,10 @@ export class DbService {
                                          [parseFloat(data.Items[0].Location.L[0].N), parseFloat(data.Items[0].Location.L[1].N)],
                                          [parseFloat(data.Items[0].Baloon.L[0].N), parseFloat(data.Items[0].Baloon.L[1].N)],
                                          data.Items[0].VkGroupAddress.S,
-                                         data.Items[0].Address.S 
+                                         data.Items[0].Address.S,
+                                         data.Items[0].WorkHours.S
                                          ));   
-                } else resolve(new Contacts("нет данных", "нет данных", [], [], "нет данных","нет данных"));
+                } else resolve(new Contacts("нет данных", "нет данных", [], [], "нет данных","нет данных","нет данных"));
             } else {
                 reject(err);
             }

@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../services/assets.service', '../../services/contacts.service', '../../data-interfaces/contacts'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../services/assets.service', '../../services/contacts.service', '../../data-interfaces/contacts', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, assets_service_1, contacts_service_1, contacts_1;
+    var core_1, assets_service_1, contacts_service_1, contacts_1, router_1;
     var ContactsComponent;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
             },
             function (contacts_1_1) {
                 contacts_1 = contacts_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             ContactsComponent = (function () {
@@ -32,7 +35,7 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
                     this._assetsService = _assetsService;
                     this._contactsService = _contactsService;
                     this.isContactTabActive = true;
-                    this.contact = new contacts_1.Contacts("", "", [], [], "", "");
+                    this.contact = new contacts_1.Contacts("", "", [], [], "", "", "");
                 }
                 ContactsComponent.prototype.ngOnInit = function () {
                     this.getContacts();
@@ -48,7 +51,8 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
                 ContactsComponent = __decorate([
                     core_1.Component({
                         selector: 'contacts-component',
-                        templateUrl: '../app/templates/contacts.component.html'
+                        templateUrl: '../app/templates/contacts.component.html',
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [assets_service_1.AssetsService, contacts_service_1.ContactsService])
                 ], ContactsComponent);
