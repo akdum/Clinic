@@ -22,13 +22,27 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function MapComponent() {
                 }
                 MapComponent.prototype.ngAfterContentInit = function () {
-                    ymaps.ready(this.init());
+                    var _this = this;
+                    this._intervalId = setInterval(function () { if (ymaps.Map) {
+                        _this.init();
+                    } }, '300');
                 };
                 MapComponent.prototype.init = function () {
-                    this._map = new ymaps.Map("map", {
-                        center: [56.86211253, 53.28120296],
-                        zoom: 17
-                    });
+                    try {
+                        this._map = new ymaps.Map("map", {
+                            center: [56.86211253, 53.28120296],
+                            zoom: 16
+                        });
+                        var placemark = new ymaps.Placemark([56.86207381, 53.28129593], {
+                            hintContent: 'Клиника'
+                        });
+                        this._map.geoObjects.add(placemark);
+                        clearInterval(this._intervalId);
+                    }
+                    catch (error) {
+                        console.log(error);
+                        clearInterval(this._intervalId);
+                    }
                 };
                 MapComponent = __decorate([
                     core_1.Component({
