@@ -11,7 +11,7 @@ export class ContactsFooterComponent implements OnInit {
     public contact: Contacts;
     
     constructor(private _contactsService: ContactsService){
-        this.contact = new Contacts("","","","");
+        this.contact = new Contacts("","",[],[],"","","");
     }
     
     ngOnInit() {

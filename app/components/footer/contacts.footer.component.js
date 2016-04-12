@@ -27,7 +27,7 @@ System.register(['angular2/core', '../../services/contacts.service', '../../data
             ContactsFooterComponent = (function () {
                 function ContactsFooterComponent(_contactsService) {
                     this._contactsService = _contactsService;
-                    this.contact = new contacts_1.Contacts("", "", "", "");
+                    this.contact = new contacts_1.Contacts("", "", [], [], "", "", "");
                 }
                 ContactsFooterComponent.prototype.ngOnInit = function () {
                     this.getContacts();
