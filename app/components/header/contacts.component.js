@@ -32,7 +32,7 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
                     this._assetsService = _assetsService;
                     this._contactsService = _contactsService;
                     this.isContactTabActive = true;
-                    this.contact = new contacts_1.Contacts("", "", "", "");
+                    this.contact = new contacts_1.Contacts("", "", [], [], "", "");
                 }
                 ContactsComponent.prototype.ngOnInit = function () {
                     this.getContacts();

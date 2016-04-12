@@ -6,11 +6,13 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Contacts = (function () {
-                function Contacts(cityPhone, mobilePhone, location, vkGroupAddress) {
+                function Contacts(cityPhone, mobilePhone, location, baloon, vkGroupAddress, address) {
                     this.cityPhone = cityPhone;
                     this.mobilePhone = mobilePhone;
                     this.location = location;
+                    this.baloon = baloon;
                     this.vkGroupAddress = vkGroupAddress;
+                    this.address = address;
                 }
                 return Contacts;
             }());

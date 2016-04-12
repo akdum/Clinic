@@ -13,7 +13,7 @@ export class ContactsComponent implements OnInit {
     
     constructor(private _assetsService: AssetsService, private _contactsService: ContactsService) {
         this.isContactTabActive = true;
-        this.contact = new Contacts("","","","");
+        this.contact = new Contacts("","",[],[],"","");
     }
     
     ngOnInit() {

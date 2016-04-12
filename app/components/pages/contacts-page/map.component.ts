@@ -1,4 +1,6 @@
 import { Component, AfterContentInit } from 'angular2/core';
+import { ContactsService } from '../../../services/contacts.service';
+import { Contacts } from '../../../data-interfaces/contacts';
 
 @Component({
     selector: 'map-component',
@@ -8,23 +10,29 @@ import { Component, AfterContentInit } from 'angular2/core';
 export class MapComponent implements AfterContentInit {
     private _map : any;
     private _intervalId: number;
+    private _contact: Contacts;
     
-    constructor() { }
+    constructor(private _contactsService: ContactsService) { 
+
+    }
 
     ngAfterContentInit() {
-        this._intervalId = setInterval(()=>{if (ymaps.Map) { this.init() }},'300');
+        this._contactsService.getContacts().then(function(data) {
+            this._contact = data;
+            this.init();
+        }.bind(this));
     }
     
     init() {
         try {
             this._map = new ymaps.Map("map", {
-            center: [56.86211253, 53.28120296],
-            zoom: 16
+                center: [this._contact.location[0], this._contact.location[1]],
+                zoom: 16
             });
-            let placemark = new ymaps.Placemark([56.86207381, 53.28129593], {
+            this._map.geoObjects.add(new ymaps.Placemark([56.86207381, 53.28129593], {
                 hintContent: 'Клиника'
-            });
-            this._map.geoObjects.add(placemark);           
+            }));        
+               
             clearInterval(this._intervalId);
         } catch (error) {
             console.log(error);

@@ -1,5 +1,3 @@
-/// <reference path="../../typings/aws.d.ts" />
-
 import {Injectable} from 'angular2/core';
 import { CONFIG } from '../config/config';
 import { News } from '../data-interfaces/news';
@@ -69,17 +67,20 @@ export class DbService {
     getContacts() {
         var params = {
             "TableName": "Contacts",
-            "AttributesToGet": ["CityPhone", "Location", "MobilePhone", "VkGroupAddress"]
+            "AttributesToGet": ["CityPhone", "Address", "MobilePhone", "VkGroupAddress", "Location", "Baloon"]
         }
-        
+         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
             if (err == null) {
                 if (data.Count > 0) {
                     resolve(new Contacts(data.Items[0].CityPhone.S, 
                                          data.Items[0].MobilePhone.S,
-                                         data.Items[0].Location.S, 
-                                         data.Items[0].VkGroupAddress.S));   
-                } else resolve(new Contacts("нет данных", "нет данных","нет данных","нет данных"));
+                                         [parseFloat(data.Items[0].Location.L[0].N), parseFloat(data.Items[0].Location.L[1].N)],
+                                         [parseFloat(data.Items[0].Baloon.L[0].N), parseFloat(data.Items[0].Baloon.L[1].N)],
+                                         data.Items[0].VkGroupAddress.S,
+                                         data.Items[0].Address.S 
+                                         ));   
+                } else resolve(new Contacts("нет данных", "нет данных", [], [], "нет данных","нет данных"));
             } else {
                 reject(err);
             }

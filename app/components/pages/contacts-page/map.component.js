@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../services/contacts.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,33 +10,36 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, contacts_service_1;
     var MapComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (contacts_service_1_1) {
+                contacts_service_1 = contacts_service_1_1;
             }],
         execute: function() {
             MapComponent = (function () {
-                function MapComponent() {
+                function MapComponent(_contactsService) {
+                    this._contactsService = _contactsService;
                 }
                 MapComponent.prototype.ngAfterContentInit = function () {
-                    var _this = this;
-                    this._intervalId = setInterval(function () { if (ymaps.Map) {
-                        _this.init();
-                    } }, '300');
+                    this._contactsService.getContacts().then(function (data) {
+                        this._contact = data;
+                        this.init();
+                    }.bind(this));
                 };
                 MapComponent.prototype.init = function () {
                     try {
                         this._map = new ymaps.Map("map", {
-                            center: [56.86211253, 53.28120296],
+                            center: [this._contact.location[0], this._contact.location[1]],
                             zoom: 16
                         });
-                        var placemark = new ymaps.Placemark([56.86207381, 53.28129593], {
+                        this._map.geoObjects.add(new ymaps.Placemark([56.86207381, 53.28129593], {
                             hintContent: 'Клиника'
-                        });
-                        this._map.geoObjects.add(placemark);
+                        }));
                         clearInterval(this._intervalId);
                     }
                     catch (error) {
@@ -49,7 +52,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         selector: 'map-component',
                         templateUrl: '../app/templates/map.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [contacts_service_1.ContactsService])
                 ], MapComponent);
                 return MapComponent;
             }());

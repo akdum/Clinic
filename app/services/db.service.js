@@ -1,4 +1,3 @@
-/// <reference path="../../typings/aws.d.ts" />
 System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
@@ -91,15 +90,15 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "Contacts",
-                        "AttributesToGet": ["CityPhone", "Location", "MobilePhone", "VkGroupAddress"]
+                        "AttributesToGet": ["CityPhone", "Address", "MobilePhone", "VkGroupAddress", "Location", "Baloon"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             if (data.Count > 0) {
-                                resolve(new contacts_1.Contacts(data.Items[0].CityPhone.S, data.Items[0].MobilePhone.S, data.Items[0].Location.S, data.Items[0].VkGroupAddress.S));
+                                resolve(new contacts_1.Contacts(data.Items[0].CityPhone.S, data.Items[0].MobilePhone.S, [parseFloat(data.Items[0].Location.L[0].N), parseFloat(data.Items[0].Location.L[1].N)], [parseFloat(data.Items[0].Baloon.L[0].N), parseFloat(data.Items[0].Baloon.L[1].N)], data.Items[0].VkGroupAddress.S, data.Items[0].Address.S));
                             }
                             else
-                                resolve(new contacts_1.Contacts("нет данных", "нет данных", "нет данных", "нет данных"));
+                                resolve(new contacts_1.Contacts("нет данных", "нет данных", [], [], "нет данных", "нет данных"));
                         }
                         else {
                             reject(err);
