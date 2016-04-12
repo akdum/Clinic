@@ -9,7 +9,7 @@
         <h4 class="modal-title" id="enrollLabel">Записаться на прием</h4>
         </div>
         <div class="modal-body">
-        <small class="text-muted">Просим Вас при заполнении формы указывать свои данные корректно. Администраторы Клиники свяжутся с Вами для подтверждения Вашего визита к врачу.</small>
+        <div class="alert alert-warning">Просим Вас при заполнении формы указывать свои данные корректно. Администраторы Клиники свяжутся с Вами для подтверждения Вашего визита к врачу.</div>
         <form #enrollForm="ngForm">              
             <fieldset class="form-group">
             <input type="text" class="form-control" required [(ngModel)]="model.name" ngControl="name" #name="ngForm" id="nameInputDialog" placeholder="Фамилия, имя" />

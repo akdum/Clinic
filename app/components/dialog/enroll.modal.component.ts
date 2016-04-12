@@ -1,7 +1,7 @@
 ///<reference path="../../../typings/browser/ambient/jquery/index.d.ts" />
 import { Component, OnInit, Input, EventEmitter, Output} from 'angular2/core';
 import { EnrollData } from './enroll.data';
-import {NgForm} from 'angular2/common';
+import { NgForm } from 'angular2/common';
 
 @Component({
     selector: 'enroll-modal-component',
