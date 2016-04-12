@@ -22,12 +22,12 @@
     "rxjs": "5.0.0-beta.2",
     "systemjs": "0.19.20",
     "zone.js": "^0.6.10",
-    "typings": "^0.7.12"
+    "typings": "^0.7.12",
+    "typescript": "^1.8.9"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
-    "retyped-mongodb-tsd-ambient": "^2.1.0-0",
-    "typescript": "^1.8.9"
+    "retyped-mongodb-tsd-ambient": "^2.1.0-0"
   }
 }
