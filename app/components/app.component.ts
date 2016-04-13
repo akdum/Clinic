@@ -5,12 +5,19 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { EnrollModalComponent } from './dialog/enroll.modal.component';
 import { MainPageComponent } from './pages/main-page/main.page.component';
+import { ServicesPageComponent } from './pages/services-page/services.page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts.page.component';
 
 @Component({
     selector:'clinic-app',
     templateUrl:'../app/templates/app.component.html',
-    directives: [HeaderComponent, FooterComponent, EnrollModalComponent, ROUTER_DIRECTIVES,ContactsPageComponent, NavComponent]
+    directives: [HeaderComponent, 
+                 FooterComponent, 
+                 EnrollModalComponent, 
+                 ROUTER_DIRECTIVES,
+                 ServicesPageComponent,
+                 ContactsPageComponent, 
+                 NavComponent]
 })
 @RouteConfig([
     {
@@ -18,7 +25,12 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts.page.compo
         name: 'MainPage',
         component: MainPageComponent,
         useAsDefault: true
-    }, 
+    },
+    {
+        path: '/services',
+        name: 'ServicesPage',
+        component: ServicesPageComponent
+    },
     {
         path: '/contacts',
         name: 'ContactsPage',

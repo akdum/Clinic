@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/contacts-page/contacts.page.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, contacts_page_component_1;
+    var core_1, router_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, services_page_component_1, contacts_page_component_1;
     var AppComponent;
     return {
         setters:[
@@ -35,6 +35,9 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
             function (main_page_component_1_1) {
                 main_page_component_1 = main_page_component_1_1;
             },
+            function (services_page_component_1_1) {
+                services_page_component_1 = services_page_component_1_1;
+            },
             function (contacts_page_component_1_1) {
                 contacts_page_component_1 = contacts_page_component_1_1;
             }],
@@ -57,7 +60,13 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                     core_1.Component({
                         selector: 'clinic-app',
                         templateUrl: '../app/templates/app.component.html',
-                        directives: [header_component_1.HeaderComponent, footer_component_1.FooterComponent, enroll_modal_component_1.EnrollModalComponent, router_1.ROUTER_DIRECTIVES, contacts_page_component_1.ContactsPageComponent, nav_component_1.NavComponent]
+                        directives: [header_component_1.HeaderComponent,
+                            footer_component_1.FooterComponent,
+                            enroll_modal_component_1.EnrollModalComponent,
+                            router_1.ROUTER_DIRECTIVES,
+                            services_page_component_1.ServicesPageComponent,
+                            contacts_page_component_1.ContactsPageComponent,
+                            nav_component_1.NavComponent]
                     }),
                     router_1.RouteConfig([
                         {
@@ -65,6 +74,11 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                             name: 'MainPage',
                             component: main_page_component_1.MainPageComponent,
                             useAsDefault: true
+                        },
+                        {
+                            path: '/services',
+                            name: 'ServicesPage',
+                            component: services_page_component_1.ServicesPageComponent
                         },
                         {
                             path: '/contacts',
