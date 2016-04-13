@@ -17,6 +17,42 @@ nav {
 .router-link-active {
     color: #000;
 }
+/* common */
+.services-row .media {
+	cursor: pointer;
+	padding: 1rem;
+	border: 1px solid #fff;
+}
+.services-row .media:hover {
+	background-color: #FAFDFE;
+	border: 1px solid #E4EEF5;
+	border-radius: 5px;
+}
+.services-row .media .media-body {
+	padding-left: 0.6rem;
+}
+.services-row .media .media-body span {
+	font-weight: 400;
+}
+.services-row .media .media-body span:after {
+	background: url("../assets/arrow-right.png") no-repeat;
+	background-position-y: 3px;
+	content: ' ';
+	display: inline;
+	height: 12px;
+	margin-left: 11px;
+	margin-right: -21px;
+	padding-left: 10px;
+	vertical-align: middle;
+}
+.services-row .media .media-heading {
+	margin-bottom: 2rem;
+	font-weight: 500;
+}
+.services-row .media .media-object {
+	width: 72px;
+	height: 72px;
+}
 /* main page */
 /* main page rows */
 .offset-row {
@@ -173,41 +209,6 @@ h1.trends {
 .header-row .logo{
 	max-width: 100%;
 }
-.popular-services-row .media {
-	cursor: pointer;
-	padding: 1rem;
-	border: 1px solid #fff;
-}
-.popular-services-row .media:hover {
-	background-color: #FAFDFE;
-	border: 1px solid #E4EEF5;
-	border-radius: 5px;
-}
-.popular-services-row .media .media-body {
-	padding-left: 0.6rem;
-}
-.popular-services-row .media .media-body span {
-	font-weight: 400;
-}
-.popular-services-row .media .media-body span:after {
-	background: url("../assets/arrow-right.png") no-repeat;
-	background-position-y: 3px;
-	content: ' ';
-	display: inline;
-	height: 12px;
-	margin-left: 11px;
-	margin-right: -21px;
-	padding-left: 10px;
-	vertical-align: middle;
-}
-.popular-services-row .media .media-heading {
-	margin-bottom: 2rem;
-	font-weight: 500;
-}
-.popular-services-row .media .media-object {
-	width: 72px;
-	height: 72px;
-}
 .navbar-toggler {
 	height: 72px;
 }
@@ -263,6 +264,12 @@ h1.trends {
 }
 .vk h4 {
 	display: inline-block;
+}
+
+/* services page */
+.services-row {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 /* contacts page*/
