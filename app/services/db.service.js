@@ -69,14 +69,14 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "Services",
-                        "AttributesToGet": ["Title", "Body", "ImageBase64"]
+                        "AttributesToGet": ["Title", "Body", "ImageBase64", "Group", "IsPopular"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new service_1.Service(data.Items[index].Title.S, data.Items[index].Body.S, data.Items[index].ImageBase64.S));
+                                    returnItems.push(new service_1.Service(data.Items[index].Title.S, data.Items[index].Body.S, data.Items[index].ImageBase64.S, data.Items[index].Group.S, data.Items[index].IsPopular.BOOL));
                                 }
                             }
                             resolve(returnItems);

@@ -1,16 +1,17 @@
-<div class="row services-row popular-services-row">
-    <services *ngFor="#row of _rows">
-        <div *ngFor="#service of row" class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
-            <div class='media'>
+<div *ngFor="#row of _rows" class="row services-row">
+    <div *ngFor="#service of row" class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
+        <div class='media'>
+            <div class='heading'>
                 <a class='media-left' href='#'>
                     <img class='media-object' [src]="service.imageBase64" />
                 </a>
-                <div class='media-body'>
-                    <h4 class='media-heading'>{{service.title}}</h4>
-                    <span>{{service.body}}</span>
-                </div>
+                <div class='media-heading'><h4>{{service.title}}</h4></div> 
+            </div>               
+            <div class='media-body'>                    
+                <span>{{service.body}}</span>
             </div>
         </div>
-        <div class='clearfix hidden-md-down'></div>
-    </services>
+    </div>
+    <div class='clearfix hidden-md-down'></div>
 </div>
+<div class="row services-offset-row"></div>

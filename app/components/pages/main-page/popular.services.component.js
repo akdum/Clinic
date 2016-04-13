@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../services/services.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../services/services.service', '../../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../../services/services.service'], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_service_1;
+    var core_1, services_service_1, utilities_service_1;
     var PopularServicesComponent;
     return {
         setters:[
@@ -19,23 +19,26 @@ System.register(['angular2/core', '../../../services/services.service'], functio
             },
             function (services_service_1_1) {
                 services_service_1 = services_service_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             PopularServicesComponent = (function () {
-                function PopularServicesComponent(_services) {
+                function PopularServicesComponent(_services, _utilities) {
                     this._services = _services;
-                    this._servicesListFirstRow = [];
-                    this._servicesListSecondRow = [];
+                    this._utilities = _utilities;
+                    this._rows = [];
                 }
                 PopularServicesComponent.prototype.ngOnInit = function () {
                     this.getServices();
                 };
                 PopularServicesComponent.prototype.getServices = function () {
-                    this._services.getShortListOfServices(3).then(function (data) {
-                        this._servicesListFirstRow = data;
-                    }.bind(this));
-                    this._services.getRangeOfServices(3, 6).then(function (data) {
-                        this._servicesListSecondRow = data;
+                    this._services.getPopularServices().then(function (data) {
+                        if (data && data.length > 0) {
+                            this._servicesList = data;
+                            this._rows = this._utilities.prepareRows(this._servicesList, this._rows);
+                        }
                     }.bind(this));
                 };
                 PopularServicesComponent = __decorate([
@@ -43,7 +46,7 @@ System.register(['angular2/core', '../../../services/services.service'], functio
                         selector: 'popular-services-component',
                         templateUrl: '../app/templates/popular.services.component.html'
                     }), 
-                    __metadata('design:paramtypes', [services_service_1.ServicesService])
+                    __metadata('design:paramtypes', [services_service_1.ServicesService, utilities_service_1.UtilitiesService])
                 ], PopularServicesComponent);
                 return PopularServicesComponent;
             }());

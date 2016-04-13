@@ -26,43 +26,15 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                     this._db = _db;
                     this._services = [];
                 }
-                ServicesService.prototype.getListOfServices = function () {
+                ServicesService.prototype.getPopularServices = function () {
                     var _this = this;
                     if (this._services.length > 0) {
-                        return Promise.resolve(this._services);
+                        return Promise.resolve(this._services.filter(function (value) { return value.isPopular; }));
                     }
                     else {
                         return new Promise(function (resolve) { return _this._db.getServicesItems().then(function (data) {
                             this._services = data;
-                            resolve(this._services);
-                        }.bind(_this)).catch(function (err) {
-                            console.log(err);
-                        }); });
-                    }
-                };
-                ServicesService.prototype.getShortListOfServices = function (first) {
-                    var _this = this;
-                    if (this._services.length > 0) {
-                        return Promise.resolve(this._services.slice(0, first));
-                    }
-                    else {
-                        return new Promise(function (resolve) { return _this._db.getServicesItems().then(function (data) {
-                            this._services = data;
-                            resolve(this._services.slice(0, first));
-                        }.bind(_this)).catch(function (err) {
-                            console.log(err);
-                        }); });
-                    }
-                };
-                ServicesService.prototype.getRangeOfServices = function (first, last) {
-                    var _this = this;
-                    if (this._services.length > 0) {
-                        return Promise.resolve(this._services.slice(first, last));
-                    }
-                    else {
-                        return new Promise(function (resolve) { return _this._db.getServicesItems().then(function (data) {
-                            this._services = data;
-                            resolve(this._services.slice(first, last));
+                            resolve(this._services.filter(function (value) { return value.isPopular; }));
                         }.bind(_this)).catch(function (err) {
                             console.log(err);
                         }); });

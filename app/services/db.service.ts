@@ -44,17 +44,19 @@ export class DbService {
     getServicesItems() {
         var params = {
             "TableName": "Services",
-            "AttributesToGet": ["Title", "Body", "ImageBase64"]
+            "AttributesToGet": ["Title", "Body", "ImageBase64","Group", "IsPopular"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
             if (err == null) {
                 let returnItems: Service[] = [];
-                if (data.Count >0) {
+                if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
                         returnItems.push(new Service(data.Items[index].Title.S, 
                                                         data.Items[index].Body.S,
-                                                        data.Items[index].ImageBase64.S));
+                                                        data.Items[index].ImageBase64.S,
+                                                        data.Items[index].Group.S,
+                                                        data.Items[index].IsPopular.BOOL));
                     }
                 }
                 resolve(returnItems);
