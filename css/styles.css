@@ -76,10 +76,10 @@ nav {
 	vertical-align: middle;
 }
 .cell-phone {
-	padding-right: 3rem;
+	padding-right: 1.5rem;
 }
 .city-phone {
-	padding-right: 2rem;
+	padding-right: 0.5rem;
 }
 .contacts-address-row .marker {
 	background: url("../assets/address-marker.gif") no-repeat scroll 20px 14px transparent;
@@ -117,7 +117,7 @@ nav {
 	font-size: 1rem;
 }
 .contacts-footer .cell-phone {
-    padding-right: 2.8rem;
+    padding-right: 1.2rem;
 }
 .contacts-top div.row {
 	width: 350px;
@@ -274,10 +274,15 @@ h1.trends {
     padding-top: 1rem;
     height: 20rem;
 }
+.phones-row {
+    padding-top: 2rem;
+}
+.phones-row .phone span:nth-child(1){
+    margin-right: 1rem;
+}
 .work-hours-row {
     padding-top: 2rem;
 }
-
 .work-hours-row .info {
     margin-top: 1rem;
 }
