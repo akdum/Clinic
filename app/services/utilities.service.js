@@ -21,27 +21,6 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             UtilitiesService = (function () {
                 function UtilitiesService() {
                 }
-                UtilitiesService.prototype.prepareRows = function (list, rows) {
-                    var count = Math.floor(list.length / 3);
-                    var reminder = list.length % 3;
-                    if (count && count > 0) {
-                        for (var index = 0; index < count; index++) {
-                            var row = [];
-                            for (var j = 0; j < 3; j++) {
-                                row.push(list[index * 3 + j]);
-                            }
-                            rows.push(row);
-                        }
-                    }
-                    if (reminder && reminder > 0) {
-                        var row = [];
-                        for (var index = reminder - 1; index >= 0; index--) {
-                            row.push(list[list.length - index]);
-                        }
-                        rows.push(row);
-                    }
-                    return rows;
-                };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

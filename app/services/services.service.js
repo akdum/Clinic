@@ -25,6 +25,8 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                 function ServicesService(_db) {
                     this._db = _db;
                     this._services = [];
+                    this._serviceGroups = [];
+                    this._groupedServices = [];
                 }
                 ServicesService.prototype.getPopularServices = function () {
                     var _this = this;
@@ -39,6 +41,22 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                             console.log(err);
                         }); });
                     }
+                };
+                ServicesService.prototype.getServiceGroups = function () {
+                    var _this = this;
+                    if (this._serviceGroups.length > 0) {
+                        return Promise.resolve(this._serviceGroups);
+                    }
+                    else {
+                        return new Promise(function (resolve) { return _this._db.getServiceGroups().then(function (data) {
+                            this._serviceGroups = data;
+                            resolve(this._serviceGroups);
+                        }.bind(_this)).catch(function (err) {
+                            console.log(err);
+                        }); });
+                    }
+                };
+                ServicesService.prototype.getServicesByGroup = function (name) {
                 };
                 ServicesService = __decorate([
                     core_1.Injectable(), 

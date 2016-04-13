@@ -3,6 +3,7 @@ import { CONFIG } from '../config/config';
 import { News } from '../data-interfaces/news';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
+import { ServiceGroup } from '../data-interfaces/service.group';
 
 @Injectable()
 export class DbService {
@@ -61,7 +62,30 @@ export class DbService {
                 }
                 resolve(returnItems);
             } else {
-                reject(err);
+                console.log(err);
+            }
+        }));
+    }
+    
+    getServiceGroups() {
+        var params = {
+            "TableName": "ServiceGroups",
+            "AttributesToGet": ["Title", "Description", "ImageBase64"]
+        }
+        
+        return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
+            if (err == null) {
+                let returnItems: ServiceGroup[] = [];
+                if (data.Count > 0) {
+                    for (var index = 0; index < data.Count; index++) {
+                        returnItems.push(new ServiceGroup(data.Items[index].Title.S, 
+                                                        data.Items[index].Description.S,
+                                                        data.Items[index].ImageBase64.S));
+                    }
+                }
+                resolve(returnItems);
+            } else {
+                console.log(err);
             }
         }));
     }

@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts'], function(exports_1, context_1) {
+System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/service.group'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, config_1, news_1, service_1, contacts_1;
+    var core_1, config_1, news_1, service_1, contacts_1, service_group_1;
     var DbService;
     return {
         setters:[
@@ -28,6 +28,9 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
             },
             function (contacts_1_1) {
                 contacts_1 = contacts_1_1;
+            },
+            function (service_group_1_1) {
+                service_group_1 = service_group_1_1;
             }],
         execute: function() {
             DbService = (function () {
@@ -82,7 +85,28 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             resolve(returnItems);
                         }
                         else {
-                            reject(err);
+                            console.log(err);
+                        }
+                    }); });
+                };
+                DbService.prototype.getServiceGroups = function () {
+                    var _this = this;
+                    var params = {
+                        "TableName": "ServiceGroups",
+                        "AttributesToGet": ["Title", "Description", "ImageBase64"]
+                    };
+                    return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
+                        if (err == null) {
+                            var returnItems = [];
+                            if (data.Count > 0) {
+                                for (var index = 0; index < data.Count; index++) {
+                                    returnItems.push(new service_group_1.ServiceGroup(data.Items[index].Title.S, data.Items[index].Description.S, data.Items[index].ImageBase64.S));
+                                }
+                            }
+                            resolve(returnItems);
+                        }
+                        else {
+                            console.log(err);
                         }
                     }); });
                 };
