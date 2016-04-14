@@ -6,9 +6,9 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             ServiceGroup = (function () {
-                function ServiceGroup(title, description, imageBase64) {
+                function ServiceGroup(title, body, imageBase64) {
                     this.title = title;
-                    this.description = description;
+                    this.body = body;
                     this.imageBase64 = imageBase64;
                 }
                 return ServiceGroup;

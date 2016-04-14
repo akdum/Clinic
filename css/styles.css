@@ -270,14 +270,14 @@ h1.trends {
 }
 .services-row .media {
     margin-left: 1rem;
-    width: 21rem;
+    width: 20rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.services-row .media .heading {
-    margin-bottom: 1rem;
-}
 .services-row .media .media-heading {
+    margin-bottom: 2rem;
+}
+.services-row .media .media-heading  h4 {
     display: inline-block;
     position: relative;
     top: 1rem;
@@ -290,6 +290,22 @@ h1.trends {
 .services-row .media .media-left img {
     height: 72px;
     width: 72px;
+}
+.services-row .media .media-body {
+    padding-bottom: 1rem;
+}
+.services-row .media .links a:hover {
+    text-decoration: none;
+}
+.services-row .media .links a::after {
+    background: url("../assets/arrow-right-small.png") no-repeat;
+	content: ' ';
+    background-position-y: 1px;
+	margin-left: 5px;
+	vertical-align: middle;
+    width: 6px;
+    height: 11px;
+    display: inline-block;
 }
 .services-offset-row {
     padding-bottom: 2rem;

@@ -70,7 +70,7 @@ export class DbService {
     getServiceGroups() {
         var params = {
             "TableName": "ServiceGroups",
-            "AttributesToGet": ["Title", "Description", "ImageBase64"]
+            "AttributesToGet": ["Title", "Body", "ImageBase64"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -79,7 +79,7 @@ export class DbService {
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
                         returnItems.push(new ServiceGroup(data.Items[index].Title.S, 
-                                                        data.Items[index].Description.S,
+                                                        data.Items[index].Body.S,
                                                         data.Items[index].ImageBase64.S));
                     }
                 }

@@ -28,6 +28,20 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                     this._serviceGroups = [];
                     this._groupedServices = [];
                 }
+                ServicesService.prototype.getServices = function () {
+                    var _this = this;
+                    if (this._services.length > 0) {
+                        return Promise.resolve(this._services);
+                    }
+                    else {
+                        return new Promise(function (resolve) { return _this._db.getServicesItems().then(function (data) {
+                            this._services = data;
+                            resolve(this._services);
+                        }.bind(_this)).catch(function (err) {
+                            console.log(err);
+                        }); });
+                    }
+                };
                 ServicesService.prototype.getPopularServices = function () {
                     var _this = this;
                     if (this._services.length > 0) {
@@ -56,7 +70,21 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                         }); });
                     }
                 };
-                ServicesService.prototype.getServicesByGroup = function (name) {
+                ServicesService.prototype.getServicesGrouped = function () {
+                    var _this = this;
+                    var promiseArray = [this.getServices(), this.getServiceGroups()];
+                    return new Promise(function (resolve) { return Promise.all(promiseArray).then(function (results) {
+                        var _this = this;
+                        this._serviceGroups.forEach(function (group, i) {
+                            _this._groupedServices.push(group);
+                            var groupServices = _this._services.filter(function (value) { return value.group == group.title; });
+                            _this._groupedServices[i]["services"] = [];
+                            groupServices.forEach(function (service) {
+                                _this._groupedServices[i].services.push(service);
+                            });
+                        });
+                        resolve(this._groupedServices);
+                    }.bind(_this)); });
                 };
                 ServicesService = __decorate([
                     core_1.Injectable(), 

@@ -24,33 +24,11 @@ System.register(['angular2/core', '../../../services/services.service'], functio
             ServicesPageComponent = (function () {
                 function ServicesPageComponent(_services) {
                     this._services = _services;
-                    this._rows = [];
                 }
                 ServicesPageComponent.prototype.ngOnInit = function () {
-                    this._services.getListOfServices().then(function (data) {
-                        this._servicesList = data;
-                        this.prepareRows();
+                    this._services.getServicesGrouped().then(function (data) {
+                        this._servicesData = data;
                     }.bind(this));
-                };
-                ServicesPageComponent.prototype.prepareRows = function () {
-                    var count = Math.floor(this._servicesList.length / 3);
-                    var reminder = this._servicesList.length % 3;
-                    if (count && count > 0) {
-                        for (var index = 0; index < count; index++) {
-                            var row = [];
-                            for (var j = 0; j < 3; j++) {
-                                row.push(this._servicesList[index * 3 + j]);
-                            }
-                            this._rows.push(row);
-                        }
-                    }
-                    if (reminder && reminder > 0) {
-                        var row = [];
-                        for (var index = reminder - 1; index >= 0; index--) {
-                            row.push(this._servicesList[this._servicesList.length - index]);
-                        }
-                        this._rows.push(row);
-                    }
                 };
                 ServicesPageComponent = __decorate([
                     core_1.Component({
