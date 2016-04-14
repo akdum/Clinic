@@ -289,10 +289,14 @@ h1.trends {
 
 .services-row .media .media-left img {
     height: 72px;
-    width: 72px;
+    width: 68px;
 }
 .services-row .media .media-body {
     padding-bottom: 1rem;
+}
+.services-row .media .links a {
+    padding-bottom: 0.5rem;
+    display: block;
 }
 .services-row .media .links a:hover {
     text-decoration: none;
