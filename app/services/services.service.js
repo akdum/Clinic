@@ -75,6 +75,7 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                     var promiseArray = [this.getServices(), this.getServiceGroups()];
                     return new Promise(function (resolve) { return Promise.all(promiseArray).then(function (results) {
                         var _this = this;
+                        this._groupedServices = [];
                         this._serviceGroups.forEach(function (group, i) {
                             _this._groupedServices.push(group);
                             var groupServices = _this._services.filter(function (value) { return value.group == group.title; });

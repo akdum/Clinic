@@ -1,10 +1,12 @@
 import { Component, OnInit } from 'angular2/core';
 import { ServicesService } from '../../../services/services.service';
 import { Service } from '../../../data-interfaces/service';
+import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 @Component({
     selector: 'popular-services-component',
-    templateUrl: '../app/templates/popular.services.component.html'
+    templateUrl: '../app/templates/popular.services.component.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 export class PopularServicesComponent implements OnInit{   
     private _servicesList: Service[];

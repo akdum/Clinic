@@ -54,6 +54,7 @@ export class ServicesService {
     getServicesGrouped() {
         let promiseArray: [Promise<Service[]>, Promise<ServiceGroup[]>] = [this.getServices(), this.getServiceGroups()];
         return new Promise(resolve => Promise.all(promiseArray).then(function (results:any[]) {
+            this._groupedServices = [];
             this._serviceGroups.forEach((group,i) => {
                 this._groupedServices.push(group);
                 let groupServices = this._services.filter((value)=>value.group == group.title);
