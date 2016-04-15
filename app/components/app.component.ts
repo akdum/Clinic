@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import { RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -39,6 +39,12 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts.page.compo
 ])
 export class AppComponent {
     public openEnrollModal = false;
+    
+    constructor(private _router: Router) {
+        _router.subscribe(()=>{
+            window.scrollTo(0,0);
+        });
+    }
     
     // dialog start.
     

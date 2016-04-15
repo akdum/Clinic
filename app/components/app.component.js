@@ -43,8 +43,12 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(_router) {
+                    this._router = _router;
                     this.openEnrollModal = false;
+                    _router.subscribe(function () {
+                        window.scrollTo(0, 0);
+                    });
                 }
                 // dialog start.
                 AppComponent.prototype.onOpenEnrollModalNavHandler = function (open) {
@@ -86,7 +90,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                             component: contacts_page_component_1.ContactsPageComponent
                         }
                     ]), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], AppComponent);
                 return AppComponent;
             }());
