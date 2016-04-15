@@ -3,7 +3,7 @@ import { CONFIG } from '../config/config';
 import { News } from '../data-interfaces/news';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
-import { ServiceGroup } from '../data-interfaces/service.group';
+import { ServicesGroup } from '../data-interfaces/services.group';
 
 @Injectable()
 export class DbService {
@@ -70,20 +70,55 @@ export class DbService {
     getServiceGroups() {
         var params = {
             "TableName": "ServiceGroups",
-            "AttributesToGet": ["Title", "Body", "ImageBase64"]
+            "AttributesToGet": ["Title", "Body", "ImageBase64", "Url"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
             if (err == null) {
-                let returnItems: ServiceGroup[] = [];
+                let returnItems: ServicesGroup[] = [];
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnItems.push(new ServiceGroup(data.Items[index].Title.S, 
+                        returnItems.push(new ServicesGroup(data.Items[index].Title.S, 
                                                         data.Items[index].Body.S,
-                                                        data.Items[index].ImageBase64.S));
+                                                        data.Items[index].ImageBase64.S,
+                                                        data.Items[index].Url.S,
+                                                        null));
                     }
                 }
                 resolve(returnItems);
+            } else {
+                console.log(err);
+            }
+        }));
+    }
+    
+    getServicesGroupDetailsByName(name:string) {
+        var params={
+            "TableName": "ServiceGroups",
+            "KeyConditionExpression": "Title = :title",
+            "ExpressionAttributeValues": {
+                ":title" : {
+                    S: name
+                }
+            }
+        }
+        
+        return new Promise((resolve, reject)=>this._dynamoDB.query(params, (err,data)=>{
+            if (err == null) {
+                let returnData : ServicesGroup;
+                if (data.Count > 0) {
+                    returnData = new ServicesGroup(data.Items[0].Title.S,
+                                                   data.Items[0].Body.S,
+                                                   data.Items[0].ImageBase64.S,
+                                                   data.Items[0].Url.S, []);
+                    let textList = data.Items[0].Text.L;
+                    for (var index = 0; index < textList.length; index=index+2) {
+                        if ((index + 1) < textList.length) {
+                            returnData.text.push({ heading:textList[index].S, value: textList[index+1].S });  
+                        }                         
+                    }
+                }
+                resolve(returnData);
             } else {
                 console.log(err);
             }

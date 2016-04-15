@@ -1,17 +1,18 @@
 import { Injectable } from 'angular2/core';
 import { Service } from '../data-interfaces/service';
-import { ServiceGroup } from '../data-interfaces/service.group';
+import { ServicesGroup } from '../data-interfaces/services.group';
 import { DbService } from './db.service';
 
 @Injectable()
 export class ServicesService {
     private _services: Service[] = [];
-    private _serviceGroups: ServiceGroup[] = [];
+    private _serviceGroups: ServicesGroup[] = [];
     private _groupedServices: any = [];     
     
     constructor(private _db: DbService) {
     }
     
+    //Get all services.
     getServices() {
         if (this._services.length > 0) {
             return Promise.resolve(this._services);
@@ -52,7 +53,7 @@ export class ServicesService {
     }
     
     getServicesGrouped() {
-        let promiseArray: [Promise<Service[]>, Promise<ServiceGroup[]>] = [this.getServices(), this.getServiceGroups()];
+        let promiseArray: [Promise<Service[]>, Promise<ServicesGroup[]>] = [this.getServices(), this.getServiceGroups()];
         return new Promise(resolve => Promise.all(promiseArray).then(function (results:any[]) {
             this._groupedServices = [];
             this._serviceGroups.forEach((group,i) => {
@@ -65,5 +66,39 @@ export class ServicesService {
             });
             resolve(this._groupedServices);
         }.bind(this)));
+    }
+    
+    getServicesGroupByUrl(url:string) {
+        if (this._serviceGroups.length > 0) {
+            return this.tryGetServiceGroupDetails(url);
+        } else {
+            // try to load groups first.
+           return new Promise(resolve=>this.getServiceGroups().then(function(data) {
+                resolve(this.tryGetServiceGroupDetails(url));
+            }.bind(this)));
+        }
+    }
+    
+    tryGetServiceGroupDetails(url:string) {
+        let services:ServicesGroup = this._serviceGroups.find((val)=>val.url == url);
+        
+        if (services) {
+            if (services.text != null) {
+                return Promise.resolve(services);
+            } else {
+                return new Promise(resolve=>this._db.getServicesGroupDetailsByName(services.title).then(function(data) {
+                    services = data;
+                    let index = this._serviceGroups.indexOf((val)=>val.url == url);
+                    if (index > -1) {
+                        this._serviceGroups[index] = services;
+                    } else {
+                        this._serviceGroups.push(services);
+                    }
+                    resolve(services);
+                }.bind(this)));
+            }
+        } else {
+            return Promise.resolve(new ServicesGroup("","","","",[]));
+        }
     }
 }

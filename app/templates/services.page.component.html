@@ -2,8 +2,8 @@
     <div *ngFor="#serviceGroup of _servicesData; #i=index">
         <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
             <div class='media'>
-                <div class="media-heading">
-                    <a class='media-left' href='#'>
+                <div class="media-heading" (click)="gotoServicesGroupDetail(serviceGroup)">
+                    <a class='media-left'>
                         <img class='media-object' [src]="serviceGroup.imageBase64" />
                     </a>
                     <h4>{{serviceGroup.title}}</h4>
@@ -13,6 +13,9 @@
                 </div>
                 <div class="links">
                     <a *ngFor="#service of serviceGroup.services" href="#">{{service.title}}</a>
+                </div>
+                <div class="all-services-link">
+                    <a (click)="gotoServicesGroupDetail(serviceGroup)">Все услуги</a>
                 </div>
             </div>
         </div>

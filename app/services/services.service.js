@@ -1,4 +1,4 @@
-System.register(['angular2/core', './db.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../data-interfaces/services.group', './db.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, db_service_1;
+    var core_1, services_group_1, db_service_1;
     var ServicesService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (services_group_1_1) {
+                services_group_1 = services_group_1_1;
             },
             function (db_service_1_1) {
                 db_service_1 = db_service_1_1;
@@ -28,6 +31,7 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                     this._serviceGroups = [];
                     this._groupedServices = [];
                 }
+                //Get all services.
                 ServicesService.prototype.getServices = function () {
                     var _this = this;
                     if (this._services.length > 0) {
@@ -86,6 +90,43 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                         });
                         resolve(this._groupedServices);
                     }.bind(_this)); });
+                };
+                ServicesService.prototype.getServicesGroupByUrl = function (url) {
+                    var _this = this;
+                    if (this._serviceGroups.length > 0) {
+                        return this.tryGetServiceGroupDetails(url);
+                    }
+                    else {
+                        // try to load groups first.
+                        return new Promise(function (resolve) { return _this.getServiceGroups().then(function (data) {
+                            resolve(this.tryGetServiceGroupDetails(url));
+                        }.bind(_this)); });
+                    }
+                };
+                ServicesService.prototype.tryGetServiceGroupDetails = function (url) {
+                    var _this = this;
+                    var services = this._serviceGroups.find(function (val) { return val.url == url; });
+                    if (services) {
+                        if (services.text != null) {
+                            return Promise.resolve(services);
+                        }
+                        else {
+                            return new Promise(function (resolve) { return _this._db.getServicesGroupDetailsByName(services.title).then(function (data) {
+                                services = data;
+                                var index = this._serviceGroups.indexOf(function (val) { return val.url == url; });
+                                if (index > -1) {
+                                    this._serviceGroups[index] = services;
+                                }
+                                else {
+                                    this._serviceGroups.push(services);
+                                }
+                                resolve(services);
+                            }.bind(_this)); });
+                        }
+                    }
+                    else {
+                        return Promise.resolve(new services_group_1.ServicesGroup("", "", "", "", []));
+                    }
                 };
                 ServicesService = __decorate([
                     core_1.Injectable(), 

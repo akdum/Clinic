@@ -7,6 +7,7 @@ import { EnrollModalComponent } from './dialog/enroll.modal.component';
 import { MainPageComponent } from './pages/main-page/main.page.component';
 import { ServicesPageComponent } from './pages/services-page/services.page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts.page.component';
+import { ServicesGroupDetailsPageComponent } from './pages/services-details-page/services.group.details.page.component';
 
 @Component({
     selector:'clinic-app',
@@ -35,6 +36,11 @@ import { ContactsPageComponent } from './pages/contacts-page/contacts.page.compo
         path: '/contacts',
         name: 'ContactsPage',
         component: ContactsPageComponent
+    },
+    {
+        path: '/services-group-details/:url',
+        name: 'ServicesGroupDetailsPage',
+        component: ServicesGroupDetailsPageComponent
     }
 ])
 export class AppComponent {
