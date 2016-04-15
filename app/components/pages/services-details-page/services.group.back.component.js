@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,29 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
-    var MobileNavComponent;
+    var core_1;
+    var ServicesGroupBackComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }],
         execute: function() {
-            MobileNavComponent = (function () {
-                function MobileNavComponent() {
+            ServicesGroupBackComponent = (function () {
+                function ServicesGroupBackComponent() {
                 }
-                MobileNavComponent = __decorate([
+                ServicesGroupBackComponent.prototype.ngOnInit = function () { };
+                ServicesGroupBackComponent = __decorate([
                     core_1.Component({
-                        selector: 'mobile-nav-component',
-                        templateUrl: '../app/templates/mobile.nav.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        selector: 'services-group-back-component',
+                        templateUrl: '../app/templates/services.group.back.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], MobileNavComponent);
-                return MobileNavComponent;
+                ], ServicesGroupBackComponent);
+                return ServicesGroupBackComponent;
             }());
-            exports_1("MobileNavComponent", MobileNavComponent);
+            exports_1("ServicesGroupBackComponent", ServicesGroupBackComponent);
         }
     }
 });
-//# sourceMappingURL=mobile.nav.component.js.map
+//# sourceMappingURL=services.group.back.component.js.map
