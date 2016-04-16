@@ -17,6 +17,19 @@ nav {
 .router-link-active {
     color: #000;
 }
+/* common */
+a.link-button {
+	border: 1px solid #d0d0d0;
+    border-radius: 3px;
+	color: #56575c;
+	font-size: 0.85rem;
+	padding: 0.6rem 2rem 0.6rem 2rem;
+}
+a.link-button:hover {
+	background-color: #e0e0e0;
+	cursor: pointer;
+	text-decoration: none;	
+}
 /* main page */
 /* main page rows */
 .offset-row {
@@ -324,24 +337,9 @@ h1.trends {
 .services-row .media .all-services-link {
 	margin-top: 1.5rem;
 }
-.services-row .media .all-services-link:hover {
-	cursor: pointer;
-}
-.services-row .media .all-services-link a {
-    border: 1px solid #d0d0d0;
-    border-radius: 3px;
-	color: #56575c;
-	font-size: 0.85rem;
-	padding: 0.6rem 2rem 0.6rem 2rem;
-}
-.services-row .media .all-services-link a:hover {
-	background-color: #e0e0e0;
-	text-decoration: none;	
-}
 .services-offset-row {
     padding-bottom: 2rem;
 }
-
 /* contacts page*/
 .map-row {
     padding-top: 2rem;
