@@ -88,7 +88,7 @@ export class ServicesService {
             } else {
                 return new Promise(resolve=>this._db.getServicesGroupDetailsByName(services.title).then(function(data) {
                     services = data;
-                    let index = this._serviceGroups.indexOf((val)=>val.url == url);
+                    let index = this._serviceGroups.findIndex((val)=>val.url == url);
                     if (index > -1) {
                         this._serviceGroups[index] = services;
                     } else {

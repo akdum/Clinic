@@ -113,7 +113,7 @@ System.register(['angular2/core', '../data-interfaces/services.group', './db.ser
                         else {
                             return new Promise(function (resolve) { return _this._db.getServicesGroupDetailsByName(services.title).then(function (data) {
                                 services = data;
-                                var index = this._serviceGroups.indexOf(function (val) { return val.url == url; });
+                                var index = this._serviceGroups.findIndex(function (val) { return val.url == url; });
                                 if (index > -1) {
                                     this._serviceGroups[index] = services;
                                 }
