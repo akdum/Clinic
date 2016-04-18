@@ -73,7 +73,9 @@ export class ServicesService {
             return this.tryGetServiceGroupDetails(url);
         } else {
             // try to load groups first.
-           return new Promise(resolve=>this.getServiceGroups().then(function(data) {
+           let promiseArray: [Promise<Service[]>, Promise<ServicesGroup[]>] = [this.getServices(), this.getServiceGroups()];
+                       
+           return new Promise(resolve => Promise.all(promiseArray).then(function (results:any[]) {
                 resolve(this.tryGetServiceGroupDetails(url));
             }.bind(this)));
         }
@@ -88,7 +90,8 @@ export class ServicesService {
             } else {
                 return new Promise(resolve=>this._db.getServicesGroupDetailsByName(services.title).then(function(data) {
                     services = data;
-                    let index = this._serviceGroups.findIndex((val)=>val.url == url);
+                    services["services"] = this._services.filter((val)=>val.group === services.title);
+                    let index = this._serviceGroups.findIndex((val)=>val.url === url);
                     if (index > -1) {
                         this._serviceGroups[index] = services;
                     } else {

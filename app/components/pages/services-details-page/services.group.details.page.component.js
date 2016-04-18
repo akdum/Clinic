@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../data-interfaces/services.group', 'angular2/router', '../../../services/services.service', './services.group.title.component', './services.group.back.component'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../data-interfaces/services.group', 'angular2/router', '../../../services/services.service', './services.group.title.component', './services.group.back.component', './services.group.popular.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../../data-interfaces/services.group', 'an
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_group_1, router_1, services_service_1, services_group_title_component_1, services_group_back_component_1;
+    var core_1, services_group_1, router_1, services_service_1, services_group_title_component_1, services_group_back_component_1, services_group_popular_component_1;
     var ServicesGroupDetailsPageComponent;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['angular2/core', '../../../data-interfaces/services.group', 'an
             },
             function (services_group_back_component_1_1) {
                 services_group_back_component_1 = services_group_back_component_1_1;
+            },
+            function (services_group_popular_component_1_1) {
+                services_group_popular_component_1 = services_group_popular_component_1_1;
             }],
         execute: function() {
             ServicesGroupDetailsPageComponent = (function () {
@@ -52,7 +55,7 @@ System.register(['angular2/core', '../../../data-interfaces/services.group', 'an
                 ServicesGroupDetailsPageComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../app/templates/services.group.details.page.component.html',
-                        directives: [services_group_title_component_1.ServicesGroupTitleComponent, services_group_back_component_1.ServicesGroupBackComponent]
+                        directives: [services_group_title_component_1.ServicesGroupTitleComponent, services_group_back_component_1.ServicesGroupBackComponent, services_group_popular_component_1.ServicesGroupPopularComponent]
                     }), 
                     __metadata('design:paramtypes', [router_1.RouteParams, services_service_1.ServicesService])
                 ], ServicesGroupDetailsPageComponent);

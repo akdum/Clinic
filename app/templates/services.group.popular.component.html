@@ -1,0 +1,23 @@
+<div class="services-group-popular row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 popular-services">
+        <h4>Популярные услуги</h4>
+    </div>
+    <div class="hidden-md-down">
+        <div *ngFor="#service of services; #i=index">
+            <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
+                <div class='media'>
+                    <a class='media-left' href='#'>
+                        <img class='media-object' [src]="service.imageBase64" />
+                    </a>
+                    <div class='media-body'>
+                        <h4 class='media-heading'>{{service.title}}</h4>
+                        <span>{{service.body}}</span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="(i+1)%2==0" class='clearfix hidden-sm-down hidden-lg-up'></div>
+            <div *ngIf="(i+1)%3==0" class='clearfix hidden-md-down'></div>
+        </div>
+    </div>
+    <div class="hidden-lg-up"></div>
+</div>
