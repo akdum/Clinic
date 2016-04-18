@@ -115,7 +115,8 @@ export class DbService {
                     let textList = data.Items[0].Text.L;
                     for (var index = 0; index < textList.length; index=index+2) {
                         if ((index + 1) < textList.length) {
-                            returnData.text.push({ heading:textList[index].S, value: textList[index+1].S });  
+                            returnData.text.push({ heading:textList[index].S, 
+                                                   value: textList[index+1].S });  
                         }                         
                     }
                 }

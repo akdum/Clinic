@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, text_viewmodel_1;
     var ServicesGroupTextComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (text_viewmodel_1_1) {
+                text_viewmodel_1 = text_viewmodel_1_1;
             }],
         execute: function() {
             ServicesGroupTextComponent = (function () {
@@ -25,12 +28,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 Object.defineProperty(ServicesGroupTextComponent.prototype, "text", {
                     set: function (text) {
                         if (text && text.length > 0) {
-                            this._text = text;
+                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false); });
                         }
                     },
                     enumerable: true,
                     configurable: true
                 });
+                ServicesGroupTextComponent.prototype.toggle = function (text) {
+                    text.isExpanded = !text.isExpanded;
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Array), 

@@ -2,7 +2,10 @@
     <div class="row" *ngFor="#text of _text">        
         <div class="col-md-12 col-lg-12 hidden-sm-down big">
             <h4>{{text.heading}}</h4>
-            <span class="expander"></span>
+            <span class="expander" (click)="toggle(text)" [class.expanded]="text.isExpanded"></span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text" [class.hidden]="!text.isExpanded">
+            {{text.value}}
         </div>
     </div>
 </div>
