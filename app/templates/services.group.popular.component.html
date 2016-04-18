@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 popular-services big">
             <h4>Популярные услуги</h4>
         </div>
-        <div *ngFor="#service of services; #i=index">
+        <div *ngFor="#service of _popularServices; #i=index">
             <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
                 <div class='media'>
                     <a class='media-left' href='#'>
@@ -23,7 +23,7 @@
         <div class="col-xs-11 col-xs-offset-1 col-sm-12 col-md-12 col-lg-12 popular-services small">
             <h4>Популярные услуги</h4>
         </div>
-        <div *ngFor="#service of services; #i=index">
+        <div *ngFor="#service of _popularServices; #i=index">
             <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
                 <div class='media-alt'>
                     <div class="media-heading row">

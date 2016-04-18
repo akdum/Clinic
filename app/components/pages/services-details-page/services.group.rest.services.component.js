@@ -11,21 +11,21 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var ServicesGroupPopularComponent;
+    var ServicesGroupRestServicesComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            ServicesGroupPopularComponent = (function () {
-                function ServicesGroupPopularComponent() {
-                    this._popularServices = [];
+            ServicesGroupRestServicesComponent = (function () {
+                function ServicesGroupRestServicesComponent() {
+                    this._services = [];
                 }
-                Object.defineProperty(ServicesGroupPopularComponent.prototype, "services", {
+                Object.defineProperty(ServicesGroupRestServicesComponent.prototype, "services", {
                     set: function (services) {
                         if (services) {
-                            this._popularServices = services.filter(function (val) { return val.isPopular; });
+                            this._services = services.filter(function (val) { return !val.isPopular; });
                         }
                     },
                     enumerable: true,
@@ -35,18 +35,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     core_1.Input(), 
                     __metadata('design:type', Array), 
                     __metadata('design:paramtypes', [Array])
-                ], ServicesGroupPopularComponent.prototype, "services", null);
-                ServicesGroupPopularComponent = __decorate([
+                ], ServicesGroupRestServicesComponent.prototype, "services", null);
+                ServicesGroupRestServicesComponent = __decorate([
                     core_1.Component({
-                        selector: 'services-group-popular-component',
-                        templateUrl: '../app/templates/services.group.popular.component.html'
+                        selector: 'services-group-rest-services-component',
+                        templateUrl: '../app/templates/services.group.rest.services.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ServicesGroupPopularComponent);
-                return ServicesGroupPopularComponent;
+                ], ServicesGroupRestServicesComponent);
+                return ServicesGroupRestServicesComponent;
             }());
-            exports_1("ServicesGroupPopularComponent", ServicesGroupPopularComponent);
+            exports_1("ServicesGroupRestServicesComponent", ServicesGroupRestServicesComponent);
         }
     }
 });
-//# sourceMappingURL=services.group.popular.component.js.map
+//# sourceMappingURL=services.group.rest.services.component.js.map
