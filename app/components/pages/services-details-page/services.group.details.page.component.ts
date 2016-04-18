@@ -5,10 +5,14 @@ import { ServicesService } from '../../../services/services.service';
 import { ServicesGroupTitleComponent } from './services.group.title.component';
 import { ServicesGroupBackComponent } from './services.group.back.component';
 import { ServicesGroupPopularComponent } from './services.group.popular.component';
+import { ServicesGroupRestServicesComponent } from './services.group.rest.services.component';
 
 @Component({
     templateUrl: '../app/templates/services.group.details.page.component.html',
-    directives: [ServicesGroupTitleComponent, ServicesGroupBackComponent, ServicesGroupPopularComponent]
+    directives: [ServicesGroupTitleComponent, 
+                 ServicesGroupBackComponent, 
+                 ServicesGroupPopularComponent, 
+                 ServicesGroupRestServicesComponent]
 })
 export class ServicesGroupDetailsPageComponent implements OnInit {
     private _servicesGroup: ServicesGroup;
