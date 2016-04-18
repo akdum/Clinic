@@ -438,6 +438,28 @@ h1.trends {
 .services-group-popular .media-alt .media-heading {
     margin-bottom: 0.5rem;
 }
+.services-group-text {
+}
+.services-group-text .row {
+	padding-top: 2rem;
+}
+.services-group-text h4 {
+	font-size: 1.25rem;
+	display: inline-block;
+}
+.services-group-text .big {
+	border-bottom: 1px solid #d0d0d0;
+}
+.services-group-text .big .expander {
+	background: url("../assets/arrow-down.svg") 0 0 no-repeat;
+	background-size: 25px 25px;
+	display: inline-block;
+	height: 25px;
+	margin-left: 1rem;
+	position: relative;
+    top: 0.4rem;
+	width: 25px;	
+}
 /* mobile custom */
 .mobile a {
 	margin-right: 1rem;

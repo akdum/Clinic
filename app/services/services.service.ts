@@ -85,7 +85,7 @@ export class ServicesService {
         let services:ServicesGroup = this._serviceGroups.find((val)=>val.url == url);
         
         if (services) {
-            if (services.text != null) {
+            if (services.text.length > 0) {
                 return Promise.resolve(services);
             } else {
                 return new Promise(resolve=>this._db.getServicesGroupDetailsByName(services.title).then(function(data) {

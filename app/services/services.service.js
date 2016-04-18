@@ -108,7 +108,7 @@ System.register(['angular2/core', '../data-interfaces/services.group', './db.ser
                     var _this = this;
                     var services = this._serviceGroups.find(function (val) { return val.url == url; });
                     if (services) {
-                        if (services.text != null) {
+                        if (services.text.length > 0) {
                             return Promise.resolve(services);
                         }
                         else {

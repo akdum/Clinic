@@ -1,7 +1,4 @@
-interface IText {
-    heading: string,
-    value: string
-}
+import { IText } from './itext';
 
 export class ServicesGroup {
     constructor(public title:string,

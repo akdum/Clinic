@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>arr_in_round@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="mobile-2" sketch:type="MSArtboardGroup" transform="translate(-310.000000, -889.000000)">
+            <g id="arr_in_round" sketch:type="MSLayerGroup" transform="translate(323.000000, 902.283310) scale(1, -1) translate(-323.000000, -902.283310) translate(311.000000, 890.283310)">
+                <path d="M12,24 C18.627417,24 24,18.627417 24,12 C24,5.372583 18.627417,0 12,0 C5.372583,0 0,5.372583 0,12 C0,18.627417 5.372583,24 12,24 Z" id="Oval-182" stroke="#DBE2E6" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+                <path d="M8,14 L16,14 L16,6" id="Path-2716" stroke="#576472" stroke-width="2" sketch:type="MSShapeGroup" transform="translate(12.000000, 10.000000) rotate(-315.000000) translate(-12.000000, -10.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

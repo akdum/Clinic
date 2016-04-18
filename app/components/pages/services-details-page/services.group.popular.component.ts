@@ -6,7 +6,7 @@ import { Service } from '../../../data-interfaces/service';
     templateUrl: '../app/templates/services.group.popular.component.html'
 })
 export class ServicesGroupPopularComponent {
-    public _popularServices: Service[] = [];
+    private _popularServices: Service[] = [];
 
     @Input()
     set services(services:Service[]) {

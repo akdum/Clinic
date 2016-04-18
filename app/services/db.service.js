@@ -100,7 +100,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title.S, data.Items[index].Body.S, data.Items[index].ImageBase64.S, data.Items[index].Url.S, null));
+                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title.S, data.Items[index].Body.S, data.Items[index].ImageBase64.S, data.Items[index].Url.S, []));
                                 }
                             }
                             resolve(returnItems);

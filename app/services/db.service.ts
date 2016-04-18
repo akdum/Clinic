@@ -4,6 +4,7 @@ import { News } from '../data-interfaces/news';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
 import { ServicesGroup } from '../data-interfaces/services.group';
+import { IText } from '../data-interfaces/itext';
 
 @Injectable()
 export class DbService {
@@ -82,7 +83,7 @@ export class DbService {
                                                         data.Items[index].Body.S,
                                                         data.Items[index].ImageBase64.S,
                                                         data.Items[index].Url.S,
-                                                        null));
+                                                        []));
                     }
                 }
                 resolve(returnItems);
