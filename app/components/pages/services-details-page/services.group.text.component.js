@@ -28,7 +28,7 @@ System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], fu
                 Object.defineProperty(ServicesGroupTextComponent.prototype, "text", {
                     set: function (text) {
                         if (text && text.length > 0) {
-                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false); });
+                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imagesBase64); });
                         }
                     },
                     enumerable: true,

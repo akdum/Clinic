@@ -6,10 +6,11 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             TextViewModel = (function () {
-                function TextViewModel(heading, value, isExpanded) {
+                function TextViewModel(heading, value, isExpanded, imagesBase64) {
                     this.heading = heading;
                     this.value = value;
                     this.isExpanded = isExpanded;
+                    this.imagesBase64 = imagesBase64;
                 }
                 return TextViewModel;
             }());

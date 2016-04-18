@@ -12,7 +12,7 @@ export class ServicesGroupTextComponent {
     @Input()
     set text(text:IText[]) {
         if (text && text.length > 0) {
-            this._text = text.map(val=> new TextViewModel(val.heading, val.value, false));
+            this._text = text.map(val=> new TextViewModel(val.heading, val.value, false, val.imagesBase64));
         }
     }
     

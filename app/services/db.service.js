@@ -127,10 +127,11 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             if (data.Count > 0) {
                                 returnData = new services_group_1.ServicesGroup(data.Items[0].Title.S, data.Items[0].Body.S, data.Items[0].ImageBase64.S, data.Items[0].Url.S, []);
                                 var textList = data.Items[0].Text.L;
-                                for (var index = 0; index < textList.length; index = index + 2) {
-                                    if ((index + 1) < textList.length) {
+                                for (var index = 0; index < textList.length; index = index + 3) {
+                                    if ((index + 2) < textList.length) {
                                         returnData.text.push({ heading: textList[index].S,
-                                            value: textList[index + 1].S });
+                                            value: textList[index + 1].S,
+                                            imagesBase64: textList[index + 2].L.map(function (val) { return val.S; }) });
                                     }
                                 }
                             }
