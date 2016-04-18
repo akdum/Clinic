@@ -17,6 +17,10 @@ nav {
 .router-link-active {
     color: #000;
 }
+.row {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
 /* common */
 a.link-button {
 	border: 1px solid #d0d0d0;
@@ -57,6 +61,15 @@ div.media .media-heading {
 div.media .media-object {
 	width: 72px;
 	height: 72px;
+}
+div.media-alt .media-heading:hover {
+	cursor: pointer;
+}
+div.media-alt .media-left {
+    display: inline-block;
+}
+div.media-alt .media-body {
+    padding-bottom: 1rem;
 }
 /* main page */
 /* main page rows */
@@ -291,43 +304,32 @@ h1.trends {
 /* services page */
 .services-row {
 }
-.services-row .media-group {
+.services-row .media-alt {
     margin-left: 1rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.services-row .media-group .media-heading {
-    margin-bottom: 2rem;
-}
-.services-row .media-group .media-heading:hover {
-	cursor: pointer;
-}
-.services-row .media-group .media-heading  h4 {
+.services-row .media-alt .media-heading  h4 {
     display: inline-block;
     position: relative;
     top: 1rem;
     width: 12rem;
 }
-.services-row .media-group .media-left {
-    display: inline-block;
+.services-row .media-alt .media-heading {
+    margin-bottom: 2rem;
 }
-
-.services-row .media-group .media-left img {
+.services-row .media-alt .media-left img {
     height: 72px;
-    width: 68px;
 	display: block;
 }
-.services-row .media-group .media-body {
-    padding-bottom: 1rem;
-}
-.services-row .media-group .links a {
+.services-row .media-alt .links a {
     padding-bottom: 0.5rem;
     display: block;
 }
-.services-row .media-group .links a:hover {
+.services-row .media-alt .links a:hover {
     text-decoration: none;
 }
-.services-row .media-group .links a::after {
+.services-row .media-alt .links a::after {
     background: url("../assets/arrow-right-small.png") no-repeat;
 	content: ' ';
     background-position-y: 1px;
@@ -337,7 +339,7 @@ h1.trends {
     height: 11px;
     display: inline-block;
 }
-.services-row .media-group .all-services-link {
+.services-row .media-alt .all-services-link {
 	margin-top: 1.5rem;
 }
 .services-offset-row {
@@ -374,7 +376,6 @@ h1.trends {
 .services-group-details h2 {
 	font-family: "Roboto Mono";
 	font-weight: 300;
-	padding-left: 1rem;
 }
 .services-group-details .back a {
 	color: #5c5c5c;
@@ -409,12 +410,33 @@ h1.trends {
 	padding-left: 1.5rem;
 	vertical-align: middle;
 }
-.services-group-popular .popular-services {
+.services-group-popular .popular-services.big {
 	border-bottom: 1px solid #ddd;
+}
+.services-group-popular .popular-services {	
 	margin-bottom: 2rem;
 }
 .services-group-popular .popular-services h4 {
 	font-size: 1.25rem;
+}
+.services-group-popular .popular-services.small {
+	padding-top: 1rem;
+}
+.services-group-popular .media-alt {
+    padding-bottom: 1rem;
+}
+.services-group-popular .media-alt .media-left img {
+    height: 50px;
+	display: block;
+}
+.services-group-popular .media-alt .media-heading  h4 {
+    display: inline-block;
+    font-size: 1.2rem;
+	position: relative;
+    top: 0.3rem;
+}
+.services-group-popular .media-alt .media-heading {
+    margin-bottom: 0.5rem;
 }
 /* mobile custom */
 .mobile a {

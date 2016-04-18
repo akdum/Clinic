@@ -1,7 +1,7 @@
 <div class="row services-row">
     <div *ngFor="#serviceGroup of _servicesData; #i=index">
         <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
-            <div class='media-group'>
+            <div class='media-alt'>
                 <div class="media-heading" (click)="gotoServicesGroupDetail(serviceGroup)">
                     <a class='media-left'>
                         <img [src]="serviceGroup.imageBase64" />
