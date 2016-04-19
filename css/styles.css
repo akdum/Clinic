@@ -42,6 +42,8 @@ div.media {
 }
 div.media .media-body {
 	padding-left: 0.6rem;
+	font-family: "Open Sans";
+	font-size: 0.9rem;
 }
 div.media .media-body span {
 	font-weight: 400;
@@ -58,8 +60,11 @@ div.media .media-body span:after {
 	vertical-align: middle;
 }
 div.media .media-heading {
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	font-weight: 500;
+	font-size: 1.3rem;
+	position: relative;
+	top: 0.6rem;
 }
 div.media .media-object {
 	width: 72px;
@@ -73,6 +78,8 @@ div.media-alt .media-left {
 }
 div.media-alt .media-body {
     padding-bottom: 1rem;
+	font-family: "Open Sans";
+	font-size: 0.9rem;
 }
 /* main page */
 /* main page rows */
@@ -316,10 +323,10 @@ h1.trends {
     display: inline-block;
     position: relative;
     top: 1rem;
-    width: 12rem;
+    font-size: 1.3rem;
 }
 .services-row .media-alt .media-heading {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .services-row .media-alt .media-left img {
     height: 72px;
@@ -470,6 +477,15 @@ h1.trends {
 }
 .services-group-text .text {
 	margin-top: 1rem;
+}
+.services-group-text img {
+	width: 100%;
+}
+.services-group-text .text img {
+	margin-bottom: 1rem;
+}
+.services-group-text .text-raw {
+	font-family: "Open Sans";
 }
 /* mobile custom */
 .mobile a {
