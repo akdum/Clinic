@@ -1,6 +1,13 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input, Pipe, PipeTransform } from 'angular2/core';
 import { IText } from '../../../data-interfaces/itext';
 import { TextViewModel } from '../../../data-interfaces/text.viewmodel';
+
+@Pipe({name: "escapeHtml", pure: false})
+class EscapeHtmlPipt implements PipeTransform {
+    transform(value:any, args: any[]=[]) {
+        
+    }
+}
 
 @Component({
     selector: 'services-group-text-component',

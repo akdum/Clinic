@@ -11,7 +11,7 @@ System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], fu
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, text_viewmodel_1;
-    var ServicesGroupTextComponent;
+    var EscapeHtmlPipt, ServicesGroupTextComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,6 +21,18 @@ System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], fu
                 text_viewmodel_1 = text_viewmodel_1_1;
             }],
         execute: function() {
+            EscapeHtmlPipt = (function () {
+                function EscapeHtmlPipt() {
+                }
+                EscapeHtmlPipt.prototype.transform = function (value, args) {
+                    if (args === void 0) { args = []; }
+                };
+                EscapeHtmlPipt = __decorate([
+                    core_1.Pipe({ name: "escapeHtml", pure: false }), 
+                    __metadata('design:paramtypes', [])
+                ], EscapeHtmlPipt);
+                return EscapeHtmlPipt;
+            }());
             ServicesGroupTextComponent = (function () {
                 function ServicesGroupTextComponent() {
                     this._text = [];

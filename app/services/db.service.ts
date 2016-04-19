@@ -71,7 +71,7 @@ export class DbService {
     getServiceGroups() {
         var params = {
             "TableName": "ServiceGroups",
-            "AttributesToGet": ["Title", "Body", "ImageBase64", "Url"]
+            "AttributesToGet": ["Title", "Body", "IconName", "Url"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -81,7 +81,7 @@ export class DbService {
                     for (var index = 0; index < data.Count; index++) {
                         returnItems.push(new ServicesGroup(data.Items[index].Title.S, 
                                                         data.Items[index].Body.S,
-                                                        data.Items[index].ImageBase64.S,
+                                                        CONFIG.DB.ICONS_URL + data.Items[index].IconName.S,
                                                         data.Items[index].Url.S,
                                                         []));
                     }
@@ -110,7 +110,7 @@ export class DbService {
                 if (data.Count > 0) {
                     returnData = new ServicesGroup(data.Items[0].Title.S,
                                                    data.Items[0].Body.S,
-                                                   data.Items[0].ImageBase64.S,
+                                                   CONFIG.DB.ICONS_URL + data.Items[0].IconName.S,
                                                    data.Items[0].Url.S, []);
                     let textList = data.Items[0].Text.L;
                     for (var index = 0; index < textList.length; index=index+3) {

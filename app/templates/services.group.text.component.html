@@ -12,11 +12,10 @@
                             <img [src]="image" />                            
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 text-raw">{{text.value}}</div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 text-raw" [innerHTML]="text.value"></div>
                 </div>
             </div>
-            <div *ngIf="text.imagesBase64.length===0" class="text-raw">
-                {{text.value}}
+            <div *ngIf="text.imagesBase64.length===0" class="text-raw" [innerHTML]="text.value">
             </div>
         </div>
     </div>

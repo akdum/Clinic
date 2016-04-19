@@ -6,10 +6,10 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             ServicesGroup = (function () {
-                function ServicesGroup(title, body, imageBase64, url, text) {
+                function ServicesGroup(title, body, imageUrl, url, text) {
                     this.title = title;
                     this.body = body;
-                    this.imageBase64 = imageBase64;
+                    this.imageUrl = imageUrl;
                     this.url = url;
                     this.text = text;
                 }

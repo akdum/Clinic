@@ -93,14 +93,14 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "ServiceGroups",
-                        "AttributesToGet": ["Title", "Body", "ImageBase64", "Url"]
+                        "AttributesToGet": ["Title", "Body", "IconName", "Url"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title.S, data.Items[index].Body.S, data.Items[index].ImageBase64.S, data.Items[index].Url.S, []));
+                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title.S, data.Items[index].Body.S, config_1.CONFIG.DB.ICONS_URL + data.Items[index].IconName.S, data.Items[index].Url.S, []));
                                 }
                             }
                             resolve(returnItems);
@@ -125,7 +125,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                         if (err == null) {
                             var returnData = void 0;
                             if (data.Count > 0) {
-                                returnData = new services_group_1.ServicesGroup(data.Items[0].Title.S, data.Items[0].Body.S, data.Items[0].ImageBase64.S, data.Items[0].Url.S, []);
+                                returnData = new services_group_1.ServicesGroup(data.Items[0].Title.S, data.Items[0].Body.S, config_1.CONFIG.DB.ICONS_URL + data.Items[0].IconName.S, data.Items[0].Url.S, []);
                                 var textList = data.Items[0].Text.L;
                                 for (var index = 0; index < textList.length; index = index + 3) {
                                     if ((index + 2) < textList.length) {

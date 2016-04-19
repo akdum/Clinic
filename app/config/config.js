@@ -11,7 +11,10 @@ System.register([], function(exports_1, context_1) {
                         'ACCESS_KEY_ID': 'AKIAJC3EFNAY62CGPKUQ',
                         'SECRET_ACCESS_KEY': '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'
                     },
-                    "REGION": "us-west-2"
+                    "REGION": "us-west-2",
+                    "BUCKETS": {
+                        "ICONS_URL": "https://s3-us-west-2.amazonaws.com/clinic-psi-assets/icons/"
+                    }
                 }
             });
         }
