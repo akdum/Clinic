@@ -1,7 +1,7 @@
 export class Service {
     constructor(public title: string, 
                 public body: string, 
-                public imageBase64: string, 
+                public iconUrl: string, 
                 public group: string, 
                 public isPopular: boolean ) {}
 }

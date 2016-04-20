@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group'], function(exports_1, context_1) {
+System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', './utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, config_1, news_1, service_1, contacts_1, services_group_1;
+    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, utilities_service_1;
     var DbService;
     return {
         setters:[
@@ -31,10 +31,14 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
             },
             function (services_group_1_1) {
                 services_group_1 = services_group_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             DbService = (function () {
-                function DbService() {
+                function DbService(_utilities) {
+                    this._utilities = _utilities;
                     AWS.config.update({ accessKeyId: config_1.CONFIG.DB.READ.ACCESS_KEY_ID, secretAccessKey: config_1.CONFIG.DB.READ.SECRET_ACCESS_KEY });
                     AWS.config.region = config_1.CONFIG.DB.REGION;
                     this._dynamoDB = new AWS.DynamoDB();
@@ -72,14 +76,14 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "Services",
-                        "AttributesToGet": ["Title", "Body", "ImageBase64", "Group", "IsPopular"]
+                        "AttributesToGet": ["Title", "Body", "IconName", "Group", "IsPopular"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new service_1.Service(data.Items[index].Title.S, data.Items[index].Body.S, data.Items[index].ImageBase64.S, data.Items[index].Group.S, data.Items[index].IsPopular.BOOL));
+                                    returnItems.push(new service_1.Service(data.Items[index].Title ? data.Items[index].Title.S : "", data.Items[index].Body ? data.Items[index].Body.S : "", data.Items[index].IconName ? config_1.CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S : "", data.Items[index].Group ? data.Items[index].Group.S : "", data.Items[index].IsPopular ? data.Items[index].IsPopular.BOOL : false));
                                 }
                             }
                             resolve(returnItems);
@@ -100,7 +104,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title.S, data.Items[index].Body.S, config_1.CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S, data.Items[index].Url.S, []));
+                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title ? data.Items[index].Title.S : "", data.Items[index].Body ? data.Items[index].Body.S : "", data.Items[index].IconName ? config_1.CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S : "", data.Items[index].IconName ? data.Items[index].Url.S : "", []));
                                 }
                             }
                             resolve(returnItems);
@@ -193,7 +197,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                 };
                 DbService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [utilities_service_1.UtilitiesService])
                 ], DbService);
                 return DbService;
             }());

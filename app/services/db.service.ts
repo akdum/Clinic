@@ -5,12 +5,13 @@ import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { IText } from '../data-interfaces/itext';
+import { UtilitiesService } from './utilities.service';
 
 @Injectable()
 export class DbService {
     private _dynamoDB: any;
     
-    constructor() {
+    constructor(private _utilities: UtilitiesService) {
         AWS.config.update({accessKeyId: CONFIG.DB.READ.ACCESS_KEY_ID, secretAccessKey: CONFIG.DB.READ.SECRET_ACCESS_KEY});
         AWS.config.region = CONFIG.DB.REGION;
         
@@ -46,7 +47,7 @@ export class DbService {
     getServicesItems() {
         var params = {
             "TableName": "Services",
-            "AttributesToGet": ["Title", "Body", "ImageBase64","Group", "IsPopular"]
+            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -54,11 +55,11 @@ export class DbService {
                 let returnItems: Service[] = [];
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnItems.push(new Service(data.Items[index].Title.S, 
-                                                        data.Items[index].Body.S,
-                                                        data.Items[index].ImageBase64.S,
-                                                        data.Items[index].Group.S,
-                                                        data.Items[index].IsPopular.BOOL));
+                        returnItems.push(new Service(data.Items[index].Title ? data.Items[index].Title.S : "", 
+                                                     data.Items[index].Body ? data.Items[index].Body.S : "",
+                                                     data.Items[index].IconName ? CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S: "",
+                                                     data.Items[index].Group ? data.Items[index].Group.S : "",
+                                                     data.Items[index].IsPopular ? data.Items[index].IsPopular.BOOL : false));
                     }
                 }
                 resolve(returnItems);
@@ -79,10 +80,10 @@ export class DbService {
                 let returnItems: ServicesGroup[] = [];
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnItems.push(new ServicesGroup(data.Items[index].Title.S, 
-                                                        data.Items[index].Body.S,
-                                                        CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S,
-                                                        data.Items[index].Url.S,
+                        returnItems.push(new ServicesGroup(data.Items[index].Title ? data.Items[index].Title.S : "", 
+                                                           data.Items[index].Body ? data.Items[index].Body.S : "",
+                                                           data.Items[index].IconName ? CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S : "",
+                                                           data.Items[index].IconName ? data.Items[index].Url.S : "",
                                                         []));
                     }
                 }

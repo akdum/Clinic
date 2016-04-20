@@ -21,6 +21,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             UtilitiesService = (function () {
                 function UtilitiesService() {
                 }
+                UtilitiesService.prototype.getStringFromField = function (field) {
+                    return field ? field.S : "";
+                };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
