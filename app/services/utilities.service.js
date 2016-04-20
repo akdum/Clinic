@@ -24,6 +24,34 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 UtilitiesService.prototype.getStringFromField = function (field) {
                     return field ? field.S : "";
                 };
+                ;
+                UtilitiesService.prototype.getNumberFromField = function (field) {
+                    return field ? field.N : 0;
+                };
+                ;
+                UtilitiesService.prototype.getBooleanFromField = function (field) {
+                    return field ? field.BOOL : false;
+                };
+                UtilitiesService.prototype.getListFromField = function (field) {
+                    return field ? field.L : [];
+                };
+                UtilitiesService.prototype.getListTextFromField = function (field) {
+                    var _this = this;
+                    if (field) {
+                        var textList = field.L;
+                        var returnList = [];
+                        for (var index = 0; index < textList.length; index = index + 3) {
+                            if ((index + 2) < textList.length) {
+                                returnList.push({ heading: this.getStringFromField(textList[index]),
+                                    value: this.getStringFromField(textList[index + 1]),
+                                    imagesBase64: this.getListFromField(textList[index + 2]).map(function (val) { return _this.getStringFromField(val); }) });
+                            }
+                        }
+                        return returnList;
+                    }
+                    else
+                        return [];
+                };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

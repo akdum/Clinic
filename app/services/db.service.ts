@@ -29,7 +29,9 @@ export class DbService {
                 let returnItems: News[] = [];
                 if (data.Count>0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnItems.push(new News(data.Items[index].Title.S, "", data.Items[index].Date.N));
+                        returnItems.push(new News(this._utilities.getStringFromField(data.Items[index].Title),
+                                                  "", 
+                                                  this._utilities.getNumberFromField(data.Items[index].Date)));
                     }
                     returnItems.sort(function(a:News,b:News) {
                         if (a.rawdate < b.rawdate) return 1;
@@ -39,7 +41,7 @@ export class DbService {
                 }
                 resolve(returnItems);
             } else {
-                reject(err);
+                console.log(err);
             }
         }));
     }
@@ -55,11 +57,11 @@ export class DbService {
                 let returnItems: Service[] = [];
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnItems.push(new Service(data.Items[index].Title ? data.Items[index].Title.S : "", 
-                                                     data.Items[index].Body ? data.Items[index].Body.S : "",
-                                                     data.Items[index].IconName ? CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S: "",
-                                                     data.Items[index].Group ? data.Items[index].Group.S : "",
-                                                     data.Items[index].IsPopular ? data.Items[index].IsPopular.BOOL : false));
+                        returnItems.push(new Service(this._utilities.getStringFromField(data.Items[index].Title), 
+                                                     this._utilities.getStringFromField(data.Items[index].Body),
+                                                     CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[index].IconName),
+                                                     this._utilities.getStringFromField(data.Items[index].Group),
+                                                     this._utilities.getBooleanFromField(data.Items[index].IsPopular)));
                     }
                 }
                 resolve(returnItems);
@@ -80,10 +82,10 @@ export class DbService {
                 let returnItems: ServicesGroup[] = [];
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnItems.push(new ServicesGroup(data.Items[index].Title ? data.Items[index].Title.S : "", 
-                                                           data.Items[index].Body ? data.Items[index].Body.S : "",
-                                                           data.Items[index].IconName ? CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S : "",
-                                                           data.Items[index].IconName ? data.Items[index].Url.S : "",
+                        returnItems.push(new ServicesGroup(this._utilities.getStringFromField(data.Items[index].Title), 
+                                                           this._utilities.getStringFromField(data.Items[index].Body),
+                                                           CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[index].IconName),
+                                                           this._utilities.getStringFromField(data.Items[index].IconName),
                                                         []));
                     }
                 }
@@ -109,18 +111,11 @@ export class DbService {
             if (err == null) {
                 let returnData : ServicesGroup;
                 if (data.Count > 0) {
-                    returnData = new ServicesGroup(data.Items[0].Title.S,
-                                                   data.Items[0].Body.S,
-                                                   CONFIG.DB.BUCKETS.ICONS_URL + data.Items[0].IconName.S,
-                                                   data.Items[0].Url.S, []);
-                    let textList = data.Items[0].Text.L;
-                    for (var index = 0; index < textList.length; index=index+3) {
-                        if ((index + 2) < textList.length) {
-                            returnData.text.push({ heading:textList[index].S, 
-                                                   value: textList[index+1].S, 
-                                                   imagesBase64:textList[index+2].L.map((val)=>val.S)});  
-                        }                         
-                    }
+                    returnData = new ServicesGroup(this._utilities.getStringFromField(data.Items[0].Title),
+                                                   this._utilities.getStringFromField(data.Items[0].Body),
+                                                   CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[0].IconName),
+                                                   this._utilities.getStringFromField(data.Items[0].Url), 
+                                                   this._utilities.getListTextFromField(data.Items[0].Text))
                 }
                 resolve(returnData);
             } else {

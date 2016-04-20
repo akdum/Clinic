@@ -55,7 +55,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new news_1.News(data.Items[index].Title.S, "", data.Items[index].Date.N));
+                                    returnItems.push(new news_1.News(_this._utilities.getStringFromField(data.Items[index].Title), "", _this._utilities.getNumberFromField(data.Items[index].Date)));
                                 }
                                 returnItems.sort(function (a, b) {
                                     if (a.rawdate < b.rawdate)
@@ -68,7 +68,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             resolve(returnItems);
                         }
                         else {
-                            reject(err);
+                            console.log(err);
                         }
                     }); });
                 };
@@ -83,7 +83,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new service_1.Service(data.Items[index].Title ? data.Items[index].Title.S : "", data.Items[index].Body ? data.Items[index].Body.S : "", data.Items[index].IconName ? config_1.CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S : "", data.Items[index].Group ? data.Items[index].Group.S : "", data.Items[index].IsPopular ? data.Items[index].IsPopular.BOOL : false));
+                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].IsPopular)));
                                 }
                             }
                             resolve(returnItems);
@@ -104,7 +104,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new services_group_1.ServicesGroup(data.Items[index].Title ? data.Items[index].Title.S : "", data.Items[index].Body ? data.Items[index].Body.S : "", data.Items[index].IconName ? config_1.CONFIG.DB.BUCKETS.ICONS_URL + data.Items[index].IconName.S : "", data.Items[index].IconName ? data.Items[index].Url.S : "", []));
+                                    returnItems.push(new services_group_1.ServicesGroup(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].IconName), []));
                                 }
                             }
                             resolve(returnItems);
@@ -129,15 +129,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                         if (err == null) {
                             var returnData = void 0;
                             if (data.Count > 0) {
-                                returnData = new services_group_1.ServicesGroup(data.Items[0].Title.S, data.Items[0].Body.S, config_1.CONFIG.DB.BUCKETS.ICONS_URL + data.Items[0].IconName.S, data.Items[0].Url.S, []);
-                                var textList = data.Items[0].Text.L;
-                                for (var index = 0; index < textList.length; index = index + 3) {
-                                    if ((index + 2) < textList.length) {
-                                        returnData.text.push({ heading: textList[index].S,
-                                            value: textList[index + 1].S,
-                                            imagesBase64: textList[index + 2].L.map(function (val) { return val.S; }) });
-                                    }
-                                }
+                                returnData = new services_group_1.ServicesGroup(_this._utilities.getStringFromField(data.Items[0].Title), _this._utilities.getStringFromField(data.Items[0].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[0].IconName), _this._utilities.getStringFromField(data.Items[0].Url), _this._utilities.getListTextFromField(data.Items[0].Text));
                             }
                             resolve(returnData);
                         }
