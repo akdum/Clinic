@@ -12,7 +12,7 @@
                     <span>{{serviceGroup.body}}</span>
                 </div>
                 <div class="links">
-                    <a *ngFor="#service of serviceGroup.services" href="#">{{service.title}}</a>
+                    <a *ngFor="#service of serviceGroup.services" (click)="gotoServiceDetails(service)">{{service.title}}</a>
                 </div>
                 <div class="all-services-link">
                     <a class="link-button" (click)="gotoServicesGroupDetail(serviceGroup)">Все услуги</a>
