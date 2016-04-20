@@ -76,14 +76,14 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "Services",
-                        "AttributesToGet": ["Title", "Body", "IconName", "Group", "IsPopular"]
+                        "AttributesToGet": ["Title", "Body", "IconName", "Group", "IsPopular", "Url"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].IsPopular)));
+                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].IsPopular), _this._utilities.getStringFromField(data.Items[index].Url)));
                                 }
                             }
                             resolve(returnItems);

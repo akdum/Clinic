@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../data-interfaces/services.group', './db.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './db.service', './utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,24 @@ System.register(['angular2/core', '../data-interfaces/services.group', './db.ser
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_group_1, db_service_1;
+    var core_1, db_service_1, utilities_service_1;
     var ServicesService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (services_group_1_1) {
-                services_group_1 = services_group_1_1;
-            },
             function (db_service_1_1) {
                 db_service_1 = db_service_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             ServicesService = (function () {
-                function ServicesService(_db) {
+                function ServicesService(_db, _utilities) {
                     this._db = _db;
+                    this._utilities = _utilities;
                     this._services = [];
                     this._serviceGroups = [];
                     this._groupedServices = [];
@@ -127,12 +128,12 @@ System.register(['angular2/core', '../data-interfaces/services.group', './db.ser
                         }
                     }
                     else {
-                        return Promise.resolve(new services_group_1.ServicesGroup("", "", "", "", []));
+                        return Promise.resolve(this._utilities.getBlankServicesGroup());
                     }
                 };
                 ServicesService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [db_service_1.DbService])
+                    __metadata('design:paramtypes', [db_service_1.DbService, utilities_service_1.UtilitiesService])
                 ], ServicesService);
                 return ServicesService;
             }());

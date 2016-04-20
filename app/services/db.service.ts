@@ -49,7 +49,7 @@ export class DbService {
     getServicesItems() {
         var params = {
             "TableName": "Services",
-            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular"]
+            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular", "Url"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -61,7 +61,8 @@ export class DbService {
                                                      this._utilities.getStringFromField(data.Items[index].Body),
                                                      CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[index].IconName),
                                                      this._utilities.getStringFromField(data.Items[index].Group),
-                                                     this._utilities.getBooleanFromField(data.Items[index].IsPopular)));
+                                                     this._utilities.getBooleanFromField(data.Items[index].IsPopular),
+                                                     this._utilities.getStringFromField(data.Items[index].Url)));
                     }
                 }
                 resolve(returnItems);

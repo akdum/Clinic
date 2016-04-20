@@ -2,6 +2,7 @@ import { Injectable } from 'angular2/core';
 import { Service } from '../data-interfaces/service';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { DbService } from './db.service';
+import { UtilitiesService } from './utilities.service';
 
 @Injectable()
 export class ServicesService {
@@ -9,7 +10,7 @@ export class ServicesService {
     private _serviceGroups: ServicesGroup[] = [];
     private _groupedServices: any = [];     
     
-    constructor(private _db: DbService) {
+    constructor(private _db: DbService, private _utilities: UtilitiesService) {
     }
     
     //Get all services.
@@ -101,7 +102,7 @@ export class ServicesService {
                 }.bind(this)));
             }
         } else {
-            return Promise.resolve(new ServicesGroup("","","","",[]));
+            return Promise.resolve(this._utilities.getBlankServicesGroup());
         }
     }
 }

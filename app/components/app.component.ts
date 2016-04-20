@@ -8,6 +8,7 @@ import { MainPageComponent } from './pages/main-page/main.page.component';
 import { ServicesPageComponent } from './pages/services-page/services.page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts.page.component';
 import { ServicesGroupDetailsPageComponent } from './pages/services-details-page/services.group.details.page.component';
+import { ServiceDetailsPageComponent } from './pages/service-details-page/service.details.page.component';
 
 @Component({
     selector:'clinic-app',
@@ -41,6 +42,11 @@ import { ServicesGroupDetailsPageComponent } from './pages/services-details-page
         path: '/services-group-details/:url',
         name: 'ServicesGroupDetailsPage',
         component: ServicesGroupDetailsPageComponent
+    },
+    {
+        path: '/service-details/:url',
+        name: 'ServiceDetailsPage',
+        component: ServiceDetailsPageComponent
     }
 ])
 export class AppComponent {

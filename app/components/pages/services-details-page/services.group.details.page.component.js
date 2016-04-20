@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../data-interfaces/services.group', 'angular2/router', '../../../services/services.service', './services.group.title.component', './services.group.back.component', './services.group.popular.component', './services.group.rest.services.component', './services.group.text.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../../../services/services.service', './services.group.title.component', './services.group.back.component', './services.group.popular.component', './services.group.rest.services.component', './services.group.text.component', '../../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['angular2/core', '../../../data-interfaces/services.group', 'an
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_group_1, router_1, services_service_1, services_group_title_component_1, services_group_back_component_1, services_group_popular_component_1, services_group_rest_services_component_1, services_group_text_component_1;
+    var core_1, router_1, services_service_1, services_group_title_component_1, services_group_back_component_1, services_group_popular_component_1, services_group_rest_services_component_1, services_group_text_component_1, utilities_service_1;
     var ServicesGroupDetailsPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (services_group_1_1) {
-                services_group_1 = services_group_1_1;
             },
             function (router_1_1) {
                 router_1 = router_1_1;
@@ -40,13 +37,17 @@ System.register(['angular2/core', '../../../data-interfaces/services.group', 'an
             },
             function (services_group_text_component_1_1) {
                 services_group_text_component_1 = services_group_text_component_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             ServicesGroupDetailsPageComponent = (function () {
-                function ServicesGroupDetailsPageComponent(_routeParams, _servicesService) {
+                function ServicesGroupDetailsPageComponent(_routeParams, _servicesService, _utilities) {
                     this._routeParams = _routeParams;
                     this._servicesService = _servicesService;
-                    this._servicesGroup = new services_group_1.ServicesGroup("", "", "", "", []);
+                    this._utilities = _utilities;
+                    this._servicesGroup = _utilities.getBlankServicesGroup();
                 }
                 ServicesGroupDetailsPageComponent.prototype.ngOnInit = function () {
                     var serviceGroupUrl = this._routeParams.get('url');
@@ -67,7 +68,7 @@ System.register(['angular2/core', '../../../data-interfaces/services.group', 'an
                             services_group_rest_services_component_1.ServicesGroupRestServicesComponent,
                             services_group_text_component_1.ServicesGroupTextComponent]
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, services_service_1.ServicesService])
+                    __metadata('design:paramtypes', [router_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])
                 ], ServicesGroupDetailsPageComponent);
                 return ServicesGroupDetailsPageComponent;
             }());

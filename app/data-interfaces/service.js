@@ -6,12 +6,13 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Service = (function () {
-                function Service(title, body, iconUrl, group, isPopular) {
+                function Service(title, body, iconUrl, group, isPopular, url) {
                     this.title = title;
                     this.body = body;
                     this.iconUrl = iconUrl;
                     this.group = group;
                     this.isPopular = isPopular;
+                    this.url = url;
                 }
                 return Service;
             }());

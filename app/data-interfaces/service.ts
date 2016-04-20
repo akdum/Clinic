@@ -3,5 +3,6 @@ export class Service {
                 public body: string, 
                 public iconUrl: string, 
                 public group: string, 
-                public isPopular: boolean ) {}
+                public isPopular: boolean,
+                public url: string ) {}
 }

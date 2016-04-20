@@ -7,6 +7,7 @@ import { ServicesGroupBackComponent } from './services.group.back.component';
 import { ServicesGroupPopularComponent } from './services.group.popular.component';
 import { ServicesGroupRestServicesComponent } from './services.group.rest.services.component';
 import { ServicesGroupTextComponent } from './services.group.text.component';
+import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
     templateUrl: '../app/templates/services.group.details.page.component.html',
@@ -19,8 +20,10 @@ import { ServicesGroupTextComponent } from './services.group.text.component';
 export class ServicesGroupDetailsPageComponent implements OnInit {
     private _servicesGroup: ServicesGroup;
     
-    constructor(private _routeParams: RouteParams, private _servicesService: ServicesService) { 
-        this._servicesGroup = new ServicesGroup("","","","",[]);
+    constructor(private _routeParams: RouteParams, 
+                private _servicesService: ServicesService,
+                private _utilities: UtilitiesService) { 
+        this._servicesGroup = _utilities.getBlankServicesGroup();
     }
 
     ngOnInit() {
