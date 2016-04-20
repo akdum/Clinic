@@ -1,4 +1,5 @@
 import { Component, OnInit} from 'angular2/core';
+import { Service } from '../../../data-interfaces/service';
 import { ServicesService } from '../../../services/services.service';
 import { ServicesGroup } from '../../../data-interfaces/services.group';
 import { Router } from 'angular2/router';
@@ -20,6 +21,11 @@ export class ServicesPageComponent implements OnInit {
     
     gotoServicesGroupDetail(servicesGroup: ServicesGroup){
         let link = ['ServicesGroupDetailsPage', { url: servicesGroup.url }];
+        this._router.navigate(link);
+    }
+    
+    gotoServiceDetails(service: Service) {
+        let link = ['ServiceDetailsPage', { url: service.url }];
         this._router.navigate(link);
     }
     

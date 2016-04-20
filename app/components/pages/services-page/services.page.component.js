@@ -38,6 +38,10 @@ System.register(['angular2/core', '../../../services/services.service', 'angular
                     var link = ['ServicesGroupDetailsPage', { url: servicesGroup.url }];
                     this._router.navigate(link);
                 };
+                ServicesPageComponent.prototype.gotoServiceDetails = function (service) {
+                    var link = ['ServiceDetailsPage', { url: service.url }];
+                    this._router.navigate(link);
+                };
                 ServicesPageComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../app/templates/services.page.component.html'

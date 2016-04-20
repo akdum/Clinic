@@ -338,6 +338,7 @@ h1.trends {
 }
 .services-row .media-alt .links a:hover {
     text-decoration: none;
+	cursor: pointer;
 }
 .services-row .media-alt .links a::after {
     background: url("../assets/arrow-right-small.png") no-repeat;
