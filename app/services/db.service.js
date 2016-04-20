@@ -104,7 +104,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new services_group_1.ServicesGroup(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].IconName), []));
+                                    returnItems.push(new services_group_1.ServicesGroup(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Url), []));
                                 }
                             }
                             resolve(returnItems);

@@ -85,7 +85,7 @@ export class DbService {
                         returnItems.push(new ServicesGroup(this._utilities.getStringFromField(data.Items[index].Title), 
                                                            this._utilities.getStringFromField(data.Items[index].Body),
                                                            CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[index].IconName),
-                                                           this._utilities.getStringFromField(data.Items[index].IconName),
+                                                           this._utilities.getStringFromField(data.Items[index].Url),
                                                         []));
                     }
                 }
