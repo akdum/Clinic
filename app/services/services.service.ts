@@ -18,7 +18,7 @@ export class ServicesService {
         if (this._services.length > 0) {
             return Promise.resolve(this._services);
         } else {
-            return new Promise(resolve=> this._db.getServicesItems().then(function(data){
+            return new Promise(resolve=> this._db.getServices().then(function(data){
                 this._services = data;
                 resolve(this._services);
             }.bind(this)).catch(function(err:any) {
@@ -31,7 +31,7 @@ export class ServicesService {
         if (this._services.length > 0) {
             return Promise.resolve(this._services.filter((value)=>value.isPopular));
         } else {
-            return new Promise(resolve=> this._db.getServicesItems().then(function(data){
+            return new Promise(resolve=> this._db.getServices().then(function(data){
                 this._services = data;
                 resolve(this._services.filter((value)=>value.isPopular));
             }.bind(this)).catch(function(err:any) {

@@ -14,12 +14,10 @@ export class NewsService {
             return Promise.resolve(this.getNewsItemsWithLimit(this.newsList));
         } else {
             // query news.
-            return new Promise(resolve=> this._db.getNewsItems().then(function(data){
+            return new Promise(resolve=> this._db.getNews().then(function(data){
                 this.newsList = data;
                 resolve(this.getNewsItemsWithLimit(this.newsList));
-            }.bind(this)).catch(function(err:any) {
-                console.log(err);
-            }));
+            }.bind(this)));
         }
     }
     

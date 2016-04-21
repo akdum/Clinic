@@ -18,7 +18,7 @@ export class DbService {
         this._dynamoDB = new AWS.DynamoDB();
     };
     
-    getNewsItems() {
+    getNews():Promise<News[]> {
         var params = {
             "TableName": "News",
             "AttributesToGet": ["Title", "Date"]
@@ -46,7 +46,7 @@ export class DbService {
         }));
     }
     
-    getServicesItems() {
+    getServices():Promise<Service[]> {
         var params = {
             "TableName": "Services",
             "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular", "Url"]
@@ -73,7 +73,7 @@ export class DbService {
         }));
     }
     
-    getServiceGroups() {
+    getServiceGroups():Promise<ServicesGroup[]> {
         var params = {
             "TableName": "ServiceGroups",
             "AttributesToGet": ["Title", "Body", "IconName", "Url"]
@@ -156,7 +156,7 @@ export class DbService {
         }));
     }
     
-    getContacts() {
+    getContacts():Promise<Contacts> {
         var params = {
             "TableName": "Contacts",
             "AttributesToGet": ["CityPhone", "Address", "MobilePhone", "VkGroupAddress", "Location", "Baloon", "WorkHours"]
@@ -179,7 +179,7 @@ export class DbService {
         }));
     }
     
-    getSpecialOffers() {
+    getSpecialOffers():Promise<String[]> {
         var params={
             "TableName": "Special-offers",
             "KeyConditionExpression": "Title = :title and StartDate <= :date",

@@ -33,12 +33,10 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                     }
                     else {
                         // query news.
-                        return new Promise(function (resolve) { return _this._db.getNewsItems().then(function (data) {
+                        return new Promise(function (resolve) { return _this._db.getNews().then(function (data) {
                             this.newsList = data;
                             resolve(this.getNewsItemsWithLimit(this.newsList));
-                        }.bind(_this)).catch(function (err) {
-                            console.log(err);
-                        }); });
+                        }.bind(_this)); });
                     }
                 };
                 NewsService.prototype.getNewsItemsWithLimit = function (newsItems) {

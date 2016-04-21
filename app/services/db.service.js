@@ -44,7 +44,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     this._dynamoDB = new AWS.DynamoDB();
                 }
                 ;
-                DbService.prototype.getNewsItems = function () {
+                DbService.prototype.getNews = function () {
                     var _this = this;
                     var params = {
                         "TableName": "News",
@@ -72,7 +72,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                         }
                     }); });
                 };
-                DbService.prototype.getServicesItems = function () {
+                DbService.prototype.getServices = function () {
                     var _this = this;
                     var params = {
                         "TableName": "Services",

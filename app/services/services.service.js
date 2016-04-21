@@ -39,7 +39,7 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                         return Promise.resolve(this._services);
                     }
                     else {
-                        return new Promise(function (resolve) { return _this._db.getServicesItems().then(function (data) {
+                        return new Promise(function (resolve) { return _this._db.getServices().then(function (data) {
                             this._services = data;
                             resolve(this._services);
                         }.bind(_this)).catch(function (err) {
@@ -53,7 +53,7 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                         return Promise.resolve(this._services.filter(function (value) { return value.isPopular; }));
                     }
                     else {
-                        return new Promise(function (resolve) { return _this._db.getServicesItems().then(function (data) {
+                        return new Promise(function (resolve) { return _this._db.getServices().then(function (data) {
                             this._services = data;
                             resolve(this._services.filter(function (value) { return value.isPopular; }));
                         }.bind(_this)).catch(function (err) {
