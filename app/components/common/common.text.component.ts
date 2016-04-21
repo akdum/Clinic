@@ -9,6 +9,12 @@ import { CONFIG } from '../../config/config';
 })
 export class CommonTextComponent {
     private _text: TextViewModel[] = [];
+    private _isService: boolean = false;
+    
+    @Input()
+    set isService(isService:boolean) {
+        this._isService = isService;
+    }
     
     @Input()
     set text(text:IText[]) {
@@ -17,7 +23,10 @@ export class CommonTextComponent {
                                                           val.value, 
                                                           false, 
                                                           val.imageNames.map(m=>CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m)));
-        }
+            if (this._isService) {
+                this._text[0].isExpanded = true;
+            }
+        }       
     }
     
     toggle(text:TextViewModel) {

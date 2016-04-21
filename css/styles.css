@@ -147,6 +147,9 @@ div.media-alt .media-body {
 .common-text img {
 	width: 100%;
 }
+.common-text ol li {
+	padding-bottom: 1rem;
+}
 .common-text .text img {
 	margin-bottom: 1rem;
 }
