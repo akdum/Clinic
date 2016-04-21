@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../data-interfaces/text.viewmodel'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], fu
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, text_viewmodel_1;
-    var EscapeHtmlPipt, ServicesGroupTextComponent;
+    var CommonTextComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,23 +21,11 @@ System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], fu
                 text_viewmodel_1 = text_viewmodel_1_1;
             }],
         execute: function() {
-            EscapeHtmlPipt = (function () {
-                function EscapeHtmlPipt() {
-                }
-                EscapeHtmlPipt.prototype.transform = function (value, args) {
-                    if (args === void 0) { args = []; }
-                };
-                EscapeHtmlPipt = __decorate([
-                    core_1.Pipe({ name: "escapeHtml", pure: false }), 
-                    __metadata('design:paramtypes', [])
-                ], EscapeHtmlPipt);
-                return EscapeHtmlPipt;
-            }());
-            ServicesGroupTextComponent = (function () {
-                function ServicesGroupTextComponent() {
+            CommonTextComponent = (function () {
+                function CommonTextComponent() {
                     this._text = [];
                 }
-                Object.defineProperty(ServicesGroupTextComponent.prototype, "text", {
+                Object.defineProperty(CommonTextComponent.prototype, "text", {
                     set: function (text) {
                         if (text && text.length > 0) {
                             this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imagesBase64); });
@@ -46,25 +34,25 @@ System.register(['angular2/core', '../../../data-interfaces/text.viewmodel'], fu
                     enumerable: true,
                     configurable: true
                 });
-                ServicesGroupTextComponent.prototype.toggle = function (text) {
+                CommonTextComponent.prototype.toggle = function (text) {
                     text.isExpanded = !text.isExpanded;
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Array), 
                     __metadata('design:paramtypes', [Array])
-                ], ServicesGroupTextComponent.prototype, "text", null);
-                ServicesGroupTextComponent = __decorate([
+                ], CommonTextComponent.prototype, "text", null);
+                CommonTextComponent = __decorate([
                     core_1.Component({
-                        selector: 'services-group-text-component',
-                        templateUrl: '../app/templates/services.group.text.component.html'
+                        selector: 'common-text-component',
+                        templateUrl: '../app/templates/common.text.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ServicesGroupTextComponent);
-                return ServicesGroupTextComponent;
+                ], CommonTextComponent);
+                return CommonTextComponent;
             }());
-            exports_1("ServicesGroupTextComponent", ServicesGroupTextComponent);
+            exports_1("CommonTextComponent", CommonTextComponent);
         }
     }
 });
-//# sourceMappingURL=services.group.text.component.js.map
+//# sourceMappingURL=common.text.component.js.map

@@ -6,7 +6,7 @@ import { ServicesGroupTitleComponent } from './services.group.title.component';
 import { ServicesGroupBackComponent } from './services.group.back.component';
 import { ServicesGroupPopularComponent } from './services.group.popular.component';
 import { ServicesGroupRestServicesComponent } from './services.group.rest.services.component';
-import { ServicesGroupTextComponent } from './services.group.text.component';
+import { CommonTextComponent } from '../../common/common.text.component';
 import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { UtilitiesService } from '../../../services/utilities.service';
                  ServicesGroupBackComponent, 
                  ServicesGroupPopularComponent, 
                  ServicesGroupRestServicesComponent,
-                 ServicesGroupTextComponent]
+                 CommonTextComponent]
 })
 export class ServicesGroupDetailsPageComponent implements OnInit {
     private _servicesGroup: ServicesGroup;
