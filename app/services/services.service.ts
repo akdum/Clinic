@@ -104,12 +104,7 @@ export class ServicesService {
                 return new Promise(resolve=>this._db.getServicesGroupDetailsByName(services.title).then(function(data) {
                     services = data;
                     services["services"] = this._services.filter((val)=>val.group === services.title);
-                    let index = this._serviceGroups.findIndex((val)=>val.url === url);
-                    if (index > -1) {
-                        this._serviceGroups[index] = services;
-                    } else {
-                        this._serviceGroups.push(services);
-                    }
+                    this._utilities.replaceOrAddItemInArrayByUrl(this._serviceGroups, services, url);
                     resolve(services);
                 }.bind(this)));
             }
@@ -120,10 +115,19 @@ export class ServicesService {
     
     tryGetService(url:string):Promise<Service> {
         let service: Service = this._services.find((val)=>val.url === url);
+        
         if (service) {
-            return Promise.resolve(service);
+            if (service.text.length > 0) {
+                return Promise.resolve(service);
+            } else {
+                return new Promise(resolve=>this._db.getServiceDetailsByName(service.title).then(function (data){
+                    service = data;
+                    this._utilities.replaceOrAddItemInArrayByUrl(this._services, service, url);
+                    resolve(service);
+                }.bind(this)));
+            }
         } else {
-            return Promise.resolve(this._utilities.getBlankService());
+            return Promise.resolve(this._utilities.getBlankService());            
         }
     }
 }

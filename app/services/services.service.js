@@ -129,13 +129,7 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                             return new Promise(function (resolve) { return _this._db.getServicesGroupDetailsByName(services.title).then(function (data) {
                                 services = data;
                                 services["services"] = this._services.filter(function (val) { return val.group === services.title; });
-                                var index = this._serviceGroups.findIndex(function (val) { return val.url === url; });
-                                if (index > -1) {
-                                    this._serviceGroups[index] = services;
-                                }
-                                else {
-                                    this._serviceGroups.push(services);
-                                }
+                                this._utilities.replaceOrAddItemInArrayByUrl(this._serviceGroups, services, url);
                                 resolve(services);
                             }.bind(_this)); });
                         }
@@ -145,9 +139,19 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                     }
                 };
                 ServicesService.prototype.tryGetService = function (url) {
+                    var _this = this;
                     var service = this._services.find(function (val) { return val.url === url; });
                     if (service) {
-                        return Promise.resolve(service);
+                        if (service.text.length > 0) {
+                            return Promise.resolve(service);
+                        }
+                        else {
+                            return new Promise(function (resolve) { return _this._db.getServiceDetailsByName(service.title).then(function (data) {
+                                service = data;
+                                this._utilities.replaceOrAddItemInArrayByUrl(this._services, service, url);
+                                resolve(service);
+                            }.bind(_this)); });
+                        }
                     }
                     else {
                         return Promise.resolve(this._utilities.getBlankService());

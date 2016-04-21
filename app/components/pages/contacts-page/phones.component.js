@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../data-interfaces/contacts', '../../../services/contacts.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../services/contacts.service', '../../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,25 @@ System.register(['angular2/core', '../../../data-interfaces/contacts', '../../..
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contacts_1, contacts_service_1;
+    var core_1, contacts_service_1, utilities_service_1;
     var PhonesComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (contacts_1_1) {
-                contacts_1 = contacts_1_1;
-            },
             function (contacts_service_1_1) {
                 contacts_service_1 = contacts_service_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             PhonesComponent = (function () {
-                function PhonesComponent(_contactsService) {
+                function PhonesComponent(_contactsService, _utilities) {
                     this._contactsService = _contactsService;
-                    this._contact = new contacts_1.Contacts("", "", [], [], "", "", "");
+                    this._utilities = _utilities;
+                    this._contact = this._utilities.getBlankContacts();
                 }
                 PhonesComponent.prototype.ngOnInit = function () {
                     this._contactsService.getContacts().then(function (data) {
@@ -39,7 +40,7 @@ System.register(['angular2/core', '../../../data-interfaces/contacts', '../../..
                         selector: 'phones-component',
                         templateUrl: '../app/templates/phones.component.html'
                     }), 
-                    __metadata('design:paramtypes', [contacts_service_1.ContactsService])
+                    __metadata('design:paramtypes', [contacts_service_1.ContactsService, utilities_service_1.UtilitiesService])
                 ], PhonesComponent);
                 return PhonesComponent;
             }());

@@ -153,6 +153,12 @@ div.media-alt .media-body {
 .common-text .text-raw {
 	font-family: "Open Sans";
 }
+.common-text .no-padding-top {
+	padding-top: 0rem;
+}
+.common-text .no-margin-top {
+	margin-top: 0rem;
+}
 /* main page */
 /* main page rows */
 .offset-row {

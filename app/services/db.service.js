@@ -83,7 +83,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].IsPopular), _this._utilities.getStringFromField(data.Items[index].Url)));
+                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].IsPopular), _this._utilities.getStringFromField(data.Items[index].Url), []));
                                 }
                             }
                             resolve(returnItems);
@@ -138,6 +138,30 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                         }
                     }); });
                 };
+                DbService.prototype.getServiceDetailsByName = function (name) {
+                    var _this = this;
+                    var params = {
+                        "TableName": "Services",
+                        "KeyConditionExpression": "Title = :title",
+                        "ExpressionAttributeValues": {
+                            ":title": {
+                                S: name
+                            }
+                        }
+                    };
+                    return new Promise(function (resolve, reject) { return _this._dynamoDB.query(params, function (err, data) {
+                        if (err == null) {
+                            var returnData = void 0;
+                            if (data.Count > 0) {
+                                returnData = new service_1.Service(_this._utilities.getStringFromField(data.Items[0].Title), _this._utilities.getStringFromField(data.Items[0].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[0].IconName), _this._utilities.getStringFromField(data.Items[0].Group), _this._utilities.getBooleanFromField(data.Items[0].IsPopular), _this._utilities.getStringFromField(data.Items[0].Url), _this._utilities.getListTextFromField(data.Items[0].Text));
+                            }
+                            resolve(returnData);
+                        }
+                        else {
+                            console.log(err);
+                        }
+                    }); });
+                };
                 DbService.prototype.getContacts = function () {
                     var _this = this;
                     var params = {
@@ -147,10 +171,10 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             if (data.Count > 0) {
-                                resolve(new contacts_1.Contacts(data.Items[0].CityPhone.S, data.Items[0].MobilePhone.S, [parseFloat(data.Items[0].Location.L[0].N), parseFloat(data.Items[0].Location.L[1].N)], [parseFloat(data.Items[0].Baloon.L[0].N), parseFloat(data.Items[0].Baloon.L[1].N)], data.Items[0].VkGroupAddress.S, data.Items[0].Address.S, data.Items[0].WorkHours.S));
+                                resolve(new contacts_1.Contacts(_this._utilities.getStringFromField(data.Items[0].CityPhone), _this._utilities.getStringFromField(data.Items[0].MobilePhone), [parseFloat(data.Items[0].Location.L[0].N), parseFloat(data.Items[0].Location.L[1].N)], [parseFloat(data.Items[0].Baloon.L[0].N), parseFloat(data.Items[0].Baloon.L[1].N)], _this._utilities.getStringFromField(data.Items[0].VkGroupAddress), _this._utilities.getStringFromField(data.Items[0].Address), _this._utilities.getStringFromField(data.Items[0].WorkHours)));
                             }
                             else
-                                resolve(new contacts_1.Contacts("нет данных", "нет данных", [], [], "нет данных", "нет данных", "нет данных"));
+                                resolve(_this._utilities.getBlankContacts());
                         }
                         else {
                             reject(err);
@@ -177,7 +201,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnData = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnData.push(data.Items[index].ImageBase64.S);
+                                    returnData.push(_this._utilities.getStringFromField(data.Items[index].ImageBase64));
                                 }
                             }
                             resolve(returnData);

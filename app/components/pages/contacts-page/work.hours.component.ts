@@ -1,6 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { Contacts } from '../../../data-interfaces/contacts';
 import { ContactsService } from '../../../services/contacts.service';
+import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
     selector: 'work-hours-component',
@@ -10,8 +11,8 @@ import { ContactsService } from '../../../services/contacts.service';
 export class WorkHoursComponent implements OnInit {
     private _contact: Contacts;
     
-    constructor(private _contactsService:ContactsService) {
-        this._contact = new Contacts("","",[],[],"","","");
+    constructor(private _contactsService:ContactsService, private _utlities: UtilitiesService) {
+        this._contact = this._utlities.getBlankContacts();
      }
 
     ngOnInit() { 

@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../data-interfaces/text.viewmodel'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../data-interfaces/text.viewmodel', '../../config/config'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../data-interfaces/text.viewmodel'], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, text_viewmodel_1;
+    var core_1, text_viewmodel_1, config_1;
     var CommonTextComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', '../../data-interfaces/text.viewmodel'], funct
             },
             function (text_viewmodel_1_1) {
                 text_viewmodel_1 = text_viewmodel_1_1;
+            },
+            function (config_1_1) {
+                config_1 = config_1_1;
             }],
         execute: function() {
             CommonTextComponent = (function () {
@@ -28,7 +31,7 @@ System.register(['angular2/core', '../../data-interfaces/text.viewmodel'], funct
                 Object.defineProperty(CommonTextComponent.prototype, "text", {
                     set: function (text) {
                         if (text && text.length > 0) {
-                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imagesBase64); });
+                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imageNames.map(function (m) { return config_1.CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m; })); });
                         }
                     },
                     enumerable: true,

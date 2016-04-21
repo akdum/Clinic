@@ -1,6 +1,7 @@
 import { Component, Input } from 'angular2/core';
 import { IText } from '../../data-interfaces/itext';
 import { TextViewModel } from '../../data-interfaces/text.viewmodel';
+import { CONFIG } from '../../config/config';
 
 @Component({
     selector: 'common-text-component',
@@ -12,7 +13,10 @@ export class CommonTextComponent {
     @Input()
     set text(text:IText[]) {
         if (text && text.length > 0) {
-            this._text = text.map(val=> new TextViewModel(val.heading, val.value, false, val.imagesBase64));
+            this._text = text.map(val=> new TextViewModel(val.heading, 
+                                                          val.value, 
+                                                          false, 
+                                                          val.imageNames.map(m=>CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m)));
         }
     }
     

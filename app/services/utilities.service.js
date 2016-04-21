@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../data-interfaces/services.group', '../data-interfaces/service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../data-interfaces/services.group', '../data-interfaces/service', '../data-interfaces/contacts'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_group_1, service_1;
+    var core_1, services_group_1, service_1, contacts_1;
     var UtilitiesService;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
             },
             function (service_1_1) {
                 service_1 = service_1_1;
+            },
+            function (contacts_1_1) {
+                contacts_1 = contacts_1_1;
             }],
         execute: function() {
             UtilitiesService = (function () {
@@ -50,7 +53,7 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
                             if ((index + 2) < textList.length) {
                                 returnList.push({ heading: this.getStringFromField(textList[index]),
                                     value: this.getStringFromField(textList[index + 1]),
-                                    imagesBase64: this.getListFromField(textList[index + 2]).map(function (val) { return _this.getStringFromField(val); }) });
+                                    imageNames: this.getListFromField(textList[index + 2]).map(function (val) { return _this.getStringFromField(val); }) });
                             }
                         }
                         return returnList;
@@ -62,7 +65,19 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
                     return new services_group_1.ServicesGroup("", "", "", "", []);
                 };
                 UtilitiesService.prototype.getBlankService = function () {
-                    return new service_1.Service("", "", "", "", false, "");
+                    return new service_1.Service("", "", "", "", false, "", []);
+                };
+                UtilitiesService.prototype.getBlankContacts = function () {
+                    return new contacts_1.Contacts("", "", [], [], "", "", "");
+                };
+                UtilitiesService.prototype.replaceOrAddItemInArrayByUrl = function (array, item, url) {
+                    var index = array.findIndex(function (val) { return val.url === url; });
+                    if (index > -1) {
+                        array[index] = item;
+                    }
+                    else {
+                        array.push(item);
+                    }
                 };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 

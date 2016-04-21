@@ -62,7 +62,8 @@ export class DbService {
                                                      CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[index].IconName),
                                                      this._utilities.getStringFromField(data.Items[index].Group),
                                                      this._utilities.getBooleanFromField(data.Items[index].IsPopular),
-                                                     this._utilities.getStringFromField(data.Items[index].Url)));
+                                                     this._utilities.getStringFromField(data.Items[index].Url), 
+                                                     []));
                     }
                 }
                 resolve(returnItems);
@@ -97,7 +98,7 @@ export class DbService {
         }));
     }
     
-    getServicesGroupDetailsByName(name:string) {
+    getServicesGroupDetailsByName(name:string):Promise<ServicesGroup> {
         var params={
             "TableName": "ServiceGroups",
             "KeyConditionExpression": "Title = :title",
@@ -125,6 +126,36 @@ export class DbService {
         }));
     }
     
+    getServiceDetailsByName(name:string):Promise<Service> {
+        var params={
+            "TableName": "Services",
+            "KeyConditionExpression": "Title = :title",
+            "ExpressionAttributeValues": {
+                ":title" : {
+                    S: name
+                }
+            }
+        }
+        
+        return new Promise((resolve, reject)=>this._dynamoDB.query(params, (err,data)=>{
+            if (err == null) {
+                let returnData : Service;
+                if (data.Count > 0) {
+                    returnData = new Service(this._utilities.getStringFromField(data.Items[0].Title),
+                                                   this._utilities.getStringFromField(data.Items[0].Body),
+                                                   CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[0].IconName),
+                                                   this._utilities.getStringFromField(data.Items[0].Group),
+                                                   this._utilities.getBooleanFromField(data.Items[0].IsPopular),
+                                                   this._utilities.getStringFromField(data.Items[0].Url),
+                                                   this._utilities.getListTextFromField(data.Items[0].Text))
+                }
+                resolve(returnData);
+            } else {
+                console.log(err);
+            }
+        }));
+    }
+    
     getContacts() {
         var params = {
             "TableName": "Contacts",
@@ -134,15 +165,14 @@ export class DbService {
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
             if (err == null) {
                 if (data.Count > 0) {
-                    resolve(new Contacts(data.Items[0].CityPhone.S, 
-                                         data.Items[0].MobilePhone.S,
+                    resolve(new Contacts(this._utilities.getStringFromField(data.Items[0].CityPhone), 
+                                         this._utilities.getStringFromField(data.Items[0].MobilePhone),
                                          [parseFloat(data.Items[0].Location.L[0].N), parseFloat(data.Items[0].Location.L[1].N)],
                                          [parseFloat(data.Items[0].Baloon.L[0].N), parseFloat(data.Items[0].Baloon.L[1].N)],
-                                         data.Items[0].VkGroupAddress.S,
-                                         data.Items[0].Address.S,
-                                         data.Items[0].WorkHours.S
-                                         ));   
-                } else resolve(new Contacts("нет данных", "нет данных", [], [], "нет данных","нет данных","нет данных"));
+                                         this._utilities.getStringFromField(data.Items[0].VkGroupAddress),
+                                         this._utilities.getStringFromField(data.Items[0].Address),
+                                         this._utilities.getStringFromField(data.Items[0].WorkHours)));   
+                } else resolve(this._utilities.getBlankContacts());
             } else {
                 reject(err);
             }
@@ -169,7 +199,7 @@ export class DbService {
                 let returnData : String[] = [];
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
-                        returnData.push(data.Items[index].ImageBase64.S);
+                        returnData.push(this._utilities.getStringFromField(data.Items[index].ImageBase64));
                     }
                 }
                 resolve(returnData);

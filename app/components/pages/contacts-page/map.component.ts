@@ -1,6 +1,7 @@
 import { Component, AfterContentInit } from 'angular2/core';
 import { ContactsService } from '../../../services/contacts.service';
 import { Contacts } from '../../../data-interfaces/contacts';
+import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
     selector: 'map-component',
@@ -12,8 +13,8 @@ export class MapComponent implements AfterContentInit {
     private _intervalId: number;
     private _contact: Contacts;
     
-    constructor(private _contactsService: ContactsService) { 
-        this._contact = new Contacts("","",[],[],"","","");
+    constructor(private _contactsService: ContactsService, private _utilities:UtilitiesService) { 
+        this._contact = this._utilities.getBlankContacts();
     }
 
     ngAfterContentInit() {

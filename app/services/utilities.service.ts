@@ -2,6 +2,7 @@ import { Injectable } from 'angular2/core';
 import { IText } from '../data-interfaces/itext';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { Service } from '../data-interfaces/service';
+import { Contacts } from '../data-interfaces/contacts';
 
 @Injectable()
 export class UtilitiesService {
@@ -29,7 +30,7 @@ export class UtilitiesService {
                 if ((index + 2) < textList.length) {
                     returnList.push({ heading: this.getStringFromField(textList[index]), 
                                       value: this.getStringFromField(textList[index+1]), 
-                                      imagesBase64: this.getListFromField(textList[index+2]).map((val)=>this.getStringFromField(val))});  
+                                      imageNames: this.getListFromField(textList[index+2]).map((val)=>this.getStringFromField(val))});  
                 }                         
             }
             return returnList;
@@ -41,6 +42,19 @@ export class UtilitiesService {
     }
     
     getBlankService(): Service {
-        return new Service("","","","",false,"");
+        return new Service("","","","",false,"",[]);
+    }
+    
+    getBlankContacts(): Contacts {
+        return new Contacts("","",[],[],"","","");
+    }
+    
+    replaceOrAddItemInArrayByUrl(array, item, url) {
+        let index = array.findIndex((val)=>val.url === url);
+        if (index > -1) {
+            array[index] = item;
+        } else {
+            array.push(item);
+        }
     }
 }

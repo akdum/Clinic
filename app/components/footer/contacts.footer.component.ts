@@ -1,6 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import {ContactsService} from '../../services/contacts.service';
 import { Contacts } from '../../data-interfaces/contacts';
+import { UtilitiesService } from '../../services/utilities.service';
 
 
 @Component({
@@ -10,8 +11,8 @@ import { Contacts } from '../../data-interfaces/contacts';
 export class ContactsFooterComponent implements OnInit {
     public contact: Contacts;
     
-    constructor(private _contactsService: ContactsService){
-        this.contact = new Contacts("","",[],[],"","","");
+    constructor(private _contactsService: ContactsService, private _utilities:UtilitiesService){
+        this.contact = this._utilities.getBlankContacts();
     }
     
     ngOnInit() {
