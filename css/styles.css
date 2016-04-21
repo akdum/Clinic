@@ -81,6 +81,39 @@ div.media-alt .media-body {
 	font-family: "Open Sans";
 	font-size: 0.9rem;
 }
+.back a {
+	color: #5c5c5c;
+	text-decoration: none;
+}
+.back-large span::after {
+	background: url("../assets/arrow-left.png") no-repeat;
+	background-position-y: 3px;
+	content: ' ';
+	display: inline;
+	height: 12px;
+	padding-left: 1rem;
+	vertical-align: middle;
+}
+.back-large {
+	border-top: 1px solid #d0d0d0;
+	border-bottom: 1px solid #d0d0d0;
+	height: 3rem;
+	line-height: 3rem;
+	font-size: 1.1rem;
+}
+.back-small {
+	padding-top: 1.5rem;
+	padding-bottom: 2rem;
+	padding-left: 1rem;
+}
+.back-small a::before {
+	background: url("../assets/arrow-left.png") no-repeat;
+	background-position-y: 2px;
+	content: ' ';
+	display: inline;
+	padding-left: 1.5rem;
+	vertical-align: middle;
+}
 /* main page */
 /* main page rows */
 .offset-row {
@@ -388,39 +421,6 @@ h1.trends {
 	font-family: "Roboto Mono";
 	font-weight: 300;
 }
-.services-group-details .back a {
-	color: #5c5c5c;
-	text-decoration: none;
-}
-.services-group-details .back-large span::after {
-	background: url("../assets/arrow-left.png") no-repeat;
-	background-position-y: 3px;
-	content: ' ';
-	display: inline;
-	height: 12px;
-	padding-left: 1rem;
-	vertical-align: middle;
-}
-.services-group-details .back-large {
-	border-top: 1px solid #d0d0d0;
-	border-bottom: 1px solid #d0d0d0;
-	height: 3rem;
-	line-height: 3rem;
-	font-size: 1.1rem;
-}
-.services-group-details .back-small {
-	padding-top: 1.5rem;
-	padding-bottom: 2rem;
-	padding-left: 1rem;
-}
-.services-group-details .back-small a::before {
-	background: url("../assets/arrow-left.png") no-repeat;
-	background-position-y: 2px;
-	content: ' ';
-	display: inline;
-	padding-left: 1.5rem;
-	vertical-align: middle;
-}
 .services-group-popular .popular-services.big {
 	border-bottom: 1px solid #ddd;
 }
@@ -487,6 +487,17 @@ h1.trends {
 }
 .services-group-text .text-raw {
 	font-family: "Open Sans";
+}
+/* service details page */
+.service-details {
+	
+}
+.service-details h1 {
+	font-family: "Roboto Mono";
+}
+.service-details h2 {
+	font-family: "Roboto Mono";
+	font-weight: 300;
 }
 /* mobile custom */
 .mobile a {
