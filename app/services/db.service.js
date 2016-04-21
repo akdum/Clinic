@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', './utilities.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', './utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, utilities_service_1;
+    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, doctor_1, utilities_service_1;
     var DbService;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
             },
             function (services_group_1_1) {
                 services_group_1 = services_group_1_1;
+            },
+            function (doctor_1_1) {
+                doctor_1 = doctor_1_1;
             },
             function (utilities_service_1_1) {
                 utilities_service_1 = utilities_service_1_1;
@@ -205,6 +208,27 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                                 }
                             }
                             resolve(returnData);
+                        }
+                        else {
+                            console.log(err);
+                        }
+                    }); });
+                };
+                DbService.prototype.getDoctors = function () {
+                    var _this = this;
+                    var params = {
+                        "TableName": "Doctors",
+                        "AttributesToGet": ["Name", "PhotoName", "Therapy", "Url"]
+                    };
+                    return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
+                        if (err == null) {
+                            var returnItems = [];
+                            if (data.Count > 0) {
+                                for (var index = 0; index < data.Count; index++) {
+                                    returnItems.push(new doctor_1.Doctor(_this._utilities.getStringFromField(data.Items[index].Name), _this._utilities.getStringFromField(data.Items[index].Therapy), _this._utilities.getStringFromField(data.Items[index].Url), _this._utilities.getStringFromField(data.Items[index].PhotoName), []));
+                                }
+                            }
+                            resolve(returnItems);
                         }
                         else {
                             console.log(err);

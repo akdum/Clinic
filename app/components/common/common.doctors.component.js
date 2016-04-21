@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../services/doctors.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,19 +10,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, doctors_service_1;
     var CommonDoctorsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (doctors_service_1_1) {
+                doctors_service_1 = doctors_service_1_1;
             }],
         execute: function() {
             CommonDoctorsComponent = (function () {
-                function CommonDoctorsComponent() {
+                function CommonDoctorsComponent(_doctorsService) {
+                    this._doctorsService = _doctorsService;
+                    this._doctors = [];
                 }
                 Object.defineProperty(CommonDoctorsComponent.prototype, "therapy", {
                     set: function (therapy) {
+                        if (therapy) {
+                            this._doctorsService.getDoctorsByTherapy(therapy).then(function (data) {
+                                this._doctors = data;
+                            }.bind(this));
+                        }
                     },
                     enumerable: true,
                     configurable: true
@@ -35,9 +45,9 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 CommonDoctorsComponent = __decorate([
                     core_1.Component({
                         selector: 'common-doctors-component',
-                        templateUrl: '../app/templates/doctors.component.html'
+                        templateUrl: '../app/templates/common.doctors.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [doctors_service_1.DoctorsService])
                 ], CommonDoctorsComponent);
                 return CommonDoctorsComponent;
             }());

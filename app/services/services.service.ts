@@ -89,6 +89,7 @@ export class ServicesService {
         } else {
             // try load services array first.
             return new Promise(resolve=> this.getServices().then(function (data) {
+                this._services = data;
                 resolve(this.tryGetService(url));
             }.bind(this)));
         }

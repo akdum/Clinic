@@ -114,6 +114,7 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                     else {
                         // try load services array first.
                         return new Promise(function (resolve) { return _this.getServices().then(function (data) {
+                            this._services = data;
                             resolve(this.tryGetService(url));
                         }.bind(_this)); });
                     }

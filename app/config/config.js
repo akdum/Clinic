@@ -14,7 +14,8 @@ System.register([], function(exports_1, context_1) {
                     "REGION": "us-west-2",
                     "BUCKETS": {
                         "ICONS_URL": "https://s3-us-west-2.amazonaws.com/clinic-psi-assets/icons/",
-                        "TEXT_IMAGES_URL": "https://s3-us-west-2.amazonaws.com/clinic-psi-assets/text-images/"
+                        "TEXT_IMAGES_URL": "https://s3-us-west-2.amazonaws.com/clinic-psi-assets/text-images/",
+                        "DOCTORS_PHOTO": "https://s3-us-west-2.amazonaws.com/clinic-psi-assets/doctors/"
                     }
                 }
             });

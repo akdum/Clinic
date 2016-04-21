@@ -4,6 +4,7 @@ import { News } from '../data-interfaces/news';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
 import { ServicesGroup } from '../data-interfaces/services.group';
+import { Doctor } from '../data-interfaces/doctor';
 import { IText } from '../data-interfaces/itext';
 import { UtilitiesService } from './utilities.service';
 
@@ -209,4 +210,28 @@ export class DbService {
         }));
     }
     
+    getDoctors():Promise<Doctor[]> {
+        var params = {
+            "TableName": "Doctors",
+            "AttributesToGet": ["Name", "PhotoName", "Therapy","Url"]
+        }
+        
+        return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
+            if (err == null) {
+                let returnItems: Doctor[] = [];
+                if (data.Count > 0) {
+                    for (var index = 0; index < data.Count; index++) {
+                        returnItems.push(new Doctor(this._utilities.getStringFromField(data.Items[index].Name),
+                                                    this._utilities.getStringFromField(data.Items[index].Therapy),
+                                                    this._utilities.getStringFromField(data.Items[index].Url),
+                                                    this._utilities.getStringFromField(data.Items[index].PhotoName),
+                                                    [])); 
+                    }
+                }
+                resolve(returnItems);
+            } else {
+                console.log(err);
+            }
+        }));
+    }
 }
