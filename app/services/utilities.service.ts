@@ -1,6 +1,7 @@
 import { Injectable } from 'angular2/core';
 import { IText } from '../data-interfaces/itext';
 import { ServicesGroup } from '../data-interfaces/services.group';
+import { Service } from '../data-interfaces/service';
 
 @Injectable()
 export class UtilitiesService {
@@ -37,5 +38,9 @@ export class UtilitiesService {
     
     getBlankServicesGroup():ServicesGroup {
         return new ServicesGroup("","","","", []);
+    }
+    
+    getBlankService(): Service {
+        return new Service("","","","",false,"");
     }
 }

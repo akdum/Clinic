@@ -105,6 +105,19 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                         }.bind(_this)); });
                     }
                 };
+                // get service by url.
+                ServicesService.prototype.getServiceByUrl = function (url) {
+                    var _this = this;
+                    if (this._services.length > 0) {
+                        return this.tryGetService(url);
+                    }
+                    else {
+                        // try load services array first.
+                        return new Promise(function (resolve) { return _this.getServices().then(function (data) {
+                            resolve(this.tryGetService(url));
+                        }.bind(_this)); });
+                    }
+                };
                 ServicesService.prototype.tryGetServiceGroupDetails = function (url) {
                     var _this = this;
                     var services = this._serviceGroups.find(function (val) { return val.url == url; });
@@ -129,6 +142,15 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                     }
                     else {
                         return Promise.resolve(this._utilities.getBlankServicesGroup());
+                    }
+                };
+                ServicesService.prototype.tryGetService = function (url) {
+                    var service = this._services.find(function (val) { return val.url === url; });
+                    if (service) {
+                        return Promise.resolve(service);
+                    }
+                    else {
+                        return Promise.resolve(this._utilities.getBlankService());
                     }
                 };
                 ServicesService = __decorate([

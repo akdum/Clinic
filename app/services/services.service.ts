@@ -82,6 +82,18 @@ export class ServicesService {
         }
     }
     
+    // get service by url.
+    getServiceByUrl(url:string):Promise<Service> {
+        if (this._services.length > 0) {
+            return this.tryGetService(url);
+        } else {
+            // try load services array first.
+            return new Promise(resolve=> this.getServices().then(function (data) {
+                resolve(this.tryGetService(url));
+            }.bind(this)));
+        }
+    }
+    
     tryGetServiceGroupDetails(url:string) {
         let services:ServicesGroup = this._serviceGroups.find((val)=>val.url == url);
         
@@ -103,6 +115,15 @@ export class ServicesService {
             }
         } else {
             return Promise.resolve(this._utilities.getBlankServicesGroup());
+        }
+    }
+    
+    tryGetService(url:string):Promise<Service> {
+        let service: Service = this._services.find((val)=>val.url === url);
+        if (service) {
+            return Promise.resolve(service);
+        } else {
+            return Promise.resolve(this._utilities.getBlankService());
         }
     }
 }
