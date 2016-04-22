@@ -1,20 +1,26 @@
 <div class="common-text row" *ngIf="_text.length > 0">
     <div class="row" *ngFor="#text of _text">    
         <div *ngIf="text.heading !== '-'">    
-            <div class="col-md-12 col-lg-12 hidden-sm-down big">
+            <div class="col-md-12 col-lg-12 big hidden-sm-down">
                 <h4>{{text.heading}}</h4>
                 <span class="expander" (click)="toggle(text)" [class.expanded]="text.isExpanded"></span>
             </div>
+            <div class="col-xs-12 col-sm-12 small hidden-md-up">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10"><h4>{{text.heading}}</h4></div>
+                    <div class="col-xs-2 col-sm-2">
+                        <span class="expander" (click)="toggle(text)" [class.expanded]="text.isExpanded"></span>
+                    </div>
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text" [class.hidden]="!text.isExpanded">
                 <div *ngIf="text.imageUrls.length>0">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                            <div *ngFor="#imageUrl of text.imageUrls">
-                                <img [src]="imageUrl" />                            
-                            </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        <div *ngFor="#imageUrl of text.imageUrls">
+                            <img [src]="imageUrl" />                            
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 text-raw" [innerHTML]="text.value"></div>
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 text-raw" [innerHTML]="text.value"></div>
                 </div>
                 <div *ngIf="text.imageUrls.length===0" class="text-raw" [innerHTML]="text.value">
                 </div>

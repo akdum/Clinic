@@ -10,7 +10,7 @@ export class DoctorsService {
 
     getDoctorsByTherapy(therapy:string):Promise<Doctor[]> {
         if (this._doctors.length > 0) {
-            Promise.resolve(this._doctors.filter(d=>d.therapy === therapy));
+            return Promise.resolve(this._doctors.filter(d=>d.therapy === therapy));
         } else {
             // try to load doctors first.
             return new Promise(resolve=> this._db.getDoctors().then(function (data) {

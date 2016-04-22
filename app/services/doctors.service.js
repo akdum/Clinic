@@ -29,7 +29,7 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                 DoctorsService.prototype.getDoctorsByTherapy = function (therapy) {
                     var _this = this;
                     if (this._doctors.length > 0) {
-                        Promise.resolve(this._doctors.filter(function (d) { return d.therapy === therapy; }));
+                        return Promise.resolve(this._doctors.filter(function (d) { return d.therapy === therapy; }));
                     }
                     else {
                         // try to load doctors first.

@@ -1,8 +1,12 @@
 <div class="common-doctors row">
-    <doctors *ngFor="#doctor of _doctors">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <div class="row">
-            </div>
+    <div class="hidden-sm-down">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-big">
+            <h4>Врачи</h4>
         </div>
-    </doctors>
+        <doctors *ngFor="#doctor of _doctors">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <img [src]="doctor.photoUrl" />
+            </div>
+        </doctors>
+    </div>
 </div>

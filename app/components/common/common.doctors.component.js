@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../services/doctors.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../services/doctors.service', '../../data-interfaces/doctor.viewmodel', '../../config/config'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../services/doctors.service'], function(ex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, doctors_service_1;
+    var core_1, doctors_service_1, doctor_viewmodel_1, config_1;
     var CommonDoctorsComponent;
     return {
         setters:[
@@ -19,6 +19,12 @@ System.register(['angular2/core', '../../services/doctors.service'], function(ex
             },
             function (doctors_service_1_1) {
                 doctors_service_1 = doctors_service_1_1;
+            },
+            function (doctor_viewmodel_1_1) {
+                doctor_viewmodel_1 = doctor_viewmodel_1_1;
+            },
+            function (config_1_1) {
+                config_1 = config_1_1;
             }],
         execute: function() {
             CommonDoctorsComponent = (function () {
@@ -30,7 +36,10 @@ System.register(['angular2/core', '../../services/doctors.service'], function(ex
                     set: function (therapy) {
                         if (therapy) {
                             this._doctorsService.getDoctorsByTherapy(therapy).then(function (data) {
-                                this._doctors = data;
+                                if (data.length > 0) {
+                                    this._doctors = data.map(function (d) { return new doctor_viewmodel_1.DoctorViewModel(d.name, d.therapy, d.url, config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName, d.text); });
+                                }
+                                ;
                             }.bind(this));
                         }
                     },

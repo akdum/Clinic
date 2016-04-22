@@ -115,19 +115,18 @@ div.media-alt .media-body {
 	vertical-align: middle;
 }
 .common-text {
-	padding-bottom: 2rem;
 }
 .common-text .row {
-	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 .common-text h4 {
 	font-size: 1.25rem;
 	display: inline-block;
 }
-.common-text .big {
+.common-text .big, .common-text .small {
 	border-bottom: 1px solid #d0d0d0;
 }
-.common-text .big .expander {
+.common-text .big .expander, .common-text .small .expander {
 	background: url("../assets/arrow-down.svg") 0 0 no-repeat;
 	background-size: 25px 25px;
 	cursor: pointer;
@@ -138,8 +137,14 @@ div.media-alt .media-body {
     top: 0.4rem;
 	width: 25px;	
 }
-.common-text .big .expander.expanded {
+.common-text .small .expander {
+	top: 0rem;
+}
+.common-text .big .expander.expanded, .common-text .small .expander.expanded {
 	background: url("../assets/arrow-up.svg") 0 0 no-repeat;
+}
+.common-text .small .row {
+	padding-bottom: 0rem;
 }
 .common-text .text {
 	margin-top: 1rem;
@@ -161,6 +166,14 @@ div.media-alt .media-body {
 }
 .common-text .no-margin-top {
 	margin-top: 0rem;
+}
+.common-doctors {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+.common-doctors .title-big{
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 2rem;
 }
 /* main page */
 /* main page rows */
