@@ -171,9 +171,48 @@ div.media-alt .media-body {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
-.common-doctors .title-big{
+.common-doctors .title-big {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 2rem;
+}
+.common-doctors .title-big h4 {
+	font-size: 1.25rem;
+}
+.common-doctors .title-small {
+	padding-bottom: 1rem;
+}
+.common-doctors .title-small h4 {
+	font-size: 1.25rem;
+}
+.common-doctors .doctor-photo {
+	height: 200px;	
+}
+.common-doctors .doctor-name {
+	cursor: pointer;
+	font-size: 1.25rem;
+}
+.common-doctors div {
+	font-family: "Open Sans";	
+}
+.common-doctors .doctor-info {
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 1rem;
+	padding-top: 1rem;
+}
+.common-doctors .label-info {
+	font-size: 100%;
+}
+.common-doctors .doctor-therapy {
+	margin-top: 1rem;
+}
+span.text-link-right:after {
+    background: url("../assets/arrow-right.png") no-repeat;
+    background-position-y: 0.6rem;
+    content: ' ';
+    display: inline;
+    margin-left: 0.5rem;
+    padding-left: 1rem;
 }
 /* main page */
 /* main page rows */

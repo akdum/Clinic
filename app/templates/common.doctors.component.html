@@ -1,12 +1,22 @@
 <div class="common-doctors row">
     <div class="hidden-sm-down">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 title-big">
+        <div class="col-md-12 col-lg-12 title-big">
             <h4>Врачи</h4>
         </div>
-        <doctors *ngFor="#doctor of _doctors">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <img [src]="doctor.photoUrl" />
-            </div>
-        </doctors>
     </div>
+    <div class="hidden-md-up">
+        <div class="col-xs-8 col-xs-offset-4 col-sm-offset-4 col-sm-8 title-small">
+            <h4>Врачи</h4>
+        </div>
+    </div>
+    <doctors *ngFor="#doctor of _doctors">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <img [src]="doctor.photoUrl" class="doctor-photo" />
+            <div class="doctor-info">
+                <div class="doctor-name">{{doctor.name}}<span class="text-link-right"></span></div>
+                <div><span class="doctor-therapy label label-info">{{doctor.therapy}}</span></div>
+            </div>
+        </div>
+    </doctors>
+
 </div>
