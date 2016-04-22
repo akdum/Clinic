@@ -171,6 +171,9 @@ div.media-alt .media-body {
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
+.common-doctors .row {
+	padding-bottom: 1rem;
+}
 .common-doctors .title-big {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 2rem;
@@ -185,7 +188,6 @@ div.media-alt .media-body {
 	font-size: 1.25rem;
 }
 .common-doctors .doctor-photo {
-	height: 200px;	
 }
 .common-doctors .doctor-name {
 	cursor: pointer;
