@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../data-interfaces/services.group', '../data-interfaces/service', '../data-interfaces/contacts'], function(exports_1, context_1) {
+System.register(['angular2/core', '../data-interfaces/services.group', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/doctor.viewmodel', '../config/config'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_group_1, service_1, contacts_1;
+    var core_1, services_group_1, service_1, contacts_1, doctor_viewmodel_1, config_1;
     var UtilitiesService;
     return {
         setters:[
@@ -25,6 +25,12 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
             },
             function (contacts_1_1) {
                 contacts_1 = contacts_1_1;
+            },
+            function (doctor_viewmodel_1_1) {
+                doctor_viewmodel_1 = doctor_viewmodel_1_1;
+            },
+            function (config_1_1) {
+                config_1 = config_1_1;
             }],
         execute: function() {
             UtilitiesService = (function () {
@@ -78,6 +84,9 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
                     else {
                         array.push(item);
                     }
+                };
+                UtilitiesService.prototype.convertDoctorArrayToDoctorViewModelArray = function (doctors) {
+                    return doctors.map(function (d) { return new doctor_viewmodel_1.DoctorViewModel(d.name, d.therapy, d.url, config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName, d.text); });
                 };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 

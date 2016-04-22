@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, services_page_component_1, contacts_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
+    var core_1, router_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
     var AppComponent;
     return {
         setters:[
@@ -40,6 +40,9 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
             },
             function (contacts_page_component_1_1) {
                 contacts_page_component_1 = contacts_page_component_1_1;
+            },
+            function (doctors_page_component_1_1) {
+                doctors_page_component_1 = doctors_page_component_1_1;
             },
             function (services_group_details_page_component_1_1) {
                 services_group_details_page_component_1 = services_group_details_page_component_1_1;
@@ -76,6 +79,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                             router_1.ROUTER_DIRECTIVES,
                             services_page_component_1.ServicesPageComponent,
                             contacts_page_component_1.ContactsPageComponent,
+                            doctors_page_component_1.DoctorsPageComponent,
                             nav_component_1.NavComponent]
                     }),
                     router_1.RouteConfig([
@@ -84,6 +88,11 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                             name: 'MainPage',
                             component: main_page_component_1.MainPageComponent,
                             useAsDefault: true
+                        },
+                        {
+                            path: '/doctors',
+                            name: 'DoctorsPage',
+                            component: doctors_page_component_1.DoctorsPageComponent
                         },
                         {
                             path: '/services',

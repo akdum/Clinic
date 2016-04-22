@@ -13,10 +13,21 @@ export class DoctorsService {
             return Promise.resolve(this._doctors.filter(d=>d.therapy === therapy));
         } else {
             // try to load doctors first.
-            return new Promise(resolve=> this._db.getDoctors().then(function (data) {
+            return new Promise(resolve=> this._db.getDoctors().then(function (data:Doctor[]) {
                 this._doctors = data;
                 resolve(this._doctors.filter(d=>d.therapy === therapy));
             }.bind(this)));
         }
     }    
+    
+    getDoctors():Promise<Doctor[]> {
+        if (this._doctors.length>0) {
+            return Promise.resolve(this._doctors);
+        } else {
+            return new Promise(resolve=>this._db.getDoctors().then(function (data:Doctor[]) {
+                this._doctors = data;
+                resolve(this._doctors);
+            }.bind(this)));
+        }
+    }
 }

@@ -39,6 +39,18 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                         }.bind(_this)); });
                     }
                 };
+                DoctorsService.prototype.getDoctors = function () {
+                    var _this = this;
+                    if (this._doctors.length > 0) {
+                        return Promise.resolve(this._doctors);
+                    }
+                    else {
+                        return new Promise(function (resolve) { return _this._db.getDoctors().then(function (data) {
+                            this._doctors = data;
+                            resolve(this._doctors);
+                        }.bind(_this)); });
+                    }
+                };
                 DoctorsService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [db_service_1.DbService])

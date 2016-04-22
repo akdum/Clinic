@@ -7,6 +7,7 @@ import { EnrollModalComponent } from './dialog/enroll.modal.component';
 import { MainPageComponent } from './pages/main-page/main.page.component';
 import { ServicesPageComponent } from './pages/services-page/services.page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts.page.component';
+import { DoctorsPageComponent } from './pages/doctors-page/doctors.page.component';
 import { ServicesGroupDetailsPageComponent } from './pages/services-details-page/services.group.details.page.component';
 import { ServiceDetailsPageComponent } from './pages/service-details-page/service.details.page.component';
 
@@ -18,7 +19,8 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
                  EnrollModalComponent, 
                  ROUTER_DIRECTIVES,
                  ServicesPageComponent,
-                 ContactsPageComponent, 
+                 ContactsPageComponent,
+                 DoctorsPageComponent, 
                  NavComponent]
 })
 @RouteConfig([
@@ -27,6 +29,11 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
         name: 'MainPage',
         component: MainPageComponent,
         useAsDefault: true
+    },
+    {
+        path: '/doctors',
+        name: 'DoctorsPage',
+        component: DoctorsPageComponent  
     },
     {
         path: '/services',

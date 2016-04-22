@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../services/doctors.service', '../../data-interfaces/doctor.viewmodel', '../../config/config'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../services/doctors.service', '../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../services/doctors.service', '../../data-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, doctors_service_1, doctor_viewmodel_1, config_1;
+    var core_1, doctors_service_1, utilities_service_1;
     var CommonDoctorsComponent;
     return {
         setters:[
@@ -20,16 +20,14 @@ System.register(['angular2/core', '../../services/doctors.service', '../../data-
             function (doctors_service_1_1) {
                 doctors_service_1 = doctors_service_1_1;
             },
-            function (doctor_viewmodel_1_1) {
-                doctor_viewmodel_1 = doctor_viewmodel_1_1;
-            },
-            function (config_1_1) {
-                config_1 = config_1_1;
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             CommonDoctorsComponent = (function () {
-                function CommonDoctorsComponent(_doctorsService) {
+                function CommonDoctorsComponent(_doctorsService, _utilities) {
                     this._doctorsService = _doctorsService;
+                    this._utilities = _utilities;
                     this._doctors = [];
                 }
                 Object.defineProperty(CommonDoctorsComponent.prototype, "therapy", {
@@ -37,7 +35,21 @@ System.register(['angular2/core', '../../services/doctors.service', '../../data-
                         if (therapy) {
                             this._doctorsService.getDoctorsByTherapy(therapy).then(function (data) {
                                 if (data.length > 0) {
-                                    this._doctors = data.map(function (d) { return new doctor_viewmodel_1.DoctorViewModel(d.name, d.therapy, d.url, config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName, d.text); });
+                                    this._doctors = this._utilities.convertDoctorArrayToDoctorViewModelArray(data);
+                                }
+                                ;
+                            }.bind(this));
+                        }
+                    },
+                    enumerable: true,
+                    configurable: true
+                });
+                Object.defineProperty(CommonDoctorsComponent.prototype, "loadAll", {
+                    set: function (loadAll) {
+                        if (loadAll) {
+                            this._doctorsService.getDoctors().then(function (data) {
+                                if (data.length > 0) {
+                                    this._doctors = this._utilities.convertDoctorArrayToDoctorViewModelArray(data);
                                 }
                                 ;
                             }.bind(this));
@@ -51,12 +63,18 @@ System.register(['angular2/core', '../../services/doctors.service', '../../data-
                     __metadata('design:type', String), 
                     __metadata('design:paramtypes', [String])
                 ], CommonDoctorsComponent.prototype, "therapy", null);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Boolean), 
+                    __metadata('design:paramtypes', [Boolean])
+                ], CommonDoctorsComponent.prototype, "loadAll", null);
                 CommonDoctorsComponent = __decorate([
                     core_1.Component({
                         selector: 'common-doctors-component',
-                        templateUrl: '../app/templates/common.doctors.component.html'
+                        templateUrl: '../app/templates/common.doctors.component.html',
+                        inputs: ['noTitle']
                     }), 
-                    __metadata('design:paramtypes', [doctors_service_1.DoctorsService])
+                    __metadata('design:paramtypes', [doctors_service_1.DoctorsService, utilities_service_1.UtilitiesService])
                 ], CommonDoctorsComponent);
                 return CommonDoctorsComponent;
             }());

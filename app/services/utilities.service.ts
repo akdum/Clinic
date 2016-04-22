@@ -3,6 +3,9 @@ import { IText } from '../data-interfaces/itext';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
+import { Doctor } from '../data-interfaces/doctor';
+import { DoctorViewModel } from '../data-interfaces/doctor.viewmodel';
+import { CONFIG } from '../config/config';
 
 @Injectable()
 export class UtilitiesService {
@@ -56,5 +59,13 @@ export class UtilitiesService {
         } else {
             array.push(item);
         }
+    }
+    
+    convertDoctorArrayToDoctorViewModelArray(doctors: Doctor[]):DoctorViewModel[] {
+        return doctors.map(d=>new DoctorViewModel(d.name, 
+                                                d.therapy, 
+                                                d.url,
+                                                CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName,
+                                                d.text));
     }
 }
