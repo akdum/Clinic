@@ -47,6 +47,20 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                         }); });
                     }
                 };
+                ServicesService.prototype.getServicesToShowOnMainPage = function () {
+                    var _this = this;
+                    if (this._services.length > 0) {
+                        return Promise.resolve(this._services.filter(function (value) { return value.showOnMainPage; }));
+                    }
+                    else {
+                        return new Promise(function (resolve) { return _this._db.getServices().then(function (data) {
+                            this._services = data;
+                            resolve(this._services.filter(function (value) { return value.showOnMainPage; }));
+                        }.bind(_this)).catch(function (err) {
+                            console.log(err);
+                        }); });
+                    }
+                };
                 ServicesService.prototype.getPopularServices = function () {
                     var _this = this;
                     if (this._services.length > 0) {
@@ -85,7 +99,10 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                             _this._groupedServices.push(group);
                             var groupServices = _this._services.filter(function (value) { return value.group == group.title; });
                             _this._groupedServices[i]["services"] = [];
+                            _this._groupedServices[i]["popular_services"] = [];
                             groupServices.forEach(function (service) {
+                                if (service.isPopular)
+                                    _this._groupedServices[i].popular_services.push(service);
                                 _this._groupedServices[i].services.push(service);
                             });
                         });

@@ -50,7 +50,7 @@ export class DbService {
     getServices():Promise<Service[]> {
         var params = {
             "TableName": "Services",
-            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular", "Url"]
+            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular", "Url", "ShowOnMainPage"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -62,6 +62,7 @@ export class DbService {
                                                      this._utilities.getStringFromField(data.Items[index].Body),
                                                      CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[index].IconName),
                                                      this._utilities.getStringFromField(data.Items[index].Group),
+                                                     this._utilities.getBooleanFromField(data.Items[index].ShowOnMainPage),
                                                      this._utilities.getBooleanFromField(data.Items[index].IsPopular),
                                                      this._utilities.getStringFromField(data.Items[index].Url), 
                                                      []));
@@ -73,6 +74,38 @@ export class DbService {
             }
         }));
     }
+    
+    getServiceDetailsByName(name:string):Promise<Service> {
+        var params={
+            "TableName": "Services",
+            "KeyConditionExpression": "Title = :title",
+            "ExpressionAttributeValues": {
+                ":title" : {
+                    S: name
+                }
+            }
+        }
+        
+        return new Promise((resolve, reject)=>this._dynamoDB.query(params, (err,data)=>{
+            if (err == null) {
+                let returnData : Service;
+                if (data.Count > 0) {
+                    returnData = new Service(this._utilities.getStringFromField(data.Items[0].Title),
+                                                   this._utilities.getStringFromField(data.Items[0].Body),
+                                                   CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[0].IconName),
+                                                   this._utilities.getStringFromField(data.Items[0].Group),
+                                                   this._utilities.getBooleanFromField(data.Items[0].ShowOnMainPage),
+                                                   this._utilities.getBooleanFromField(data.Items[0].IsPopular),
+                                                   this._utilities.getStringFromField(data.Items[0].Url),
+                                                   this._utilities.getListTextFromField(data.Items[0].Text))
+                }
+                resolve(returnData);
+            } else {
+                console.log(err);
+            }
+        }));
+    }
+    
     
     getServiceGroups():Promise<ServicesGroup[]> {
         var params = {
@@ -118,36 +151,6 @@ export class DbService {
                                                    this._utilities.getStringFromField(data.Items[0].Body),
                                                    CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[0].IconName),
                                                    this._utilities.getStringFromField(data.Items[0].Url), 
-                                                   this._utilities.getListTextFromField(data.Items[0].Text))
-                }
-                resolve(returnData);
-            } else {
-                console.log(err);
-            }
-        }));
-    }
-    
-    getServiceDetailsByName(name:string):Promise<Service> {
-        var params={
-            "TableName": "Services",
-            "KeyConditionExpression": "Title = :title",
-            "ExpressionAttributeValues": {
-                ":title" : {
-                    S: name
-                }
-            }
-        }
-        
-        return new Promise((resolve, reject)=>this._dynamoDB.query(params, (err,data)=>{
-            if (err == null) {
-                let returnData : Service;
-                if (data.Count > 0) {
-                    returnData = new Service(this._utilities.getStringFromField(data.Items[0].Title),
-                                                   this._utilities.getStringFromField(data.Items[0].Body),
-                                                   CONFIG.DB.BUCKETS.ICONS_URL + this._utilities.getStringFromField(data.Items[0].IconName),
-                                                   this._utilities.getStringFromField(data.Items[0].Group),
-                                                   this._utilities.getBooleanFromField(data.Items[0].IsPopular),
-                                                   this._utilities.getStringFromField(data.Items[0].Url),
                                                    this._utilities.getListTextFromField(data.Items[0].Text))
                 }
                 resolve(returnData);

@@ -32,7 +32,7 @@ System.register(['angular2/core', '../../../services/services.service', 'angular
                     this.getServices();
                 };
                 PopularServicesComponent.prototype.getServices = function () {
-                    this._services.getPopularServices().then(function (data) {
+                    this._services.getServicesToShowOnMainPage().then(function (data) {
                         if (data && data.length > 0) {
                             this._servicesList = data;
                         }

@@ -12,7 +12,9 @@
                     <span>{{serviceGroup.body}}</span>
                 </div>
                 <div class="links">
-                    <a *ngFor="#service of serviceGroup.services" (click)="gotoServiceDetails(service)">{{service.title}}</a>
+                    <links *ngFor="#service of serviceGroup.popular_services;#i=index">
+                        <a (click)="gotoServiceDetails(service)" *ngIf="i<3">{{service.title}}</a>
+                    </links>
                 </div>
                 <div class="all-services-link">
                     <a class="link-button" (click)="gotoServicesGroupDetail(serviceGroup)">Все услуги</a>

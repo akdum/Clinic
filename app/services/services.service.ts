@@ -27,6 +27,19 @@ export class ServicesService {
         }
     }
     
+    getServicesToShowOnMainPage() {
+        if (this._services.length > 0) {
+            return Promise.resolve(this._services.filter((value)=>value.showOnMainPage));
+        } else {
+            return new Promise(resolve=> this._db.getServices().then(function(data){
+                this._services = data;
+                resolve(this._services.filter((value)=>value.showOnMainPage));
+            }.bind(this)).catch(function(err:any) {
+                console.log(err);
+            }));
+        }
+    }
+    
     getPopularServices() {
         if (this._services.length > 0) {
             return Promise.resolve(this._services.filter((value)=>value.isPopular));
@@ -60,10 +73,15 @@ export class ServicesService {
             this._serviceGroups.forEach((group,i) => {
                 this._groupedServices.push(group);
                 let groupServices = this._services.filter((value)=>value.group == group.title);
+                
                 this._groupedServices[i]["services"] = [];
-                groupServices.forEach(service=>{    
+                this._groupedServices[i]["popular_services"] = [];
+                
+                groupServices.forEach(service=>{
+                    if (service.isPopular) this._groupedServices[i].popular_services.push(service); 
                     this._groupedServices[i].services.push(service);         
                 });
+                
             });
             resolve(this._groupedServices);
         }.bind(this)));

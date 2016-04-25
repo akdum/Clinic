@@ -19,7 +19,7 @@ export class PopularServicesComponent implements OnInit{
     }
     
     getServices() {
-         this._services.getPopularServices().then(function (data) {
+         this._services.getServicesToShowOnMainPage().then(function (data) {
              if (data && data.length > 0) {
                  this._servicesList = data;
              }

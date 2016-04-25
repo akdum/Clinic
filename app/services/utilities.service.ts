@@ -45,7 +45,7 @@ export class UtilitiesService {
     }
     
     getBlankService(): Service {
-        return new Service("","","","",false,"",[]);
+        return new Service("","","","",false,false,"",[]);
     }
     
     getBlankContacts(): Contacts {
