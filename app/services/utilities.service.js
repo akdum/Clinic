@@ -88,6 +88,19 @@ System.register(['angular2/core', '../data-interfaces/services.group', '../data-
                 UtilitiesService.prototype.convertDoctorArrayToDoctorViewModelArray = function (doctors) {
                     return doctors.map(function (d) { return new doctor_viewmodel_1.DoctorViewModel(d.name, d.therapy, d.url, config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName, d.text); });
                 };
+                UtilitiesService.prototype.findBootstrapEnvironment = function () {
+                    var envs = ['xs', 'sm', 'md', 'lg'];
+                    var $el = $('<div>');
+                    $el.appendTo($('body'));
+                    for (var i = envs.length - 1; i >= 0; i--) {
+                        var env = envs[i];
+                        $el.addClass('hidden-' + env + '-up');
+                        if ($el.is(':hidden')) {
+                            $el.remove();
+                            return env;
+                        }
+                    }
+                };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

@@ -551,6 +551,28 @@ h1.trends {
 .services-group-popular .media-alt .media-heading {
     margin-bottom: 0.5rem;
 }
+.services-group-rest {
+	border-top: 1px solid #ddd;
+	margin-top: 2rem;
+}
+.services-group-rest .service-link {
+	font-family: "Open Sans";
+	padding: 1rem 0rem 0rem 1rem;
+	cursor: pointer;
+}
+.services-group-rest .service-link .img-link {
+	background: url("../assets/service-link-list-item.png") 100% 100% no-repeat;
+	background-size: cover;
+	display: inline-block;
+	height: 26px;
+	margin-right: 1rem;
+	position: relative;
+	top:0.5rem;
+	width: 26px;
+}
+.services-group-rest .service-link span.text-link-right::after {
+	background-position-y: 0.4rem;
+}
 /* service details page */
 .service-details {
 	
