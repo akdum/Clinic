@@ -6,9 +6,9 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             News = (function () {
-                function News(title, body, rawdate, id) {
+                function News(title, text, rawdate, id) {
                     this.title = title;
-                    this.body = body;
+                    this.text = text;
                     this.rawdate = rawdate;
                     this.id = id;
                     this.date = new Date(1970, 0, 1);

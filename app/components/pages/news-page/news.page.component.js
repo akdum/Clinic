@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../../../services/utilities.service', '../../../services/news.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,23 +10,45 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, router_1, utilities_service_1, news_service_1;
     var NewsPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
+            },
+            function (news_service_1_1) {
+                news_service_1 = news_service_1_1;
             }],
         execute: function() {
             NewsPageComponent = (function () {
-                function NewsPageComponent() {
+                function NewsPageComponent(_routeParams, _utilities, _newsService) {
+                    this._routeParams = _routeParams;
+                    this._utilities = _utilities;
+                    this._newsService = _newsService;
+                    this._news = this._utilities.getBlankNews();
                 }
-                NewsPageComponent.prototype.ngOnInit = function () { };
+                NewsPageComponent.prototype.ngOnInit = function () {
+                    var newsId = this._routeParams.get('id');
+                    if (newsId) {
+                        this._newsService.getNewsById(parseInt(newsId)).then(function (data) {
+                            if (data) {
+                                this._news = data;
+                            }
+                        }.bind(this));
+                    }
+                };
                 NewsPageComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../app/templates/news.page.component.html'
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.RouteParams, utilities_service_1.UtilitiesService, news_service_1.NewsService])
                 ], NewsPageComponent);
                 return NewsPageComponent;
             }());

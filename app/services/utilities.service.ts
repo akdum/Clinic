@@ -4,6 +4,7 @@ import { ServicesGroup } from '../data-interfaces/services.group';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
 import { Doctor } from '../data-interfaces/doctor';
+import { News } from '../data-interfaces/news';
 import { DoctorViewModel } from '../data-interfaces/doctor.viewmodel';
 import { CONFIG } from '../config/config';
 
@@ -52,8 +53,21 @@ export class UtilitiesService {
         return new Contacts("","",[],[],"","","");
     }
     
+    getBlankNews(): News {
+        return new News("",[],0,0);
+    }
+    
     replaceOrAddItemInArrayByUrl(array, item, url) {
         let index = array.findIndex((val)=>val.url === url);
+        if (index > -1) {
+            array[index] = item;
+        } else {
+            array.push(item);
+        }
+    }
+    
+    replaceOrAddItemInArrayById(array, item, id) {
+        let index = array.findIndex((val)=>val.id === id);
         if (index > -1) {
             array[index] = item;
         } else {

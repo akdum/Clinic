@@ -1,4 +1,4 @@
-System.register(['angular2/core', './db.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './db.service', './utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, db_service_1;
+    var core_1, db_service_1, utilities_service_1;
     var NewsService;
     return {
         setters:[
@@ -19,23 +19,52 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
             },
             function (db_service_1_1) {
                 db_service_1 = db_service_1_1;
+            },
+            function (utilities_service_1_1) {
+                utilities_service_1 = utilities_service_1_1;
             }],
         execute: function() {
             NewsService = (function () {
-                function NewsService(_db) {
+                function NewsService(_db, _utilities) {
                     this._db = _db;
-                    this.newsList = [];
+                    this._utilities = _utilities;
+                    this._newsList = [];
                 }
+                NewsService.prototype.getNews = function () {
+                    var _this = this;
+                    if (this._newsList.length > 0) {
+                        return Promise.resolve(this._newsList);
+                    }
+                    else {
+                        // query news.
+                        return new Promise(function (resolve) { return _this._db.getNews().then(function (data) {
+                            this.newsList = data;
+                            resolve(this.newsList);
+                        }.bind(_this)); });
+                    }
+                };
                 NewsService.prototype.getShortList = function () {
                     var _this = this;
-                    if (this.newsList.length > 0) {
-                        return Promise.resolve(this.getNewsItemsWithLimit(this.newsList));
+                    if (this._newsList.length > 0) {
+                        return Promise.resolve(this.getNewsItemsWithLimit(this._newsList));
                     }
                     else {
                         // query news.
                         return new Promise(function (resolve) { return _this._db.getNews().then(function (data) {
                             this.newsList = data;
                             resolve(this.getNewsItemsWithLimit(this.newsList));
+                        }.bind(_this)); });
+                    }
+                };
+                NewsService.prototype.getNewsById = function (id) {
+                    var _this = this;
+                    if (this._newsList.length > 0) {
+                        return this.tryGetNews(id);
+                    }
+                    else {
+                        // load news list first.
+                        return new Promise(function (resolve) { return _this.getNews().then(function (data) {
+                            resolve(this.tryGetNews(id));
                         }.bind(_this)); });
                     }
                 };
@@ -47,9 +76,28 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
                         return newsItems;
                     }
                 };
+                NewsService.prototype.tryGetNews = function (id) {
+                    var _this = this;
+                    var news = this._newsList.find(function (val) { return val.id === id; });
+                    if (news) {
+                        if (news.text.length > 0) {
+                            Promise.resolve(news);
+                        }
+                        else {
+                            return new Promise(function (resolve) { return _this._db.getNewsDetailsById(news.id).then(function (data) {
+                                news = data;
+                                this._utilities.replaceOrAddItemInArrayById(this._newsList, news, id);
+                                resolve(news);
+                            }.bind(_this)); });
+                        }
+                    }
+                    else {
+                        return Promise.resolve(this._utilities.getBlankNews());
+                    }
+                };
                 NewsService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [db_service_1.DbService])
+                    __metadata('design:paramtypes', [db_service_1.DbService, utilities_service_1.UtilitiesService])
                 ], NewsService);
                 return NewsService;
             }());

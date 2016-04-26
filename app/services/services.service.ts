@@ -113,7 +113,7 @@ export class ServicesService {
         }
     }
     
-    tryGetServiceGroupDetails(url:string) {
+    private tryGetServiceGroupDetails(url:string) {
         let services:ServicesGroup = this._serviceGroups.find((val)=>val.url == url);
         
         if (services) {
@@ -132,7 +132,7 @@ export class ServicesService {
         }
     }
     
-    tryGetService(url:string):Promise<Service> {
+    private tryGetService(url:string):Promise<Service> {
         let service: Service = this._services.find((val)=>val.url === url);
         
         if (service) {

@@ -58,7 +58,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new news_1.News(_this._utilities.getStringFromField(data.Items[index].Title), "", _this._utilities.getNumberFromField(data.Items[index].Date), _this._utilities.getNumberFromField(data.Items[index].Id)));
+                                    returnItems.push(new news_1.News(_this._utilities.getStringFromField(data.Items[index].Title), [], _this._utilities.getNumberFromField(data.Items[index].Date), _this._utilities.getNumberFromField(data.Items[index].Id)));
                                 }
                                 returnItems.sort(function (a, b) {
                                     if (a.rawdate < b.rawdate)
@@ -74,6 +74,21 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                             console.log(err);
                         }
                     }); });
+                };
+                DbService.prototype.getNewsDetailsById = function (id) {
+                    var params = {
+                        "TableName": "News",
+                        "KeyConditionExpression": "Title = :title",
+                        "FilterExpression": "Id = :id",
+                        "ExpressionAttributeValues": {
+                            ":title": {
+                                S: "Новость"
+                            },
+                            "id": {
+                                N: id
+                            }
+                        }
+                    };
                 };
                 DbService.prototype.getServices = function () {
                     var _this = this;

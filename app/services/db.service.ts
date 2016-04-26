@@ -31,7 +31,7 @@ export class DbService {
                 if (data.Count>0) {
                     for (var index = 0; index < data.Count; index++) {
                         returnItems.push(new News(this._utilities.getStringFromField(data.Items[index].Title),
-                                                  "", 
+                                                  [], 
                                                   this._utilities.getNumberFromField(data.Items[index].Date),
                                                   this._utilities.getNumberFromField(data.Items[index].Id)));
                     }
@@ -46,6 +46,24 @@ export class DbService {
                 console.log(err);
             }
         }));
+    }
+    
+    getNewsDetailsById(id:number):Promise<News> {
+        var params={
+            "TableName": "News",
+            "KeyConditionExpression": "Title = :title",
+            "FilterExpression": "Id = :id",
+            "ExpressionAttributeValues": {
+                ":title" : {
+                    S: "Новость"
+                },
+                "id" : {
+                    N: id
+                }
+            }
+        }
+        
+        
     }
     
     getServices():Promise<Service[]> {
