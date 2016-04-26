@@ -8,7 +8,7 @@
     <div class="col-md-8 col-lg-8 news">
         <div *ngFor="#news of _newsList" class="row">
             <div class="news-data">{{getFormatedDate(news.date)}}</div>
-            <div class="news-title"><a [href]="news.address">{{news.title}}</a></div>
+            <div class="news-title" (click)="gotoNews(news)">{{news.title}}</div>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ import { MainPageComponent } from './pages/main-page/main.page.component';
 import { ServicesPageComponent } from './pages/services-page/services.page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts.page.component';
 import { DoctorsPageComponent } from './pages/doctors-page/doctors.page.component';
+import { NewsPageComponent } from './pages/news-page/news.page.component';
 import { ServicesGroupDetailsPageComponent } from './pages/services-details-page/services.group.details.page.component';
 import { ServiceDetailsPageComponent } from './pages/service-details-page/service.details.page.component';
 
@@ -20,7 +21,8 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
                  ROUTER_DIRECTIVES,
                  ServicesPageComponent,
                  ContactsPageComponent,
-                 DoctorsPageComponent, 
+                 DoctorsPageComponent,
+                 NewsPageComponent, 
                  NavComponent]
 })
 @RouteConfig([
@@ -54,6 +56,11 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
         path: '/service-details/:url',
         name: 'ServiceDetailsPage',
         component: ServiceDetailsPageComponent
+    },
+    {
+        path: '/news/:id',
+        name: 'NewsPage',
+        component: NewsPageComponent
     }
 ])
 export class AppComponent {

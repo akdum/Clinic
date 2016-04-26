@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../services/news.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../services/news.service', 'angular2/router'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../../../services/news.service'], function(ex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, news_service_1;
+    var core_1, news_service_1, router_1;
     var NewsComponent;
     return {
         setters:[
@@ -19,11 +19,15 @@ System.register(['angular2/core', '../../../services/news.service'], function(ex
             },
             function (news_service_1_1) {
                 news_service_1 = news_service_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             NewsComponent = (function () {
-                function NewsComponent(_news) {
+                function NewsComponent(_news, _router) {
                     this._news = _news;
+                    this._router = _router;
                     this._newsList = [];
                 }
                 NewsComponent.prototype.ngOnInit = function () {
@@ -40,12 +44,16 @@ System.register(['angular2/core', '../../../services/news.service'], function(ex
                     var yyyy = date.getFullYear();
                     return (dd < 10 ? '0' + dd.toString() : dd.toString()) + '.' + (mm < 10 ? '0' + mm.toString() : mm.toString()) + '.' + yyyy;
                 };
+                NewsComponent.prototype.gotoNews = function (news) {
+                    var link = ['NewsPage', { id: news.id }];
+                    this._router.navigate(link);
+                };
                 NewsComponent = __decorate([
                     core_1.Component({
                         selector: 'news-component',
                         templateUrl: '../app/templates/news.component.html'
                     }), 
-                    __metadata('design:paramtypes', [news_service_1.NewsService])
+                    __metadata('design:paramtypes', [news_service_1.NewsService, router_1.Router])
                 ], NewsComponent);
                 return NewsComponent;
             }());

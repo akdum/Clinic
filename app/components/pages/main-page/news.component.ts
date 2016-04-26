@@ -1,6 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { NewsService } from '../../../services/news.service';
 import { News } from '../../../data-interfaces/news';
+import { Router } from 'angular2/router';
 
 @Component({
     selector: 'news-component',
@@ -9,7 +10,7 @@ import { News } from '../../../data-interfaces/news';
 export class NewsComponent implements OnInit {
     private _newsList: News[] = [];
     
-    constructor(private _news: NewsService) {
+    constructor(private _news: NewsService, private _router: Router) {
     }
     
     ngOnInit() {
@@ -29,4 +30,9 @@ export class NewsComponent implements OnInit {
         var yyyy = date.getFullYear();
         return (dd<10?'0'+dd.toString():dd.toString())+'.'+ (mm<10?'0' + mm.toString():mm.toString())+'.'+yyyy;
     }    
+    
+    gotoNews(news:News) {
+        let link = ['NewsPage', { id: news.id }];
+        this._router.navigate(link);
+    }
 }

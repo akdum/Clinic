@@ -22,7 +22,7 @@ export class DbService {
     getNews():Promise<News[]> {
         var params = {
             "TableName": "News",
-            "AttributesToGet": ["Title", "Date"]
+            "AttributesToGet": ["Title", "Date", "Id"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -32,7 +32,8 @@ export class DbService {
                     for (var index = 0; index < data.Count; index++) {
                         returnItems.push(new News(this._utilities.getStringFromField(data.Items[index].Title),
                                                   "", 
-                                                  this._utilities.getNumberFromField(data.Items[index].Date)));
+                                                  this._utilities.getNumberFromField(data.Items[index].Date),
+                                                  this._utilities.getNumberFromField(data.Items[index].Id)));
                     }
                     returnItems.sort(function(a:News,b:News) {
                         if (a.rawdate < b.rawdate) return 1;
