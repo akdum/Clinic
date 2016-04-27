@@ -114,6 +114,13 @@ div.media-alt .media-body {
 	padding-left: 1.5rem;
 	vertical-align: middle;
 }
+.common-title h1 {
+	font-family: "Roboto Mono";
+}
+.common-title h2 {
+	font-family: "Roboto Mono";
+	font-weight: 300;
+}
 .common-text {
 }
 .common-text .row {
@@ -511,13 +518,6 @@ h1.trends {
 /* services group details page */
 .services-group-details {
 	
-}
-.services-group-details h1 {
-	font-family: "Roboto Mono";
-}
-.services-group-details h2 {
-	font-family: "Roboto Mono";
-	font-weight: 300;
 }
 .services-group-popular .popular-services.big {
 	border-bottom: 1px solid #ddd;

@@ -4,16 +4,16 @@ import { Router } from 'angular2/router';
 @Component({
     selector: 'common-back-component',
     templateUrl: '../app/templates/common.back.component.html',
-    inputs: ['BackRoute', 'BackTitle']
+    inputs: ['backRoute', 'backTitle']
 })
 export class CommonBackComponent {
-    public BackRoute:string;
-    public BackTitle:string;
+    public backRoute:string;
+    public backTitle:string;
     
     constructor(private _router:Router) { }
     
     gotoBack() {
-        let link = [this.BackRoute];
+        let link = [this.backRoute];
         this._router.navigate(link);
     }
 }

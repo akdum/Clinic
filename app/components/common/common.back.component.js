@@ -26,14 +26,14 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                     this._router = _router;
                 }
                 CommonBackComponent.prototype.gotoBack = function () {
-                    var link = [this.BackRoute];
+                    var link = [this.backRoute];
                     this._router.navigate(link);
                 };
                 CommonBackComponent = __decorate([
                     core_1.Component({
                         selector: 'common-back-component',
                         templateUrl: '../app/templates/common.back.component.html',
-                        inputs: ['BackRoute', 'BackTitle']
+                        inputs: ['backRoute', 'backTitle']
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], CommonBackComponent);
