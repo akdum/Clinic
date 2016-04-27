@@ -1,4 +1,4 @@
-System.register(['angular2/core', './service.details.title.component', './service.details.back.component', '../../common/common.text.component', 'angular2/router', '../../../services/services.service', '../../../services/utilities.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.text.component', 'angular2/router', '../../../services/services.service', '../../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,18 @@ System.register(['angular2/core', './service.details.title.component', './servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, service_details_title_component_1, service_details_back_component_1, common_text_component_1, router_1, services_service_1, utilities_service_1;
+    var core_1, common_title_component_1, common_back_component_1, common_text_component_1, router_1, services_service_1, utilities_service_1;
     var ServiceDetailsPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (service_details_title_component_1_1) {
-                service_details_title_component_1 = service_details_title_component_1_1;
+            function (common_title_component_1_1) {
+                common_title_component_1 = common_title_component_1_1;
             },
-            function (service_details_back_component_1_1) {
-                service_details_back_component_1 = service_details_back_component_1_1;
+            function (common_back_component_1_1) {
+                common_back_component_1 = common_back_component_1_1;
             },
             function (common_text_component_1_1) {
                 common_text_component_1 = common_text_component_1_1;
@@ -41,6 +41,8 @@ System.register(['angular2/core', './service.details.title.component', './servic
                     this._routeParams = _routeParams;
                     this._servicesService = _servicesService;
                     this._utilities = _utilities;
+                    this._backRouteName = "ServicesPage";
+                    this._backTitle = "Вернуться в каталог";
                     this._service = _utilities.getBlankService();
                 }
                 ServiceDetailsPageComponent.prototype.ngOnInit = function () {
@@ -56,8 +58,8 @@ System.register(['angular2/core', './service.details.title.component', './servic
                 ServiceDetailsPageComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../app/templates/service.details.page.component.html',
-                        directives: [service_details_title_component_1.ServiceDetailsTitleComponent,
-                            service_details_back_component_1.ServiceDetailsBackComponent,
+                        directives: [common_title_component_1.CommonTitleComponent,
+                            common_back_component_1.CommonBackComponent,
                             common_text_component_1.CommonTextComponent]
                     }), 
                     __metadata('design:paramtypes', [router_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])

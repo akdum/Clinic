@@ -3,12 +3,16 @@ import { RouteParams } from 'angular2/router';
 import { News } from '../../../data-interfaces/news';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { NewsService } from '../../../services/news.service';
+import { CommonBackComponent } from '../../common/common.back.component';
 
 @Component({
-    templateUrl: '../app/templates/news.page.component.html'
+    templateUrl: '../app/templates/news.page.component.html',
+    directives: [CommonBackComponent]
 })
 export class NewsPageComponent implements OnInit {
     private _news: News;
+    private _backRouteName:string = "MainPage";
+    private _backTitle:string = "Вернуться";
     
     constructor(private _routeParams: RouteParams, 
                 private _utilities:UtilitiesService,

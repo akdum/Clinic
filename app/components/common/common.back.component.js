@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1;
-    var ServiceDetailsBackComponent;
+    var CommonBackComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,21 +21,26 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 router_1 = router_1_1;
             }],
         execute: function() {
-            ServiceDetailsBackComponent = (function () {
-                function ServiceDetailsBackComponent() {
+            CommonBackComponent = (function () {
+                function CommonBackComponent(_router) {
+                    this._router = _router;
                 }
-                ServiceDetailsBackComponent = __decorate([
+                CommonBackComponent.prototype.gotoBack = function () {
+                    var link = [this.BackRoute];
+                    this._router.navigate(link);
+                };
+                CommonBackComponent = __decorate([
                     core_1.Component({
-                        selector: 'service-details-back-component',
-                        templateUrl: '../app/templates/service.details.back.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        selector: 'common-back-component',
+                        templateUrl: '../app/templates/common.back.component.html',
+                        inputs: ['BackRoute', 'BackTitle']
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], ServiceDetailsBackComponent);
-                return ServiceDetailsBackComponent;
+                    __metadata('design:paramtypes', [router_1.Router])
+                ], CommonBackComponent);
+                return CommonBackComponent;
             }());
-            exports_1("ServiceDetailsBackComponent", ServiceDetailsBackComponent);
+            exports_1("CommonBackComponent", CommonBackComponent);
         }
     }
 });
-//# sourceMappingURL=service.details.back.component.js.map
+//# sourceMappingURL=common.back.component.js.map

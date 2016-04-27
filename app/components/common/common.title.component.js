@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,33 +10,29 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
-    var ServicesGroupBackComponent;
+    var core_1;
+    var CommonTitleComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }],
         execute: function() {
-            ServicesGroupBackComponent = (function () {
-                function ServicesGroupBackComponent() {
+            CommonTitleComponent = (function () {
+                function CommonTitleComponent() {
                 }
-                ServicesGroupBackComponent.prototype.ngOnInit = function () { };
-                ServicesGroupBackComponent = __decorate([
+                CommonTitleComponent = __decorate([
                     core_1.Component({
-                        selector: 'services-group-back-component',
-                        templateUrl: '../app/templates/services.group.back.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        selector: 'common-title-component',
+                        templateUrl: '../app/templates/common.title.component.html',
+                        inputs: ['title']
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ServicesGroupBackComponent);
-                return ServicesGroupBackComponent;
+                ], CommonTitleComponent);
+                return CommonTitleComponent;
             }());
-            exports_1("ServicesGroupBackComponent", ServicesGroupBackComponent);
+            exports_1("CommonTitleComponent", CommonTitleComponent);
         }
     }
 });
-//# sourceMappingURL=services.group.back.component.js.map
+//# sourceMappingURL=common.title.component.js.map

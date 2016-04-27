@@ -1,13 +1,13 @@
 <div class="row">
     <div class="hidden-xs-down col-sm-12 col-md-12 col-lg-12 back back-small">
         <span></span>
-        <a class="link-button" [routerLink]="['ServicesPage']" >Вернуться в каталог</a>
+        <a class="link-button" (click)="gotoBack()">{{BackTitle}}</a>
     </div>
     <div class="hidden-sm-up col-xs-12 back back-large">
         <div class="row">
             <div class="col-xs-1 col-xs-offset-2"><span></span></div>
             <div class="col-xs-8">
-                <a [routerLink]="['ServicesPage']">Вернуться в каталог</a>
+                <a (click)="gotoBack()">{{BackTitle}}</a>
             </div>
         </div>
     </div>
