@@ -16,8 +16,8 @@ export class NewsService {
         } else {
             // query news.
             return new Promise(resolve=> this._db.getNews().then(function(data){
-                this.newsList = data;
-                resolve(this.newsList);
+                this._newsList = data;
+                resolve(this._newsList);
             }.bind(this)));
         }
     }
@@ -28,8 +28,8 @@ export class NewsService {
         } else {
             // query news.
             return new Promise(resolve=> this._db.getNews().then(function(data){
-                this.newsList = data;
-                resolve(this.getNewsItemsWithLimit(this.newsList));
+                this._newsList = data;
+                resolve(this.getNewsItemsWithLimit(this._newsList));
             }.bind(this)));
         }
     }
@@ -54,13 +54,13 @@ export class NewsService {
     }
     
     private tryGetNews(id:number):Promise<News> {
-        let news: News = this._newsList.find((val)=>val.id === id);
+        let news: News = this._newsList.find((val)=>val.id == id);
         
         if (news) {
             if (news.text.length > 0) {
                 Promise.resolve(news);
             } else {
-                return new Promise<News>(resolve=>this._db.getNewsDetailsById(news.id).then(function (data){
+                return new Promise<News>(resolve=>this._db.getNewsDetailsByIdAndTitle(news.title, news.id).then(function (data){
                     news = data;
                     this._utilities.replaceOrAddItemInArrayById(this._newsList, news, id);
                     resolve(news);

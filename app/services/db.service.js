@@ -75,20 +75,33 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                         }
                     }); });
                 };
-                DbService.prototype.getNewsDetailsById = function (id) {
+                DbService.prototype.getNewsDetailsByIdAndTitle = function (title, id) {
+                    var _this = this;
                     var params = {
                         "TableName": "News",
                         "KeyConditionExpression": "Title = :title",
                         "FilterExpression": "Id = :id",
                         "ExpressionAttributeValues": {
                             ":title": {
-                                S: "Новость"
+                                S: title
                             },
-                            "id": {
+                            ":id": {
                                 N: id
                             }
                         }
                     };
+                    return new Promise(function (resolve, reject) { return _this._dynamoDB.query(params, function (err, data) {
+                        if (err == null) {
+                            var returnData = _this._utilities.getBlankNews();
+                            if (data.Count > 0) {
+                                returnData = new news_1.News(_this._utilities.getStringFromField(data.Items[0].Title), _this._utilities.getListTextFromField(data.Items[0].Text), _this._utilities.getNumberFromField(data.Items[0].Date), _this._utilities.getNumberFromField(data.Items[0].Id));
+                            }
+                            resolve(returnData);
+                        }
+                        else {
+                            console.log(err);
+                        }
+                    }); });
                 };
                 DbService.prototype.getServices = function () {
                     var _this = this;

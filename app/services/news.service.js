@@ -38,8 +38,8 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                     else {
                         // query news.
                         return new Promise(function (resolve) { return _this._db.getNews().then(function (data) {
-                            this.newsList = data;
-                            resolve(this.newsList);
+                            this._newsList = data;
+                            resolve(this._newsList);
                         }.bind(_this)); });
                     }
                 };
@@ -51,8 +51,8 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                     else {
                         // query news.
                         return new Promise(function (resolve) { return _this._db.getNews().then(function (data) {
-                            this.newsList = data;
-                            resolve(this.getNewsItemsWithLimit(this.newsList));
+                            this._newsList = data;
+                            resolve(this.getNewsItemsWithLimit(this._newsList));
                         }.bind(_this)); });
                     }
                 };
@@ -78,13 +78,13 @@ System.register(['angular2/core', './db.service', './utilities.service'], functi
                 };
                 NewsService.prototype.tryGetNews = function (id) {
                     var _this = this;
-                    var news = this._newsList.find(function (val) { return val.id === id; });
+                    var news = this._newsList.find(function (val) { return val.id == id; });
                     if (news) {
                         if (news.text.length > 0) {
                             Promise.resolve(news);
                         }
                         else {
-                            return new Promise(function (resolve) { return _this._db.getNewsDetailsById(news.id).then(function (data) {
+                            return new Promise(function (resolve) { return _this._db.getNewsDetailsByIdAndTitle(news.title, news.id).then(function (data) {
                                 news = data;
                                 this._utilities.replaceOrAddItemInArrayById(this._newsList, news, id);
                                 resolve(news);

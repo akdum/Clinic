@@ -48,22 +48,35 @@ export class DbService {
         }));
     }
     
-    getNewsDetailsById(id:number):Promise<News> {
+    getNewsDetailsByIdAndTitle(title:string, id:number):Promise<News> {
         var params={
             "TableName": "News",
             "KeyConditionExpression": "Title = :title",
             "FilterExpression": "Id = :id",
             "ExpressionAttributeValues": {
                 ":title" : {
-                    S: "Новость"
+                    S: title
                 },
-                "id" : {
+                ":id" : {
                     N: id
                 }
             }
         }
         
-        
+        return new Promise((resolve, reject)=>this._dynamoDB.query(params, (err,data)=>{
+            if (err == null) {
+                let returnData : News = this._utilities.getBlankNews();
+                if (data.Count > 0) {
+                    returnData = new News(this._utilities.getStringFromField(data.Items[0].Title),
+                                          this._utilities.getListTextFromField(data.Items[0].Text),
+                                          this._utilities.getNumberFromField(data.Items[0].Date),
+                                          this._utilities.getNumberFromField(data.Items[0].Id));
+                }
+                resolve(returnData);
+            } else {
+                console.log(err);
+            }
+        }));
     }
     
     getServices():Promise<Service[]> {
