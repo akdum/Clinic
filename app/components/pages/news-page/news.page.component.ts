@@ -5,11 +5,13 @@ import { UtilitiesService } from '../../../services/utilities.service';
 import { NewsService } from '../../../services/news.service';
 import { CommonTitleComponent } from '../../common/common.title.component';
 import { CommonBackComponent } from '../../common/common.back.component';
+import { CommonTextComponent } from '../../common/common.text.component';
 
 @Component({
     templateUrl: '../app/templates/news.page.component.html',
     directives: [CommonTitleComponent,
-                 CommonBackComponent]
+                 CommonBackComponent,
+                 CommonTextComponent]
 })
 export class NewsPageComponent implements OnInit {
     private _news: News;
