@@ -27,20 +27,13 @@ System.register(['angular2/core', '../../data-interfaces/text.viewmodel', '../..
             CommonTextComponent = (function () {
                 function CommonTextComponent() {
                     this._text = [];
-                    this._isService = false;
+                    this.expandFirstPart = false;
                 }
-                Object.defineProperty(CommonTextComponent.prototype, "isService", {
-                    set: function (isService) {
-                        this._isService = isService;
-                    },
-                    enumerable: true,
-                    configurable: true
-                });
                 Object.defineProperty(CommonTextComponent.prototype, "text", {
                     set: function (text) {
                         if (text && text.length > 0) {
                             this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imageNames.map(function (m) { return config_1.CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m; })); });
-                            if (this._isService) {
+                            if (this.expandFirstPart) {
                                 this._text[0].isExpanded = true;
                             }
                         }
@@ -53,9 +46,8 @@ System.register(['angular2/core', '../../data-interfaces/text.viewmodel', '../..
                 };
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', Boolean), 
-                    __metadata('design:paramtypes', [Boolean])
-                ], CommonTextComponent.prototype, "isService", null);
+                    __metadata('design:type', Boolean)
+                ], CommonTextComponent.prototype, "expandFirstPart", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Array), 
