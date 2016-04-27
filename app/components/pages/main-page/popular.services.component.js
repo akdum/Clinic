@@ -25,8 +25,9 @@ System.register(['angular2/core', '../../../services/services.service', 'angular
             }],
         execute: function() {
             PopularServicesComponent = (function () {
-                function PopularServicesComponent(_services) {
+                function PopularServicesComponent(_services, _router) {
                     this._services = _services;
+                    this._router = _router;
                 }
                 PopularServicesComponent.prototype.ngOnInit = function () {
                     this.getServices();
@@ -38,13 +39,17 @@ System.register(['angular2/core', '../../../services/services.service', 'angular
                         }
                     }.bind(this));
                 };
+                PopularServicesComponent.prototype.gotoServiceDetails = function (service) {
+                    var link = ['ServiceDetailsPage', { url: service.url }];
+                    this._router.navigate(link);
+                };
                 PopularServicesComponent = __decorate([
                     core_1.Component({
                         selector: 'popular-services-component',
                         templateUrl: '../app/templates/popular.services.component.html',
                         directives: [router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [services_service_1.ServicesService])
+                    __metadata('design:paramtypes', [services_service_1.ServicesService, router_1.Router])
                 ], PopularServicesComponent);
                 return PopularServicesComponent;
             }());

@@ -1,7 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { ServicesService } from '../../../services/services.service';
 import { Service } from '../../../data-interfaces/service';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 
 @Component({
     selector: 'popular-services-component',
@@ -11,7 +11,7 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
 export class PopularServicesComponent implements OnInit{   
     private _servicesList: Service[];
     
-    constructor(private _services: ServicesService){
+    constructor(private _services: ServicesService, private _router: Router){
     }
     
     ngOnInit() {
@@ -25,4 +25,9 @@ export class PopularServicesComponent implements OnInit{
              }
          }.bind(this));
     } 
+    
+    gotoServiceDetails(service:Service) {
+        let link = ['ServiceDetailsPage', { url: service.url }];
+        this._router.navigate(link);
+    }
 }

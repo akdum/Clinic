@@ -5,6 +5,7 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { EnrollModalComponent } from './dialog/enroll.modal.component';
 import { MainPageComponent } from './pages/main-page/main.page.component';
+import { AboutPageComponent } from './pages/about-page/about.page.component';
 import { ServicesPageComponent } from './pages/services-page/services.page.component';
 import { ContactsPageComponent } from './pages/contacts-page/contacts.page.component';
 import { DoctorsPageComponent } from './pages/doctors-page/doctors.page.component';
@@ -19,6 +20,7 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
                  FooterComponent, 
                  EnrollModalComponent, 
                  ROUTER_DIRECTIVES,
+                 AboutPageComponent,
                  ServicesPageComponent,
                  ContactsPageComponent,
                  DoctorsPageComponent,
@@ -31,6 +33,11 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
         name: 'MainPage',
         component: MainPageComponent,
         useAsDefault: true
+    },
+    {
+        path: '/about',
+        name: 'AboutPage',
+        component: AboutPageComponent  
     },
     {
         path: '/doctors',
