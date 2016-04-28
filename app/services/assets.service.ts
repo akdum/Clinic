@@ -3,7 +3,7 @@ import {Injectable} from 'angular2/core';
 @Injectable()
 export class AssetsService {
     getLogo() {
-        return "../assets/logo.jpg";
+        return "../assets/logo.png";
     }
     getCarousel() {
         let images: string[] = [

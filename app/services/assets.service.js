@@ -22,7 +22,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 function AssetsService() {
                 }
                 AssetsService.prototype.getLogo = function () {
-                    return "../assets/logo.jpg";
+                    return "../assets/logo.png";
                 };
                 AssetsService.prototype.getCarousel = function () {
                     var images = [
