@@ -8,6 +8,16 @@ import { NewsService } from './services/news.service';
 import { DbService } from './services/db.service';
 import { UtilitiesService } from './services/utilities.service';
 import { DoctorsService } from './services/doctors.service';
+import { AboutService } from './services/about.service';
 import { ROUTER_PROVIDERS } from 'angular2/router';
 
-bootstrap(AppComponent, [AssetsService, ContactsService, ServicesService, SpecialOffersService, NewsService, DbService, DoctorsService, UtilitiesService, ROUTER_PROVIDERS]);
+bootstrap(AppComponent, [AssetsService, 
+                         ContactsService, 
+                         ServicesService, 
+                         SpecialOffersService, 
+                         NewsService, 
+                         DbService, 
+                         DoctorsService, 
+                         UtilitiesService, 
+                         ROUTER_PROVIDERS, 
+                         AboutService]);

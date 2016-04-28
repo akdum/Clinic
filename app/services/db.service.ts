@@ -269,4 +269,23 @@ export class DbService {
             }
         }));
     }
+    
+    getAbout():Promise<IText[]> {
+        var params = {
+            "TableName": "About",
+            "AttributesToGet": ["Text"]
+        }
+        
+        return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
+            if (err == null) {
+                let returnItems: IText[] = [];
+                if (data.Count > 0) {
+                    returnItems = this._utilities.getListTextFromField(data.Items[0].Text);
+                }
+                resolve(returnItems);
+            } else {
+                console.log(err);
+            }
+        }));
+    }
 }

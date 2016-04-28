@@ -263,6 +263,25 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                         }
                     }); });
                 };
+                DbService.prototype.getAbout = function () {
+                    var _this = this;
+                    var params = {
+                        "TableName": "About",
+                        "AttributesToGet": ["Text"]
+                    };
+                    return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
+                        if (err == null) {
+                            var returnItems = [];
+                            if (data.Count > 0) {
+                                returnItems = _this._utilities.getListTextFromField(data.Items[0].Text);
+                            }
+                            resolve(returnItems);
+                        }
+                        else {
+                            console.log(err);
+                        }
+                    }); });
+                };
                 DbService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [utilities_service_1.UtilitiesService])
