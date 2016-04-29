@@ -1,5 +1,5 @@
 <div class="services-group-rest row" *ngIf="_services.length>0">
-    <div *ngFor="#service of _services" class="service-link col-xs-12 col-sm-12 col-md-6 col-lg-6" (click)="gotoServiceDetails(service)">        
+    <div *ngFor="let service of _services" class="service-link col-xs-12 col-sm-12 col-md-6 col-lg-6" (click)="gotoServiceDetails(service)">        
         <span class="img-link"></span><span>{{service.title}}</span><span class="text-link-right"></span>
     </div>
 </div>

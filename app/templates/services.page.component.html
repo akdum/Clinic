@@ -1,5 +1,5 @@
 <div class="row services-row">
-    <div *ngFor="#serviceGroup of _servicesData; #i=index">
+    <div *ngFor="let serviceGroup of _servicesData; let i=index">
         <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
             <div class='media-alt'>
                 <div class="media-heading" (click)="gotoServicesGroupDetail(serviceGroup)">
@@ -12,7 +12,7 @@
                     <span>{{serviceGroup.body}}</span>
                 </div>
                 <div class="links">
-                    <links *ngFor="#service of serviceGroup.popular_services;#i=index">
+                    <links *ngFor="let service of serviceGroup.popular_services;let i=index">
                         <a (click)="gotoServiceDetails(service)" *ngIf="i<3">{{service.title}}</a>
                     </links>
                 </div>

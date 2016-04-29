@@ -4,7 +4,7 @@
         <h2>Акции</h2>          
     </div>
     <!-- Special offers -->
-    <div class="col-md-8 col-lg-8 special-offers"  *ngFor="#offer of specialOffers">
+    <div class="col-md-8 col-lg-8 special-offers"  *ngFor="let offer of specialOffers">
         <a href="#">
         <div class="jumbotron jumbotron-fluid">
             <img [src]="offer" />
