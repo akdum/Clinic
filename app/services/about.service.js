@@ -24,16 +24,15 @@ System.register(['angular2/core', './db.service'], function(exports_1, context_1
             AboutService = (function () {
                 function AboutService(_db) {
                     this._db = _db;
-                    this._about = [];
                 }
                 AboutService.prototype.getAboutText = function () {
                     var _this = this;
-                    if (this._about.length > 0) {
+                    if (this._about) {
                         return Promise.resolve(this._about);
                     }
                     else {
-                        return new Promise(function (resolve) { return _this._db.getAbout().then(function (text) {
-                            this._about = text;
+                        return new Promise(function (resolve) { return _this._db.getAbout().then(function (about) {
+                            this._about = about;
                             resolve(this._about);
                         }.bind(_this)); });
                     }

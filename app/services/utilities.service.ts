@@ -5,6 +5,7 @@ import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
 import { Doctor } from '../data-interfaces/doctor';
 import { News } from '../data-interfaces/news';
+import { About } from '../data-interfaces/about';
 import { DoctorViewModel } from '../data-interfaces/doctor.viewmodel';
 import { CONFIG } from '../config/config';
 
@@ -98,5 +99,9 @@ export class UtilitiesService {
                 return env;
             }
         }
+    }
+    
+    getBlankAbout():About {
+        return new About([]);
     }
 }

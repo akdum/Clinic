@@ -1,19 +1,20 @@
 import { Injectable } from 'angular2/core';
 import { DbService } from './db.service';
-import { IText } from '../data-interfaces/IText';
+import { About } from '../data-interfaces/about';
 
 @Injectable()
 export class AboutService {
-    private _about:IText[] = [];
+    private _about:About;
     
-    constructor(private _db: DbService) { }
+    constructor(private _db: DbService) { 
+    }
 
-    getAboutText():Promise<IText[]>{
-        if (this._about.length > 0) {
+    getAboutText():Promise<About>{
+        if (this._about) {
             return Promise.resolve(this._about);
         } else {
-            return new Promise((resolve)=>this._db.getAbout().then(function (text:IText[]) {
-                this._about = text;
+            return new Promise((resolve)=>this._db.getAbout().then(function (about:About) {
+                this._about = about;
                 resolve(this._about);
             }.bind(this)));
         }

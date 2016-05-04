@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', './utilities.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', '../data-interfaces/about', './utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, doctor_1, utilities_service_1;
+    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, doctor_1, about_1, utilities_service_1;
     var DbService;
     return {
         setters:[
@@ -34,6 +34,9 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
             },
             function (doctor_1_1) {
                 doctor_1 = doctor_1_1;
+            },
+            function (about_1_1) {
+                about_1 = about_1_1;
             },
             function (utilities_service_1_1) {
                 utilities_service_1 = utilities_service_1_1;
@@ -267,15 +270,15 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "About",
-                        "AttributesToGet": ["Text"]
+                        "AttributesToGet": ["Rights"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
-                            var returnItems = [];
+                            var about = _this._utilities.getBlankAbout();
                             if (data.Count > 0) {
-                                returnItems = _this._utilities.getListTextFromField(data.Items[0].Text);
+                                about = new about_1.About(_this._utilities.getListTextFromField(data.Items[0].Rights));
                             }
-                            resolve(returnItems);
+                            resolve(about);
                         }
                         else {
                             console.log(err);

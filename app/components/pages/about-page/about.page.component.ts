@@ -1,20 +1,25 @@
 import { Component, OnInit } from 'angular2/core';
 import { AboutService } from '../../../services/about.service';
-import { IText } from '../../../data-interfaces/IText';
+import { About } from '../../../data-interfaces/about';
+import { UtilitiesService } from '../../../services/utilities.service';
+import { CommonTextComponent } from '../../common/common.text.component';
 
 @Component({
-    templateUrl: '../app/templates/about.page.component.html'
+    templateUrl: '../app/templates/about.page.component.html',
+    directives: [CommonTextComponent]
 })
 export class AboutPageComponent implements OnInit {
-    private _about:IText[] = [];
-    private _activeTab: string = "";
+    private _about:About;
+    private _activeTab: string = "rights";
     
-    constructor(private _aboutService:AboutService) { }
+    constructor(private _aboutService:AboutService, private _utilities: UtilitiesService) { 
+        this._about = this._utilities.getBlankAbout();
+    }
     
     ngOnInit() {
-        // this._aboutService.getAboutText().then(function (data:IText[]) {
-        //     this._about = data;
-        // }.bind(this));
+        this._aboutService.getAboutText().then(function (about:About) {
+            this._about = about;
+        }.bind(this));
     }
     
     SetActiveTab(tab) {

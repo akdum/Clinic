@@ -5,6 +5,7 @@ import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { Doctor } from '../data-interfaces/doctor';
+import { About } from '../data-interfaces/about';
 import { IText } from '../data-interfaces/itext';
 import { UtilitiesService } from './utilities.service';
 
@@ -270,19 +271,19 @@ export class DbService {
         }));
     }
     
-    getAbout():Promise<IText[]> {
+    getAbout():Promise<About> {
         var params = {
             "TableName": "About",
-            "AttributesToGet": ["Text"]
+            "AttributesToGet": ["Rights"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
             if (err == null) {
-                let returnItems: IText[] = [];
+                let about: About = this._utilities.getBlankAbout();
                 if (data.Count > 0) {
-                    returnItems = this._utilities.getListTextFromField(data.Items[0].Text);
+                    about = new About(this._utilities.getListTextFromField(data.Items[0].Rights));
                 }
-                resolve(returnItems);
+                resolve(about);
             } else {
                 console.log(err);
             }
