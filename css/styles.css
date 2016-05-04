@@ -629,6 +629,10 @@ h1.trends {
 	font-family: "Roboto Mono";
 	font-weight: 300;
 }
+/* about page */
+.law {
+	margin-top: 1.5rem;
+}
 /* mobile custom */
 .mobile a {
 	margin-right: 1rem;
