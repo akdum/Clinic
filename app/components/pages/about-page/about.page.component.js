@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../common/common.text.component', '../../../services/about.service'], function(exports_1, context_1) {
+System.register(['angular2/core', '../../../services/about.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['angular2/core', '../../common/common.text.component', '../../.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_text_component_1, about_service_1;
+    var core_1, about_service_1;
     var AboutPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (common_text_component_1_1) {
-                common_text_component_1 = common_text_component_1_1;
             },
             function (about_service_1_1) {
                 about_service_1 = about_service_1_1;
@@ -28,16 +25,29 @@ System.register(['angular2/core', '../../common/common.text.component', '../../.
                 function AboutPageComponent(_aboutService) {
                     this._aboutService = _aboutService;
                     this._about = [];
+                    this._activeTab = "";
                 }
                 AboutPageComponent.prototype.ngOnInit = function () {
-                    this._aboutService.getAboutText().then(function (data) {
-                        this._about = data;
-                    }.bind(this));
+                    // this._aboutService.getAboutText().then(function (data:IText[]) {
+                    //     this._about = data;
+                    // }.bind(this));
+                };
+                AboutPageComponent.prototype.SetActiveTab = function (tab) {
+                    if (tab.attributes["data-id"]) {
+                        this._activeTab = tab.attributes["data-id"].value;
+                    }
+                };
+                AboutPageComponent.prototype.IsTabActive = function (tab) {
+                    if (tab.attributes["data-id"]) {
+                        var value = tab.attributes["data-id"].value;
+                        return value == this._activeTab;
+                    }
+                    else
+                        return false;
                 };
                 AboutPageComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '../app/templates/about.page.component.html',
-                        directives: [common_text_component_1.CommonTextComponent]
+                        templateUrl: '../app/templates/about.page.component.html'
                     }), 
                     __metadata('design:paramtypes', [about_service_1.AboutService])
                 ], AboutPageComponent);

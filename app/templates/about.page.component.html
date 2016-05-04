@@ -1,3 +1,15 @@
 <div class="row about">
-    <common-text-component [text]="_about" [expandFirstPart]="false"></common-text-component>
+    <div class="row">
+        <ul class="tabs clearfix">
+            <li class="tab" [class.active-tab]="IsTabActive(rights)" data-id="rights" (click)="SetActiveTab(rights)" #rights >
+            Права и обязанности пациентов
+            </li>
+            <li class="tab" [class.active-tab]="IsTabActive(comments)" data-id="comments" (click)="SetActiveTab(comments)" #comments >
+            Отзывы
+            </li>
+            <li class="tab" [class.active-tab]="IsTabActive(photos)" data-id="photos" (click)="SetActiveTab(photos)" #photos>
+            Фотогаллерея
+            </li>
+        </ul>
+    </div>
 </div>
