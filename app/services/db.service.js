@@ -276,7 +276,7 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
                         if (err == null) {
                             var about = _this._utilities.getBlankAbout();
                             if (data.Count > 0) {
-                                about = new about_1.About(_this._utilities.getListTextFromField(data.Items[0].Comments), _this._utilities.getListTextFromField(data.Items[0].Rights));
+                                about = new about_1.About(_this._utilities.getListCommentsFromField(data.Items[0].Comments), _this._utilities.getListTextFromField(data.Items[0].Rights));
                             }
                             resolve(about);
                         }

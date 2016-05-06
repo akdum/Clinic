@@ -1,19 +1,37 @@
 <div class="row about">
     <div class="row">
-        <ul class="tabs clearfix">
-            <li class="tab" [class.active-tab]="IsTabActive(rights)" data-id="rights" (click)="SetActiveTab(rights)" #rights >
-            Права и обязанности пациентов
-            </li>
-            <li class="tab" [class.active-tab]="IsTabActive(comments)" data-id="comments" (click)="SetActiveTab(comments)" #comments >
-            Отзывы
-            </li>
-            <li class="tab" [class.active-tab]="IsTabActive(photos)" data-id="photos" (click)="SetActiveTab(photos)" #photos>
-            Фотогаллерея
-            </li>
-            <li class="tab" [class.active-tab]="IsTabActive(license)" data-id="license" (click)="SetActiveTab(license)" #license>
-            Лицензии
-            </li>
-        </ul>
+        <div class="hidden-md-down">
+            <ul class="tabs clearfix">
+                <li class="tab" [class.active-tab]="IsTabActive(rights)" data-id="rights" (click)="SetActiveTab(rights)" #rights >
+                Права и обязанности пациентов
+                </li>
+                <li class="tab" [class.active-tab]="IsTabActive(comments)" data-id="comments" (click)="SetActiveTab(comments)" #comments >
+                Отзывы
+                </li>
+                <li class="tab" [class.active-tab]="IsTabActive(photos)" data-id="photos" (click)="SetActiveTab(photos)" #photos>
+                Фотогаллерея
+                </li>
+                <li class="tab" [class.active-tab]="IsTabActive(license)" data-id="license" (click)="SetActiveTab(license)" #license>
+                Лицензии
+                </li>
+            </ul>
+        </div>
+        <div class="hidden-lg-up">
+            <ul class="menu">
+                <li class="menu-item" [class.active-tab]="IsTabActive(rights)" data-id="rights" (click)="SetActiveTab(rights)" #rights >
+                Права и обязанности пациентов
+                </li>
+                <li class="menu-item" [class.active-tab]="IsTabActive(comments)" data-id="comments" (click)="SetActiveTab(comments)" #comments >
+                Отзывы
+                </li>
+                <li class="menu-item" [class.active-tab]="IsTabActive(photos)" data-id="photos" (click)="SetActiveTab(photos)" #photos>
+                Фотогаллерея
+                </li>
+                <li class="menu-item" [class.active-tab]="IsTabActive(license)" data-id="license" (click)="SetActiveTab(license)" #license>
+                Лицензии
+                </li>
+            </ul>
+        </div>
         <div class="tab-content" *ngIf="IsTabActive(rights)">
             <div class="info alert alert-info">Основы прав и обязанностей пациентов  подготовлены в соответствии с Европейским отчетом по правам пациентов (Амстердам, 1994), Отчетом Всемирной ассоциации врачей по правам Пациентов (Бали, 1995), Государственными нормативными актами Российской Федерации, в том числе Федеральным законом от 21.11.2011 № 323-ФЗ (ред. от 28.12.2013) "Об основах охраны здоровья граждан в Российской Федерации".</div>
             <common-text-component [text]="_about.rights" [expandFirstPart]="true"></common-text-component>
@@ -38,7 +56,7 @@
             </div>
         </div>
         <div class="tab-content" *ngIf="IsTabActive(comments)">
-            <comments-component [text]="_about.comments"></comments-component>
+            <comments-component [comments]="_about.comments"></comments-component>
         </div>
         <div class="tab-content" *ngIf="IsTabActive(photos)">
             Текст

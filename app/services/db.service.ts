@@ -8,6 +8,7 @@ import { ServicesGroup } from '../data-interfaces/services.group';
 import { Doctor } from '../data-interfaces/doctor';
 import { About } from '../data-interfaces/about';
 import { IText } from '../data-interfaces/itext';
+import { IComment } from '../data-interfaces/icomment';
 import { UtilitiesService } from './utilities.service';
 
 @Injectable()
@@ -282,7 +283,7 @@ export class DbService {
             if (err == null) {
                 let about: About = this._utilities.getBlankAbout();
                 if (data.Count > 0) {
-                    about = new About(this._utilities.getListTextFromField(data.Items[0].Comments),
+                    about = new About(this._utilities.getListCommentsFromField(data.Items[0].Comments),
                                       this._utilities.getListTextFromField(data.Items[0].Rights));
                 }
                 resolve(about);

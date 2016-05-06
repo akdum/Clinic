@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { IText } from '../data-interfaces/itext';
+import { IComment } from '../data-interfaces/icomment';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { Service } from '../data-interfaces/service';
 import { Contacts } from '../data-interfaces/contacts';
@@ -28,7 +29,7 @@ export class UtilitiesService {
         return field ? field.L : [];
     }
     
-    getListTextFromField(field:any) {
+    getListTextFromField(field:any):IText[] {
         if (field) {
             let textList = field.L;
             let returnList:Array<IText> = [];
@@ -37,6 +38,22 @@ export class UtilitiesService {
                     returnList.push({ heading: this.getStringFromField(textList[index]), 
                                       value: this.getStringFromField(textList[index+1]), 
                                       imageNames: this.getListFromField(textList[index+2]).map((val)=>this.getStringFromField(val))});  
+                }                         
+            }
+            return returnList;
+        } else return [];
+    }
+    
+    getListCommentsFromField(field:any):IComment[] {
+        if (field) {
+            let textList = field.L;
+            let returnList:Array<IComment> = [];
+            for (var index = 0; index < textList.length; index=index+3) {
+                if ((index + 2) < textList.length) {
+                    returnList.push({ theme:this.getStringFromField(textList[index]),  
+                                      short: this.getStringFromField(textList[index+1]), 
+                                      extended: this.getStringFromField(textList[index+2])
+                    }); 
                 }                         
             }
             return returnList;

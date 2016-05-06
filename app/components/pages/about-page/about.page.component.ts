@@ -4,10 +4,11 @@ import { AboutService } from '../../../services/about.service';
 import { About } from '../../../data-interfaces/about';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { CommonTextComponent } from '../../common/common.text.component';
+import { CommentsComponent } from './comments.component';
 
 @Component({
     templateUrl: '../app/templates/about.page.component.html',
-    directives: [CommonTextComponent]
+    directives: [CommonTextComponent, CommentsComponent]
 })
 export class AboutPageComponent implements OnInit {
     private _about:About;

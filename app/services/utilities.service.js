@@ -73,6 +73,23 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                     else
                         return [];
                 };
+                UtilitiesService.prototype.getListCommentsFromField = function (field) {
+                    if (field) {
+                        var textList = field.L;
+                        var returnList = [];
+                        for (var index = 0; index < textList.length; index = index + 3) {
+                            if ((index + 2) < textList.length) {
+                                returnList.push({ theme: this.getStringFromField(textList[index]),
+                                    short: this.getStringFromField(textList[index + 1]),
+                                    extended: this.getStringFromField(textList[index + 2])
+                                });
+                            }
+                        }
+                        return returnList;
+                    }
+                    else
+                        return [];
+                };
                 UtilitiesService.prototype.getBlankServicesGroup = function () {
                     return new services_group_1.ServicesGroup("", "", "", "", []);
                 };

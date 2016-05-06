@@ -633,6 +633,17 @@ h1.trends {
 .law {
 	margin-top: 1.5rem;
 }
+.see-more {
+	padding: 1rem 0rem 1rem 0rem;
+}
+.comment-divider {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 1rem;
+}
+.comment-theme {
+	font-size: 100%;
+	margin-bottom: 0.5rem;
+}
 /* mobile custom */
 .mobile a {
 	margin-right: 1rem;
