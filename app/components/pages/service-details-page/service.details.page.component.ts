@@ -1,9 +1,10 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
+import { RouteParams } from '@angular/router-deprecated';
+
 import { Service } from '../../../data-interfaces/service';
 import { CommonTitleComponent } from '../../common/common.title.component';
 import { CommonBackComponent } from '../../common/common.back.component';
 import { CommonTextComponent } from '../../common/common.text.component';
-import { RouteParams } from 'angular2/router';
 import { ServicesService } from '../../../services/services.service';
 import { UtilitiesService } from '../../../services/utilities.service';
 

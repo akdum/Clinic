@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.text.component', 'angular2/router', '../../../services/services.service', '../../../services/utilities.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.text.component', '../../../services/services.service', '../../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', '../../common/common.title.component', '../../
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_title_component_1, common_back_component_1, common_text_component_1, router_1, services_service_1, utilities_service_1;
+    var core_1, router_deprecated_1, common_title_component_1, common_back_component_1, common_text_component_1, services_service_1, utilities_service_1;
     var ServiceDetailsPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (common_title_component_1_1) {
                 common_title_component_1 = common_title_component_1_1;
@@ -25,9 +28,6 @@ System.register(['angular2/core', '../../common/common.title.component', '../../
             },
             function (common_text_component_1_1) {
                 common_text_component_1 = common_text_component_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             },
             function (services_service_1_1) {
                 services_service_1 = services_service_1_1;
@@ -62,7 +62,7 @@ System.register(['angular2/core', '../../common/common.title.component', '../../
                             common_back_component_1.CommonBackComponent,
                             common_text_component_1.CommonTextComponent]
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])
                 ], ServiceDetailsPageComponent);
                 return ServiceDetailsPageComponent;
             }());
