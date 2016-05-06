@@ -1,6 +1,7 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
+import { RouteParams } from '@angular/router-deprecated';
+
 import { ServicesGroup } from '../../../data-interfaces/services.group';
-import { RouteParams } from 'angular2/router';
 import { ServicesService } from '../../../services/services.service';
 import { ServicesGroupPopularComponent } from './services.group.popular.component';
 import { ServicesGroupRestServicesComponent } from './services.group.rest.services.component';

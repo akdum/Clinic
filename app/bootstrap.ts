@@ -1,4 +1,6 @@
-import { bootstrap }    from 'angular2/platform/browser';
+import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
+
 import { AppComponent } from './components/app.component';
 import { AssetsService } from './services/assets.service';
 import { ContactsService } from './services/contacts.service';
@@ -9,7 +11,6 @@ import { DbService } from './services/db.service';
 import { UtilitiesService } from './services/utilities.service';
 import { DoctorsService } from './services/doctors.service';
 import { AboutService } from './services/about.service';
-import { ROUTER_PROVIDERS } from 'angular2/router';
 
 bootstrap(AppComponent, [AssetsService, 
                          ContactsService, 

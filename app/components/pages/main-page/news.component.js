@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../services/news.service', 'angular2/router'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../../services/news.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,18 @@ System.register(['angular2/core', '../../../services/news.service', 'angular2/ro
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, news_service_1, router_1;
+    var core_1, router_deprecated_1, news_service_1;
     var NewsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
             function (news_service_1_1) {
                 news_service_1 = news_service_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }],
         execute: function() {
             NewsComponent = (function () {
@@ -53,7 +53,7 @@ System.register(['angular2/core', '../../../services/news.service', 'angular2/ro
                         selector: 'news-component',
                         templateUrl: '../app/templates/news.component.html'
                     }), 
-                    __metadata('design:paramtypes', [news_service_1.NewsService, router_1.Router])
+                    __metadata('design:paramtypes', [news_service_1.NewsService, router_deprecated_1.Router])
                 ], NewsComponent);
                 return NewsComponent;
             }());

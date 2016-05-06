@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
+    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (header_component_1_1) {
                 header_component_1 = header_component_1_1;
@@ -82,7 +82,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                         directives: [header_component_1.HeaderComponent,
                             footer_component_1.FooterComponent,
                             enroll_modal_component_1.EnrollModalComponent,
-                            router_1.ROUTER_DIRECTIVES,
+                            router_deprecated_1.ROUTER_DIRECTIVES,
                             about_page_component_1.AboutPageComponent,
                             services_page_component_1.ServicesPageComponent,
                             contacts_page_component_1.ContactsPageComponent,
@@ -90,7 +90,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                             news_page_component_1.NewsPageComponent,
                             nav_component_1.NavComponent]
                     }),
-                    router_1.RouteConfig([
+                    router_deprecated_1.RouteConfig([
                         {
                             path: '/',
                             name: 'MainPage',
@@ -133,7 +133,7 @@ System.register(['angular2/core', 'angular2/router', './header/header.component'
                             component: news_page_component_1.NewsPageComponent
                         }
                     ]), 
-                    __metadata('design:paramtypes', [router_1.Router])
+                    __metadata('design:paramtypes', [router_deprecated_1.Router])
                 ], AppComponent);
                 return AppComponent;
             }());

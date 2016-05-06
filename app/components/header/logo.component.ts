@@ -1,7 +1,7 @@
-import {Component} from 'angular2/core';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {AssetsService} from '../../services/assets.service'
-import { MainPageComponent } from '../pages/main-page/main.page.component';
+import {Component} from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+
+import { AssetsService } from '../../services/assets.service'
 
 @Component({
     selector: 'logo-component',

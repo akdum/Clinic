@@ -1,4 +1,5 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
+
 import { LogoComponent } from './logo.component';
 import { ContactsComponent } from './contacts.component';
 import { MobileNavComponent } from './mobile.nav.component';

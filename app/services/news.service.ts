@@ -1,4 +1,5 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
+
 import { News } from '../data-interfaces/news';
 import { DbService } from './db.service';
 import { UtilitiesService } from './utilities.service';

@@ -1,4 +1,5 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input } from '@angular/core';
+
 import { IText } from '../../data-interfaces/itext';
 import { TextViewModel } from '../../data-interfaces/text.viewmodel';
 import { CONFIG } from '../../config/config';

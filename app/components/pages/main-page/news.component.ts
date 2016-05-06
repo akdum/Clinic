@@ -1,7 +1,8 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router-deprecated';
+
 import { NewsService } from '../../../services/news.service';
 import { News } from '../../../data-interfaces/news';
-import { Router } from 'angular2/router';
 
 @Component({
     selector: 'news-component',

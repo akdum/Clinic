@@ -1,8 +1,9 @@
-import {Component, OnInit} from 'angular2/core';
-import {AssetsService} from '../../services/assets.service';
-import {ContactsService} from '../../services/contacts.service';
+import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+
+import { AssetsService } from '../../services/assets.service';
+import { ContactsService } from '../../services/contacts.service';
 import { Contacts } from '../../data-interfaces/contacts';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
 import { UtilitiesService } from '../../services/utilities.service';
 
 @Component({

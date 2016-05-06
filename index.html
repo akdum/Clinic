@@ -32,16 +32,9 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/forms.css" />
     <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
     <script>
-      System.config({
-        transpiler: 'typescript', 
-        typescriptOptions: { emitDecoratorMetadata: true }, 
-        packages: {'app': 
-            {defaultExtension: 'ts'}
-        } 
-      });
-      System.import('app/bootstrap')
-            .then(null, console.error.bind(console));
+      System.import('app').catch(function(err){ console.error(err);  });
     </script>
   </head>
   <!-- 3. Display the application -->

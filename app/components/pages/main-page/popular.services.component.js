@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../../services/services.service', 'angular2/router'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../../services/services.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,18 @@ System.register(['angular2/core', '../../../services/services.service', 'angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_service_1, router_1;
+    var core_1, router_deprecated_1, services_service_1;
     var PopularServicesComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
             function (services_service_1_1) {
                 services_service_1 = services_service_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             }],
         execute: function() {
             PopularServicesComponent = (function () {
@@ -47,9 +47,9 @@ System.register(['angular2/core', '../../../services/services.service', 'angular
                     core_1.Component({
                         selector: 'popular-services-component',
                         templateUrl: '../app/templates/popular.services.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [services_service_1.ServicesService, router_1.Router])
+                    __metadata('design:paramtypes', [services_service_1.ServicesService, router_deprecated_1.Router])
                 ], PopularServicesComponent);
                 return PopularServicesComponent;
             }());

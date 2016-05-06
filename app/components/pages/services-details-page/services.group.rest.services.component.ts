@@ -1,7 +1,8 @@
-import { Component, Input} from 'angular2/core';
+import { Component, Input} from '@angular/core';
+import { Router } from '@angular/router-deprecated';
+
 import { Service } from '../../../data-interfaces/service';
 import { UtilitiesService } from '../../../services/utilities.service';
-import { Router } from 'angular2/router';
 
 @Component({
     selector: 'services-group-rest-services-component',

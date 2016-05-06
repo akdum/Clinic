@@ -1,4 +1,5 @@
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
+
 import { DbService } from './db.service';
 import { About } from '../data-interfaces/about';
 

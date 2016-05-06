@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../../../services/services.service', './services.group.popular.component', './services.group.rest.services.component', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.doctors.component', '../../common/common.text.component', '../../../services/utilities.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../../services/services.service', './services.group.popular.component', './services.group.rest.services.component', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.doctors.component', '../../common/common.text.component', '../../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['angular2/core', 'angular2/router', '../../../services/services
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, services_service_1, services_group_popular_component_1, services_group_rest_services_component_1, common_title_component_1, common_back_component_1, common_doctors_component_1, common_text_component_1, utilities_service_1;
+    var core_1, router_deprecated_1, services_service_1, services_group_popular_component_1, services_group_rest_services_component_1, common_title_component_1, common_back_component_1, common_doctors_component_1, common_text_component_1, utilities_service_1;
     var ServicesGroupDetailsPageComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (services_service_1_1) {
                 services_service_1 = services_service_1_1;
@@ -74,7 +74,7 @@ System.register(['angular2/core', 'angular2/router', '../../../services/services
                             common_doctors_component_1.CommonDoctorsComponent,
                             common_text_component_1.CommonTextComponent]
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])
+                    __metadata('design:paramtypes', [router_deprecated_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])
                 ], ServicesGroupDetailsPageComponent);
                 return ServicesGroupDetailsPageComponent;
             }());

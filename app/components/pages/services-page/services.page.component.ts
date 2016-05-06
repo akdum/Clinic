@@ -1,8 +1,9 @@
-import { Component, OnInit} from 'angular2/core';
+import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router-deprecated';
+
 import { Service } from '../../../data-interfaces/service';
 import { ServicesService } from '../../../services/services.service';
 import { ServicesGroup } from '../../../data-interfaces/services.group';
-import { Router } from 'angular2/router';
 
 @Component({
     templateUrl: '../app/templates/services.page.component.html'

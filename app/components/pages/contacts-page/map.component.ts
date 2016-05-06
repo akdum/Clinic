@@ -1,4 +1,5 @@
-import { Component, AfterContentInit } from 'angular2/core';
+import { Component, AfterContentInit } from '@angular/core';
+
 import { ContactsService } from '../../../services/contacts.service';
 import { Contacts } from '../../../data-interfaces/contacts';
 import { UtilitiesService } from '../../../services/utilities.service';

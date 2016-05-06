@@ -1,5 +1,6 @@
-import { Component, OnInit } from 'angular2/core';
-import { RouteParams } from 'angular2/router';
+import { Component, OnInit } from '@angular/core';
+import { RouteParams } from '@angular/router-deprecated';
+
 import { News } from '../../../data-interfaces/news';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { NewsService } from '../../../services/news.service';

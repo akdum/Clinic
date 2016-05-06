@@ -1,4 +1,5 @@
-import { Component, Input } from 'angular2/core';
+import { Component, Input } from '@angular/core';
+
 import { DoctorsService } from '../../services/doctors.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import { Doctor } from '../../data-interfaces/doctor';

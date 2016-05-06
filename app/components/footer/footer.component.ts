@@ -1,5 +1,6 @@
-import {Component, Output, EventEmitter} from 'angular2/core';
-import {ContactsFooterComponent} from './contacts.footer.component';
+import {Component, Output, EventEmitter} from '@angular/core';
+
+import { ContactsFooterComponent } from './contacts.footer.component';
 import { EnrollFooterComponent } from './enroll.footer.component';
 import { NavFooterComponent } from './nav.footer.component';
 

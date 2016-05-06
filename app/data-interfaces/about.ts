@@ -1,7 +1,7 @@
 import { IText } from './IText';
 
 export class About {
-    constructor(public rights:IText[]) {
+    constructor(public comments:IText[], public rights:IText[]) {
         
     }
 }

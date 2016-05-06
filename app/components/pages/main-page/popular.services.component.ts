@@ -1,7 +1,8 @@
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router-deprecated';
+
 import { ServicesService } from '../../../services/services.service';
 import { Service } from '../../../data-interfaces/service';
-import { ROUTER_DIRECTIVES, Router } from 'angular2/router';
 
 @Component({
     selector: 'popular-services-component',

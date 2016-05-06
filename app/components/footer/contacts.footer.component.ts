@@ -1,5 +1,6 @@
-import { Component, OnInit } from 'angular2/core';
-import {ContactsService} from '../../services/contacts.service';
+import { Component, OnInit } from '@angular/core';
+
+import { ContactsService } from '../../services/contacts.service';
 import { Contacts } from '../../data-interfaces/contacts';
 import { UtilitiesService } from '../../services/utilities.service';
 

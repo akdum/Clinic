@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="tab-content" *ngIf="IsTabActive(comments)">
-            Текст
+            <comments-component [text]="_about.comments"></comments-component>
         </div>
         <div class="tab-content" *ngIf="IsTabActive(photos)">
             Текст

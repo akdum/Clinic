@@ -1,5 +1,5 @@
 ///<reference path="../../../typings/browser/ambient/bootstrap/index.d.ts" />
-import {Component, EventEmitter, Output} from 'angular2/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
     selector: 'enroll-component',

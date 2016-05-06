@@ -1,4 +1,5 @@
-import { Injectable } from 'angular2/core';
+import { Injectable } from '@angular/core';
+
 import { IText } from '../data-interfaces/itext';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { Service } from '../data-interfaces/service';
@@ -102,6 +103,6 @@ export class UtilitiesService {
     }
     
     getBlankAbout():About {
-        return new About([]);
+        return new About([],[]);
     }
 }

@@ -6,7 +6,8 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             About = (function () {
-                function About(rights) {
+                function About(comments, rights) {
+                    this.comments = comments;
                     this.rights = rights;
                 }
                 return About;

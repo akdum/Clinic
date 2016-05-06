@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', '../data-interfaces/about', './utilities.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', '../data-interfaces/about', './utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -270,13 +270,13 @@ System.register(['angular2/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "About",
-                        "AttributesToGet": ["Rights"]
+                        "AttributesToGet": ["Comments", "Rights"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var about = _this._utilities.getBlankAbout();
                             if (data.Count > 0) {
-                                about = new about_1.About(_this._utilities.getListTextFromField(data.Items[0].Rights));
+                                about = new about_1.About(_this._utilities.getListTextFromField(data.Items[0].Comments), _this._utilities.getListTextFromField(data.Items[0].Rights));
                             }
                             resolve(about);
                         }

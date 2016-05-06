@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../../services/assets.service', '../../services/contacts.service', 'angular2/router', '../../services/utilities.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../services/assets.service', '../../services/contacts.service', '../../services/utilities.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,21 +10,21 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, assets_service_1, contacts_service_1, router_1, utilities_service_1;
+    var core_1, router_deprecated_1, assets_service_1, contacts_service_1, utilities_service_1;
     var ContactsComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
+            },
             function (assets_service_1_1) {
                 assets_service_1 = assets_service_1_1;
             },
             function (contacts_service_1_1) {
                 contacts_service_1 = contacts_service_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
             },
             function (utilities_service_1_1) {
                 utilities_service_1 = utilities_service_1_1;
@@ -53,7 +53,7 @@ System.register(['angular2/core', '../../services/assets.service', '../../servic
                     core_1.Component({
                         selector: 'contacts-component',
                         templateUrl: '../app/templates/contacts.component.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [assets_service_1.AssetsService, contacts_service_1.ContactsService, utilities_service_1.UtilitiesService])
                 ], ContactsComponent);
