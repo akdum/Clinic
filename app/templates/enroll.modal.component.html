@@ -24,10 +24,7 @@
             </div>
             </fieldset>
             <fieldset class="form-group">
-            <textarea class="form-control" required [(ngModel)]="model.reason" ngControl="reason" id="reasonInputDialog" #reason="ngForm" placeholder="Повод обращения" rows="3"></textarea>
-            <div [hidden]="reason.valid || reason.pristine" class="alert alert-danger">
-                 Должен быть указан повод обращения.
-            </div>
+            <textarea class="form-control" [(ngModel)]="model.reason" ngControl="reason" id="reasonInputDialog" #reason="ngForm" placeholder="Повод обращения" rows="3"></textarea>
             </fieldset>
         </form>
         </div>
