@@ -56,6 +56,10 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                 UtilitiesService.prototype.getListFromField = function (field) {
                     return field ? field.L : [];
                 };
+                UtilitiesService.prototype.getListStringsFromField = function (field) {
+                    var _this = this;
+                    return field ? field.L.map(function (val) { return _this.getStringFromField(val); }) : [];
+                };
                 UtilitiesService.prototype.getListTextFromField = function (field) {
                     var _this = this;
                     if (field) {
@@ -137,7 +141,7 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                     }
                 };
                 UtilitiesService.prototype.getBlankAbout = function () {
-                    return new about_1.About([], []);
+                    return new about_1.About([], [], "", []);
                 };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 

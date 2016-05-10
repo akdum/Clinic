@@ -5,10 +5,11 @@ import { About } from '../../../data-interfaces/about';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { CommonTextComponent } from '../../common/common.text.component';
 import { CommentsComponent } from './comments.component';
+import { CommonPhotoGalleryComponent } from '../../common/common.photo.gallery.component';
 
 @Component({
     templateUrl: '../app/templates/about.page.component.html',
-    directives: [CommonTextComponent, CommentsComponent]
+    directives: [CommonTextComponent, CommentsComponent, CommonPhotoGalleryComponent]
 })
 export class AboutPageComponent implements OnInit {
     private _about:About;

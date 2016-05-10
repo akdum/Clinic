@@ -295,6 +295,23 @@ span.text-link-right:after {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 }
+.menu {
+	list-style: none;
+}
+.menu-item {
+	font-size: 1.5rem;
+	padding-bottom: 1rem;
+}
+.photo-gallery {
+	padding-bottom: 2rem;
+	padding-top: 1rem;
+}
+.photo-gallery img {
+	display: block;
+	margin: auto;
+	padding-bottom: 1rem;
+	max-width: 100%;
+}
 /* main page others */
 .all-services-row .all-services-link {
 	color: #fff;

@@ -29,6 +29,10 @@ export class UtilitiesService {
         return field ? field.L : [];
     }
     
+    getListStringsFromField(field:any):string[] {
+        return field ? field.L.map(val=>this.getStringFromField(val)) : [];
+    }
+    
     getListTextFromField(field:any):IText[] {
         if (field) {
             let textList = field.L;
@@ -120,6 +124,6 @@ export class UtilitiesService {
     }
     
     getBlankAbout():About {
-        return new About([],[]);
+        return new About([],[],"",[]);
     }
 }

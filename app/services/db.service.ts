@@ -276,7 +276,7 @@ export class DbService {
     getAbout():Promise<About> {
         var params = {
             "TableName": "About",
-            "AttributesToGet": ["Comments", "Rights"]
+            "AttributesToGet": ["Comments", "Rights", "Law", "PhotoGallery"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -284,7 +284,9 @@ export class DbService {
                 let about: About = this._utilities.getBlankAbout();
                 if (data.Count > 0) {
                     about = new About(this._utilities.getListCommentsFromField(data.Items[0].Comments),
-                                      this._utilities.getListTextFromField(data.Items[0].Rights));
+                                      this._utilities.getListTextFromField(data.Items[0].Rights),
+                                      this._utilities.getStringFromField(data.Items[0].Law),
+                                      this._utilities.getListStringsFromField(data.Items[0].PhotoGallery));
                 }
                 resolve(about);
             } else {

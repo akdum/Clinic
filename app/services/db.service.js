@@ -270,13 +270,13 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "About",
-                        "AttributesToGet": ["Comments", "Rights"]
+                        "AttributesToGet": ["Comments", "Rights", "Law", "PhotoGallery"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var about = _this._utilities.getBlankAbout();
                             if (data.Count > 0) {
-                                about = new about_1.About(_this._utilities.getListCommentsFromField(data.Items[0].Comments), _this._utilities.getListTextFromField(data.Items[0].Rights));
+                                about = new about_1.About(_this._utilities.getListCommentsFromField(data.Items[0].Comments), _this._utilities.getListTextFromField(data.Items[0].Rights), _this._utilities.getStringFromField(data.Items[0].Law), _this._utilities.getListStringsFromField(data.Items[0].PhotoGallery));
                             }
                             resolve(about);
                         }

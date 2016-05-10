@@ -6,9 +6,11 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             About = (function () {
-                function About(comments, rights) {
+                function About(comments, rights, law, photoGallery) {
                     this.comments = comments;
                     this.rights = rights;
+                    this.law = law;
+                    this.photoGallery = photoGallery;
                 }
                 return About;
             }());
