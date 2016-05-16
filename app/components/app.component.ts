@@ -4,7 +4,6 @@ import { RouteConfig, ROUTER_DIRECTIVES, Router } from '@angular/router-deprecat
 import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { EnrollModalComponent } from './dialog/enroll.modal.component';
 import { MainPageComponent } from './pages/main-page/main.page.component';
 import { AboutPageComponent } from './pages/about-page/about.page.component';
 import { ServicesPageComponent } from './pages/services-page/services.page.component';
@@ -19,7 +18,6 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
     templateUrl:'../app/templates/app.component.html',
     directives: [HeaderComponent, 
                  FooterComponent, 
-                 EnrollModalComponent, 
                  ROUTER_DIRECTIVES,
                  AboutPageComponent,
                  ServicesPageComponent,
@@ -72,27 +70,9 @@ import { ServiceDetailsPageComponent } from './pages/service-details-page/servic
     }
 ])
 export class AppComponent {
-    public openEnrollModal = false;
-    
     constructor(private _router: Router) {
         _router.subscribe(()=>{
             window.scrollTo(0,0);
         });
     }
-    
-    // dialog start.
-    
-    onOpenEnrollModalNavHandler(open:boolean) {
-        this.openEnrollModal = open;
-    }
-    
-    onOpenEnrollModalFooterHandler(open:boolean) {
-        this.openEnrollModal = open;
-    }
-    
-    onCloseEnrollModalHandler(isOpen:boolean){
-        this.openEnrollModal = isOpen;
-    }
-    
-    // dialog end.   
 }

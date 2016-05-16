@@ -10,16 +10,14 @@ import { About } from '../data-interfaces/about';
 import { IText } from '../data-interfaces/itext';
 import { IComment } from '../data-interfaces/icomment';
 import { UtilitiesService } from './utilities.service';
+import { AwsService } from './aws.service';
 
 @Injectable()
 export class DbService {
     private _dynamoDB: any;
     
-    constructor(private _utilities: UtilitiesService) {
-        AWS.config.update({accessKeyId: CONFIG.DB.READ.ACCESS_KEY_ID, secretAccessKey: CONFIG.DB.READ.SECRET_ACCESS_KEY});
-        AWS.config.region = CONFIG.DB.REGION;
-        
-        this._dynamoDB = new AWS.DynamoDB();
+    constructor(private _utilities: UtilitiesService, private _aws:AwsService) {       
+        this._dynamoDB = _aws.Db;
     };
     
     getNews():Promise<News[]> {

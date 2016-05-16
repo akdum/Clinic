@@ -409,16 +409,6 @@ span.text-link-right:after {
 .contacts-tabs {
 	min-height: 212px;
 }
-.enroll-button-additional {
-	margin-top: 1rem;
-}
-.enroll-footer img {
-	padding-bottom: 1rem;
-}
-.enroll-footer h4 {
-	padding-bottom: 1rem;
-	width: 225px;
-}
 .footer-nav .nav-item {
 	float:none;
 	color: #565656;
@@ -469,7 +459,8 @@ h1.trends {
 	padding-top: 2rem;
 }
 .nav-row a.nav-item {
-	margin-right: 30px;
+	font-size: 1.5rem;
+	margin-right: 1.5rem;
 }
 .nav-row .nav {
 	font-weight: 400;
@@ -668,9 +659,7 @@ h1.trends {
 .mobile a:nth-child(1) {
 	margin-left: 1rem;
 }
-.enroll-modal-dialog button.btn {
-	width: initial;
-}
 .mobile .nav-item {
 	float: none;	
+	font-size: 1.5rem;
 }

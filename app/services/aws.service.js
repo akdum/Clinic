@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '../config/config'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,37 +10,31 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var EnrollComponent;
+    var core_1, config_1;
+    var AwsService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (config_1_1) {
+                config_1 = config_1_1;
             }],
         execute: function() {
-            EnrollComponent = (function () {
-                function EnrollComponent() {
-                    this.onOpenEnrollModal = new core_1.EventEmitter();
+            AwsService = (function () {
+                function AwsService() {
+                    AWS.config.update({ accessKeyId: config_1.CONFIG.DB.READ.ACCESS_KEY_ID, secretAccessKey: config_1.CONFIG.DB.READ.SECRET_ACCESS_KEY });
+                    AWS.config.region = config_1.CONFIG.DB.REGION;
+                    this.Db = new AWS.DynamoDB();
                 }
-                EnrollComponent.prototype.openEnrollModal = function () {
-                    this.onOpenEnrollModal.emit(true);
-                };
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], EnrollComponent.prototype, "onOpenEnrollModal", void 0);
-                EnrollComponent = __decorate([
-                    core_1.Component({
-                        selector: 'enroll-component',
-                        templateUrl: '../app/templates/enroll.component.html',
-                        inputs: ['isInNav']
-                    }), 
+                AwsService = __decorate([
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], EnrollComponent);
-                return EnrollComponent;
+                ], AwsService);
+                return AwsService;
             }());
-            exports_1("EnrollComponent", EnrollComponent);
+            exports_1("AwsService", AwsService);
         }
     }
 });
-//# sourceMappingURL=enroll.component.js.map
+//# sourceMappingURL=aws.service.js.map

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './dialog/enroll.modal.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, enroll_modal_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
+    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
     var AppComponent;
     return {
         setters:[
@@ -28,9 +28,6 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
             },
             function (footer_component_1_1) {
                 footer_component_1 = footer_component_1_1;
-            },
-            function (enroll_modal_component_1_1) {
-                enroll_modal_component_1 = enroll_modal_component_1_1;
             },
             function (main_page_component_1_1) {
                 main_page_component_1 = main_page_component_1_1;
@@ -60,28 +57,16 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
             AppComponent = (function () {
                 function AppComponent(_router) {
                     this._router = _router;
-                    this.openEnrollModal = false;
                     _router.subscribe(function () {
                         window.scrollTo(0, 0);
                     });
                 }
-                // dialog start.
-                AppComponent.prototype.onOpenEnrollModalNavHandler = function (open) {
-                    this.openEnrollModal = open;
-                };
-                AppComponent.prototype.onOpenEnrollModalFooterHandler = function (open) {
-                    this.openEnrollModal = open;
-                };
-                AppComponent.prototype.onCloseEnrollModalHandler = function (isOpen) {
-                    this.openEnrollModal = isOpen;
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'clinic-app',
                         templateUrl: '../app/templates/app.component.html',
                         directives: [header_component_1.HeaderComponent,
                             footer_component_1.FooterComponent,
-                            enroll_modal_component_1.EnrollModalComponent,
                             router_deprecated_1.ROUTER_DIRECTIVES,
                             about_page_component_1.AboutPageComponent,
                             services_page_component_1.ServicesPageComponent,

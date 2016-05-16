@@ -1,7 +1,7 @@
-System.register(['@angular/platform-browser-dynamic', '@angular/router-deprecated', './components/app.component', './services/assets.service', './services/contacts.service', './services/services.service', './services/special.offers.service', './services/news.service', './services/db.service', './services/utilities.service', './services/doctors.service', './services/about.service'], function(exports_1, context_1) {
+System.register(['@angular/platform-browser-dynamic', '@angular/router-deprecated', './components/app.component', './services/assets.service', './services/contacts.service', './services/services.service', './services/special.offers.service', './services/news.service', './services/db.service', './services/utilities.service', './services/doctors.service', './services/about.service', './services/aws.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var platform_browser_dynamic_1, router_deprecated_1, app_component_1, assets_service_1, contacts_service_1, services_service_1, special_offers_service_1, news_service_1, db_service_1, utilities_service_1, doctors_service_1, about_service_1;
+    var platform_browser_dynamic_1, router_deprecated_1, app_component_1, assets_service_1, contacts_service_1, services_service_1, special_offers_service_1, news_service_1, db_service_1, utilities_service_1, doctors_service_1, about_service_1, aws_service_1;
     return {
         setters:[
             function (platform_browser_dynamic_1_1) {
@@ -39,9 +39,13 @@ System.register(['@angular/platform-browser-dynamic', '@angular/router-deprecate
             },
             function (about_service_1_1) {
                 about_service_1 = about_service_1_1;
+            },
+            function (aws_service_1_1) {
+                aws_service_1 = aws_service_1_1;
             }],
         execute: function() {
-            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [assets_service_1.AssetsService,
+            platform_browser_dynamic_1.bootstrap(app_component_1.AppComponent, [aws_service_1.AwsService,
+                assets_service_1.AssetsService,
                 contacts_service_1.ContactsService,
                 services_service_1.ServicesService,
                 special_offers_service_1.SpecialOffersService,

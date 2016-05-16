@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', '../data-interfaces/about', './utilities.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../config/config', '../data-interfaces/news', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/services.group', '../data-interfaces/doctor', '../data-interfaces/about', './utilities.service', './aws.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, doctor_1, about_1, utilities_service_1;
+    var core_1, config_1, news_1, service_1, contacts_1, services_group_1, doctor_1, about_1, utilities_service_1, aws_service_1;
     var DbService;
     return {
         setters:[
@@ -40,14 +40,16 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
             },
             function (utilities_service_1_1) {
                 utilities_service_1 = utilities_service_1_1;
+            },
+            function (aws_service_1_1) {
+                aws_service_1 = aws_service_1_1;
             }],
         execute: function() {
             DbService = (function () {
-                function DbService(_utilities) {
+                function DbService(_utilities, _aws) {
                     this._utilities = _utilities;
-                    AWS.config.update({ accessKeyId: config_1.CONFIG.DB.READ.ACCESS_KEY_ID, secretAccessKey: config_1.CONFIG.DB.READ.SECRET_ACCESS_KEY });
-                    AWS.config.region = config_1.CONFIG.DB.REGION;
-                    this._dynamoDB = new AWS.DynamoDB();
+                    this._aws = _aws;
+                    this._dynamoDB = _aws.Db;
                 }
                 ;
                 DbService.prototype.getNews = function () {
@@ -287,7 +289,7 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
                 };
                 DbService = __decorate([
                     core_1.Injectable(), 
-                    __metadata('design:paramtypes', [utilities_service_1.UtilitiesService])
+                    __metadata('design:paramtypes', [utilities_service_1.UtilitiesService, aws_service_1.AwsService])
                 ], DbService);
                 return DbService;
             }());

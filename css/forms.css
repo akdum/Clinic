@@ -4,18 +4,3 @@ form .ng-valid[required] {
 form .ng-invalid {
   border-left: 5px solid #a94442; /* red */
 }
-
-/* enroll dialog */
-.enroll-modal-dialog button.btn {
-    float: none;
-}
-.enroll-modal-dialog .help-text-dialog {
-	margin-bottom: 2rem;
-}
-.enroll-modal-dialog .modal-footer .btn-secondary {
-	background-color: #fff;
-	color:#373a3c;	    
-}
-.modal-body form {
-	padding-top: 1.5rem;
-}

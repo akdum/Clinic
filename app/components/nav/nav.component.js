@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './enroll.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './enroll.compon
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, enroll_component_1;
+    var core_1, router_deprecated_1;
     var NavComponent;
     return {
         setters:[
@@ -19,27 +19,16 @@ System.register(['@angular/core', '@angular/router-deprecated', './enroll.compon
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
-            },
-            function (enroll_component_1_1) {
-                enroll_component_1 = enroll_component_1_1;
             }],
         execute: function() {
             NavComponent = (function () {
                 function NavComponent() {
-                    this.onOpenEnrollModalNav = new core_1.EventEmitter();
                 }
-                NavComponent.prototype.onOpenEnrollModalHandler = function (open) {
-                    this.onOpenEnrollModalNav.emit(open);
-                };
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', Object)
-                ], NavComponent.prototype, "onOpenEnrollModalNav", void 0);
                 NavComponent = __decorate([
                     core_1.Component({
                         selector: 'nav-component',
                         templateUrl: '../app/templates/nav.component.html',
-                        directives: [enroll_component_1.EnrollComponent, router_deprecated_1.ROUTER_DIRECTIVES]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], NavComponent);

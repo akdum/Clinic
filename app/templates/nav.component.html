@@ -1,13 +1,12 @@
 <div class="row nav-row">
             <!-- nav bar -->
     <nav class="hidden-sm-down navbar navbar-full">
-            <div class="nav navbar-nav clearfix">
+        <div class="nav navbar-nav clearfix col-lg-offset-2">
             <a class="nav-item nav-link" [routerLink]="['AboutPage']">Клиника</a>
-            <a class="nav-item nav-link" [routerLink]="['ServicesPage']">Лечение и диагностика</a>
+            <a class="nav-item nav-link" [routerLink]="['ServicesPage']">Услуги</a>
             <a class="nav-item nav-link" [routerLink]="['DoctorsPage']">Врачи</a>
             <a class="nav-item nav-link" [routerLink]="['ContactsPage']">Контакты</a>
-            <enroll-component [isInNav]="true" (onOpenEnrollModal)="onOpenEnrollModalHandler($event)"></enroll-component>
+            <a class="nav-item nav-link" [routerLink]="['ContactsPage']">Стоимость</a>
         </div>
     </nav>
-    <enroll-component [isInNav]="false" (onOpenEnrollModal)="onOpenEnrollModalHandler($event)"></enroll-component>
 </div>
