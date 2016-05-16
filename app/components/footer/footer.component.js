@@ -1,4 +1,4 @@
-System.register(['@angular/core', './contacts.footer.component', './nav.footer.component'], function(exports_1, context_1) {
+System.register(['@angular/core', './contacts.footer.component', './nav.footer.component', './info.footer.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', './contacts.footer.component', './nav.footer.c
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, contacts_footer_component_1, nav_footer_component_1;
+    var core_1, contacts_footer_component_1, nav_footer_component_1, info_footer_component_1;
     var FooterComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/core', './contacts.footer.component', './nav.footer.c
             },
             function (nav_footer_component_1_1) {
                 nav_footer_component_1 = nav_footer_component_1_1;
+            },
+            function (info_footer_component_1_1) {
+                info_footer_component_1 = info_footer_component_1_1;
             }],
         execute: function() {
             FooterComponent = (function () {
@@ -31,7 +34,7 @@ System.register(['@angular/core', './contacts.footer.component', './nav.footer.c
                     core_1.Component({
                         selector: 'footer-component',
                         templateUrl: '../app/templates/footer.component.html',
-                        directives: [contacts_footer_component_1.ContactsFooterComponent, nav_footer_component_1.NavFooterComponent]
+                        directives: [contacts_footer_component_1.ContactsFooterComponent, nav_footer_component_1.NavFooterComponent, info_footer_component_1.InfoFooterComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], FooterComponent);
