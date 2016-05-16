@@ -41,9 +41,9 @@ div.media {
 	cursor: pointer;
 }
 div.media .media-body {
-	padding-left: 0.6rem;
 	font-family: "Open Sans";
 	font-size: 0.9rem;
+	padding-right: 0.2rem;
 }
 div.media .media-body span {
 	font-weight: 400;
@@ -69,6 +69,9 @@ div.media .media-heading {
 div.media .media-object {
 	width: 72px;
 	height: 72px;
+}
+div.media-alt {
+	padding-right: 0.5rem;
 }
 div.media-alt .media-heading:hover {
 	cursor: pointer;
@@ -459,8 +462,9 @@ h1.trends {
 	padding-top: 2rem;
 }
 .nav-row a.nav-item {
-	font-size: 1.5rem;
-	margin-right: 1.5rem;
+	/*font-size: 1.5rem;
+	margin-right: 1.5rem;*/
+	margin: 0 !important;
 }
 .nav-row .nav {
 	font-weight: 400;
