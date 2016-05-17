@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.text.component', '../../../services/services.service', '../../../services/utilities.service', '../../common/common.price.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../../common/common.title.component', '../../common/common.back.component', '../../common/common.text.component', '../../../services/services.service', '../../../services/utilities.service', '../../common/common.price.component', '../../common/common.tabs.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../common/co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, common_title_component_1, common_back_component_1, common_text_component_1, services_service_1, utilities_service_1, common_price_component_1;
+    var core_1, router_deprecated_1, common_title_component_1, common_back_component_1, common_text_component_1, services_service_1, utilities_service_1, common_price_component_1, common_tabs_component_1;
     var ServiceDetailsPageComponent;
     return {
         setters:[
@@ -37,6 +37,9 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../common/co
             },
             function (common_price_component_1_1) {
                 common_price_component_1 = common_price_component_1_1;
+            },
+            function (common_tabs_component_1_1) {
+                common_tabs_component_1 = common_tabs_component_1_1;
             }],
         execute: function() {
             ServiceDetailsPageComponent = (function () {
@@ -46,6 +49,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../common/co
                     this._utilities = _utilities;
                     this._backRouteName = "ServicesPage";
                     this._backTitle = "Вернуться в каталог";
+                    this._activeTab = "about";
                     this._service = _utilities.getBlankService();
                 }
                 ServiceDetailsPageComponent.prototype.ngOnInit = function () {
@@ -54,9 +58,15 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../common/co
                         this._servicesService.getServiceByUrl(serviceUrl).then(function (data) {
                             if (data) {
                                 this._service = data;
+                                this._tabs = [{ displayName: "Об услуге", internalName: "about" },
+                                    { displayName: "Цены", internalName: "price" },
+                                    { displayName: "Специалисты", internalName: "doctors" }];
                             }
                         }.bind(this));
                     }
+                };
+                ServiceDetailsPageComponent.prototype.onChangeActiveTabHandler = function (activeTab) {
+                    this._activeTab = activeTab;
                 };
                 ServiceDetailsPageComponent = __decorate([
                     core_1.Component({
@@ -64,7 +74,8 @@ System.register(['@angular/core', '@angular/router-deprecated', '../../common/co
                         directives: [common_title_component_1.CommonTitleComponent,
                             common_back_component_1.CommonBackComponent,
                             common_price_component_1.CommonPriceComponent,
-                            common_text_component_1.CommonTextComponent]
+                            common_text_component_1.CommonTextComponent,
+                            common_tabs_component_1.CommonTabsComponent]
                     }), 
                     __metadata('design:paramtypes', [router_deprecated_1.RouteParams, services_service_1.ServicesService, utilities_service_1.UtilitiesService])
                 ], ServiceDetailsPageComponent);
