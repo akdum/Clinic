@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../../../services/about.service', '../../../services/utilities.service', '../../common/common.text.component', './comments.component', '../../common/common.photo.gallery.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '../../../services/about.service', '../../../services/utilities.service', '../../common/common.tabs.component', '../../common/common.text.component', './comments.component', '../../common/common.photo.gallery.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '../../../services/about.service', '../../../s
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, about_service_1, utilities_service_1, common_text_component_1, comments_component_1, common_photo_gallery_component_1;
+    var core_1, about_service_1, utilities_service_1, common_tabs_component_1, common_text_component_1, comments_component_1, common_photo_gallery_component_1;
     var AboutPageComponent;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/core', '../../../services/about.service', '../../../s
             },
             function (utilities_service_1_1) {
                 utilities_service_1 = utilities_service_1_1;
+            },
+            function (common_tabs_component_1_1) {
+                common_tabs_component_1 = common_tabs_component_1_1;
             },
             function (common_text_component_1_1) {
                 common_text_component_1 = common_text_component_1_1;
@@ -43,25 +46,19 @@ System.register(['@angular/core', '../../../services/about.service', '../../../s
                 AboutPageComponent.prototype.ngOnInit = function () {
                     this._aboutService.getAboutText().then(function (about) {
                         this._about = about;
+                        this._tabs = [{ displayName: "Права и обязанности пациентов", internalName: "rights" },
+                            { displayName: "Отзывы", internalName: "comments" },
+                            { displayName: "Фотогаллерея", internalName: "photos" },
+                            { displayName: "Лицензии", internalName: "license" }];
                     }.bind(this));
                 };
-                AboutPageComponent.prototype.SetActiveTab = function (tab) {
-                    if (tab.attributes["data-id"]) {
-                        this._activeTab = tab.attributes["data-id"].value;
-                    }
-                };
-                AboutPageComponent.prototype.IsTabActive = function (tab) {
-                    if (tab.attributes["data-id"]) {
-                        var value = tab.attributes["data-id"].value;
-                        return value == this._activeTab;
-                    }
-                    else
-                        return false;
+                AboutPageComponent.prototype.onChangeActiveTabHandler = function (activeTab) {
+                    this._activeTab = activeTab;
                 };
                 AboutPageComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../app/templates/about.page.component.html',
-                        directives: [common_text_component_1.CommonTextComponent, comments_component_1.CommentsComponent, common_photo_gallery_component_1.CommonPhotoGalleryComponent]
+                        directives: [common_text_component_1.CommonTextComponent, comments_component_1.CommentsComponent, common_photo_gallery_component_1.CommonPhotoGalleryComponent, common_tabs_component_1.CommonTabsComponent]
                     }), 
                     __metadata('design:paramtypes', [about_service_1.AboutService, utilities_service_1.UtilitiesService])
                 ], AboutPageComponent);
