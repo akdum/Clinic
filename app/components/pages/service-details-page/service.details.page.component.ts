@@ -7,11 +7,13 @@ import { CommonBackComponent } from '../../common/common.back.component';
 import { CommonTextComponent } from '../../common/common.text.component';
 import { ServicesService } from '../../../services/services.service';
 import { UtilitiesService } from '../../../services/utilities.service';
+import { CommonPriceComponent } from '../../common/common.price.component';
 
 @Component({
     templateUrl: '../app/templates/service.details.page.component.html',
     directives: [CommonTitleComponent,
                  CommonBackComponent,
+                 CommonPriceComponent,
                  CommonTextComponent]
 })
 export class ServiceDetailsPageComponent implements OnInit {
