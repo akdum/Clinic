@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component', './pages/get-discount-page/get.discount.page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1;
+    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1, get_discount_page_component_1;
     var AppComponent;
     return {
         setters:[
@@ -52,6 +52,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
             },
             function (service_details_page_component_1_1) {
                 service_details_page_component_1 = service_details_page_component_1_1;
+            },
+            function (get_discount_page_component_1_1) {
+                get_discount_page_component_1 = get_discount_page_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -73,6 +76,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
                             contacts_page_component_1.ContactsPageComponent,
                             doctors_page_component_1.DoctorsPageComponent,
                             news_page_component_1.NewsPageComponent,
+                            get_discount_page_component_1.GetDiscountPageComponent,
                             nav_component_1.NavComponent]
                     }),
                     router_deprecated_1.RouteConfig([
@@ -116,6 +120,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
                             path: '/news/:id',
                             name: 'NewsPage',
                             component: news_page_component_1.NewsPageComponent
+                        },
+                        {
+                            path: '/discount',
+                            name: 'DiscountPage',
+                            component: get_discount_page_component_1.GetDiscountPageComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [router_deprecated_1.Router])

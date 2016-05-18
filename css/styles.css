@@ -286,7 +286,7 @@ span.text-link-right:after {
 	cursor: pointer;
 	text-transform: uppercase;
 }
-.get-discount a:hover, .get-discount-big a:hover {
+.get-discount a:hover, .get-discount a:active, .get-discount a:visited, .get-discount a:active {
 	text-decoration: none;
 }
 /* main page */
@@ -688,6 +688,43 @@ h1.trends {
 .comment-theme {
 	font-size: 100%;
 	margin-bottom: 0.5rem;
+}
+/* discount page */
+.discount-row {
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+}
+.discount-row .discount-card {
+	background: url("../assets/discount-card-bg.gif") left top;
+	border-radius: 1rem;
+	width: 291px;
+    height: 185px;
+	margin-bottom: 1rem;
+}
+.discount-row .discount-card .discount-card-header {
+	display: inline-block;
+	font-weight: bold;
+	padding: 0.5rem;
+	width: 220px;
+}
+.discount-row .discount-card .discount-card-procent {
+	display: inline-block;
+	color: #2499c5;
+	font-size: 3rem;
+	vertical-align: top;
+}
+.discount-row .discount-card .discount-card-time {	
+    margin: auto;
+    padding-top: 1rem;
+	width: 205px;
+}
+.discount-row .discount-card .discount-card-number {
+	font-size: 0.9rem;
+	padding-top: 1.5rem;
+    padding-left: 0.5rem;
+}
+.discount-row img {
+	display: block;
 }
 /* mobile custom */
 .mobile a {
