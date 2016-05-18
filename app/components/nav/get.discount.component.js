@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './get.discount.component'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,35 +10,28 @@ System.register(['@angular/core', '@angular/router-deprecated', './get.discount.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, get_discount_component_1;
-    var NavComponent;
+    var core_1;
+    var GetDiscountComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_deprecated_1_1) {
-                router_deprecated_1 = router_deprecated_1_1;
-            },
-            function (get_discount_component_1_1) {
-                get_discount_component_1 = get_discount_component_1_1;
             }],
         execute: function() {
-            NavComponent = (function () {
-                function NavComponent() {
+            GetDiscountComponent = (function () {
+                function GetDiscountComponent() {
                 }
-                NavComponent = __decorate([
+                GetDiscountComponent = __decorate([
                     core_1.Component({
-                        selector: 'nav-component',
-                        templateUrl: '../app/templates/nav.component.html',
-                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, get_discount_component_1.GetDiscountComponent]
+                        selector: 'get-discount-component',
+                        templateUrl: '../app/templates/get.discount.component.html'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], NavComponent);
-                return NavComponent;
+                ], GetDiscountComponent);
+                return GetDiscountComponent;
             }());
-            exports_1("NavComponent", NavComponent);
+            exports_1("GetDiscountComponent", GetDiscountComponent);
         }
     }
 });
-//# sourceMappingURL=nav.component.js.map
+//# sourceMappingURL=get.discount.component.js.map

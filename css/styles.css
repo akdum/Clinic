@@ -267,6 +267,28 @@ span.text-link-right:after {
 .tab.active-tab:hover {
 	background-color: #fff;
 }
+.get-discount {
+	background-color: #dc593b;	
+	float: right;
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	position: relative;
+    top: 1.5rem;
+	width: 211px;
+}
+.get-discount-big {
+	background-color: #dc593b;	
+	padding: 0.5rem 1rem 0.5rem 1rem;
+	width: 211px;
+	margin: 1rem auto;
+}
+.get-discount a, .get-discount-big a {
+	color: #fff;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+.get-discount a:hover, .get-discount-big a:hover {
+	text-decoration: none;
+}
 /* main page */
 /* main page rows */
 .offset-row {
