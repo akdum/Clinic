@@ -20,11 +20,12 @@ System.register(['@angular/core'], function(exports_1, context_1) {
         execute: function() {
             CommonPriceComponent = (function () {
                 function CommonPriceComponent() {
+                    this.prices = [];
                 }
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', String)
-                ], CommonPriceComponent.prototype, "price", void 0);
+                    __metadata('design:type', Array)
+                ], CommonPriceComponent.prototype, "prices", void 0);
                 CommonPriceComponent = __decorate([
                     core_1.Component({
                         selector: 'common-price-component',

@@ -98,7 +98,7 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                     return new services_group_1.ServicesGroup("", "", "", "", []);
                 };
                 UtilitiesService.prototype.getBlankService = function () {
-                    return new service_1.Service("", "", "", "", false, false, "", []);
+                    return new service_1.Service("", "", "", "", false, false, "", [], []);
                 };
                 UtilitiesService.prototype.getBlankContacts = function () {
                     return new contacts_1.Contacts("", "", [], [], "", "", "");
@@ -142,6 +142,22 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                 };
                 UtilitiesService.prototype.getBlankAbout = function () {
                     return new about_1.About([], [], "", []);
+                };
+                UtilitiesService.prototype.getPricesFromField = function (field) {
+                    if (field) {
+                        var textList = field.L;
+                        var returnList = [];
+                        for (var index = 0; index < textList.length; index = index + 2) {
+                            if ((index + 1) < textList.length) {
+                                returnList.push({ title: this.getStringFromField(textList[index]),
+                                    amount: this.getNumberFromField(textList[index + 1]) });
+                            }
+                            ;
+                        }
+                        return returnList;
+                    }
+                    else
+                        return [];
                 };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 

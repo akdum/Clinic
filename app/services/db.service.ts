@@ -8,6 +8,7 @@ import { ServicesGroup } from '../data-interfaces/services.group';
 import { Doctor } from '../data-interfaces/doctor';
 import { About } from '../data-interfaces/about';
 import { IText } from '../data-interfaces/itext';
+import { IPrice } from '../data-interfaces/iprice';
 import { IComment } from '../data-interfaces/icomment';
 import { UtilitiesService } from './utilities.service';
 import { AwsService } from './aws.service';
@@ -98,7 +99,7 @@ export class DbService {
                                                      this._utilities.getBooleanFromField(data.Items[index].ShowOnMainPage),
                                                      this._utilities.getBooleanFromField(data.Items[index].IsPopular),
                                                      this._utilities.getStringFromField(data.Items[index].Url), 
-                                                     []));
+                                                     [], []));
                     }
                 }
                 resolve(returnItems);
@@ -130,7 +131,8 @@ export class DbService {
                                                    this._utilities.getBooleanFromField(data.Items[0].ShowOnMainPage),
                                                    this._utilities.getBooleanFromField(data.Items[0].IsPopular),
                                                    this._utilities.getStringFromField(data.Items[0].Url),
-                                                   this._utilities.getListTextFromField(data.Items[0].Text))
+                                                   this._utilities.getListTextFromField(data.Items[0].Text),
+                                                   this._utilities.getPricesFromField(data.Items[0].Prices));
                 }
                 resolve(returnData);
             } else {

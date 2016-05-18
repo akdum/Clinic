@@ -1,4 +1,5 @@
 import { IText } from './IText';
+import { IPrice } from './iprice';
 
 export class Service {
     constructor(public title: string, 
@@ -8,5 +9,6 @@ export class Service {
                 public showOnMainPage: boolean, 
                 public isPopular: boolean,
                 public url: string,
-                public text: IText[] ) {}
+                public text: IText[],
+                public prices: IPrice[]) {}
 }

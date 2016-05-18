@@ -6,7 +6,7 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Service = (function () {
-                function Service(title, body, iconUrl, group, showOnMainPage, isPopular, url, text) {
+                function Service(title, body, iconUrl, group, showOnMainPage, isPopular, url, text, prices) {
                     this.title = title;
                     this.body = body;
                     this.iconUrl = iconUrl;
@@ -15,6 +15,7 @@ System.register([], function(exports_1, context_1) {
                     this.isPopular = isPopular;
                     this.url = url;
                     this.text = text;
+                    this.prices = prices;
                 }
                 return Service;
             }());

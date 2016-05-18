@@ -125,6 +125,8 @@ div.media-alt .media-body {
 	font-weight: 300;
 }
 .common-text {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 .common-text .row {
 	padding-bottom: 2rem;
@@ -218,11 +220,14 @@ div.media-alt .media-body {
 .common-doctors .doctor-therapy {
 	margin-top: 1rem;
 }
-.common-price span:nth-child(1) {
-	margin-right: 1rem;
+.common-price .row {
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	border-bottom: #cdd1d4 solid 1px;
 }
-.common-price span:nth-child(2) {
-	margin-right: 0.5rem;
+.common-price {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 span.text-link-right:after {
     background: url("../assets/arrow-right.png") no-repeat;

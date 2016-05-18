@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { IText } from '../data-interfaces/itext';
+import { IPrice } from '../data-interfaces/iprice';
 import { IComment } from '../data-interfaces/icomment';
 import { ServicesGroup } from '../data-interfaces/services.group';
 import { Service } from '../data-interfaces/service';
@@ -69,7 +70,7 @@ export class UtilitiesService {
     }
     
     getBlankService(): Service {
-        return new Service("","","","",false,false,"",[]);
+        return new Service("","","","",false,false,"",[],[]);
     }
     
     getBlankContacts(): Contacts {
@@ -125,5 +126,19 @@ export class UtilitiesService {
     
     getBlankAbout():About {
         return new About([],[],"",[]);
+    }
+    
+    getPricesFromField(field:any):IPrice[] {
+        if (field) {
+            let textList = field.L;
+            let returnList:Array<IPrice> = [];
+            for (var index = 0; index < textList.length; index=index+2) {
+                if ((index + 1) < textList.length) {
+                    returnList.push({ title:this.getStringFromField(textList[index]),  
+                                      amount: this.getNumberFromField(textList[index+1])}); 
+                    }; 
+                }                         
+            return returnList;
+        } else return [];
     }
 }
