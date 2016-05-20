@@ -18,9 +18,9 @@ export class CommonDoctorsComponent {
     }
     
     @Input()
-    set therapy(therapy:string) {
-        if (therapy) {
-            this._doctorsService.getDoctorsByTherapy(therapy).then(function(data:Doctor[]) {
+    set urls(urls:string[]) {
+        if (urls) {
+            this._doctorsService.getDoctorsByUrls(urls).then(function(data:Doctor[]) {
                 if (data.length > 0) {
                     this._doctors = this._utilities.convertDoctorArrayToDoctorViewModelArray(data);
                 };

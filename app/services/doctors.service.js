@@ -26,16 +26,16 @@ System.register(['@angular/core', './db.service'], function(exports_1, context_1
                     this._db = _db;
                     this._doctors = [];
                 }
-                DoctorsService.prototype.getDoctorsByTherapy = function (therapy) {
+                DoctorsService.prototype.getDoctorsByUrls = function (urls) {
                     var _this = this;
                     if (this._doctors.length > 0) {
-                        return Promise.resolve(this._doctors.filter(function (d) { return d.therapy === therapy; }));
+                        return Promise.resolve(this.filterDoctorsByUrls(urls));
                     }
                     else {
                         // try to load doctors first.
                         return new Promise(function (resolve) { return _this._db.getDoctors().then(function (data) {
                             this._doctors = data;
-                            resolve(this._doctors.filter(function (d) { return d.therapy === therapy; }));
+                            resolve(this.filterDoctorsByUrls(urls));
                         }.bind(_this)); });
                     }
                 };
@@ -50,6 +50,16 @@ System.register(['@angular/core', './db.service'], function(exports_1, context_1
                             resolve(this._doctors);
                         }.bind(_this)); });
                     }
+                };
+                DoctorsService.prototype.filterDoctorsByUrls = function (urls) {
+                    var _this = this;
+                    var returnArray = [];
+                    urls.forEach(function (url) {
+                        var doctor = _this._doctors.filter(function (d) { return d.url === url; });
+                        if (doctor.length > 0)
+                            returnArray.push(doctor[0]);
+                    });
+                    return returnArray;
                 };
                 DoctorsService = __decorate([
                     core_1.Injectable(), 

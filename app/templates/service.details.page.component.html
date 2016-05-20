@@ -9,5 +9,6 @@
         <common-price-component [prices]="_service.prices" ></common-price-component>
     </div>
     <div class="tab-content" *ngIf="_activeTab == 'doctors'">
+        <common-doctors-component [urls]="_service.doctorUrls"></common-doctors-component>
     </div>
 </div>

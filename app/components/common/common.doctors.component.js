@@ -30,10 +30,10 @@ System.register(['@angular/core', '../../services/doctors.service', '../../servi
                     this._utilities = _utilities;
                     this._doctors = [];
                 }
-                Object.defineProperty(CommonDoctorsComponent.prototype, "therapy", {
-                    set: function (therapy) {
-                        if (therapy) {
-                            this._doctorsService.getDoctorsByTherapy(therapy).then(function (data) {
+                Object.defineProperty(CommonDoctorsComponent.prototype, "urls", {
+                    set: function (urls) {
+                        if (urls) {
+                            this._doctorsService.getDoctorsByUrls(urls).then(function (data) {
                                 if (data.length > 0) {
                                     this._doctors = this._utilities.convertDoctorArrayToDoctorViewModelArray(data);
                                 }
@@ -60,9 +60,9 @@ System.register(['@angular/core', '../../services/doctors.service', '../../servi
                 });
                 __decorate([
                     core_1.Input(), 
-                    __metadata('design:type', String), 
-                    __metadata('design:paramtypes', [String])
-                ], CommonDoctorsComponent.prototype, "therapy", null);
+                    __metadata('design:type', Array), 
+                    __metadata('design:paramtypes', [Array])
+                ], CommonDoctorsComponent.prototype, "urls", null);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Boolean), 

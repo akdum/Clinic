@@ -10,6 +10,7 @@ import { ServicesService } from '../../../services/services.service';
 import { UtilitiesService } from '../../../services/utilities.service';
 import { CommonPriceComponent } from '../../common/common.price.component';
 import { CommonTabsComponent } from '../../common/common.tabs.component';
+import { CommonDoctorsComponent } from '../../common/common.doctors.component';
 
 @Component({
     templateUrl: '../app/templates/service.details.page.component.html',
@@ -17,6 +18,7 @@ import { CommonTabsComponent } from '../../common/common.tabs.component';
                  CommonBackComponent,
                  CommonPriceComponent,
                  CommonTextComponent,
+                 CommonDoctorsComponent,
                  CommonTabsComponent]
 })
 export class ServiceDetailsPageComponent implements OnInit {

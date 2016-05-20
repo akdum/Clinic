@@ -98,7 +98,7 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                     return new services_group_1.ServicesGroup("", "", "", "", []);
                 };
                 UtilitiesService.prototype.getBlankService = function () {
-                    return new service_1.Service("", "", "", "", false, false, "", [], []);
+                    return new service_1.Service("", "", "", "", false, false, "", [], [], []);
                 };
                 UtilitiesService.prototype.getBlankContacts = function () {
                     return new contacts_1.Contacts("", "", [], [], "", "", "");

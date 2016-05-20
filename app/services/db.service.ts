@@ -99,7 +99,7 @@ export class DbService {
                                                      this._utilities.getBooleanFromField(data.Items[index].ShowOnMainPage),
                                                      this._utilities.getBooleanFromField(data.Items[index].IsPopular),
                                                      this._utilities.getStringFromField(data.Items[index].Url), 
-                                                     [], []));
+                                                     [], [], []));
                     }
                 }
                 resolve(returnItems);
@@ -132,7 +132,8 @@ export class DbService {
                                                    this._utilities.getBooleanFromField(data.Items[0].IsPopular),
                                                    this._utilities.getStringFromField(data.Items[0].Url),
                                                    this._utilities.getListTextFromField(data.Items[0].Text),
-                                                   this._utilities.getPricesFromField(data.Items[0].Prices));
+                                                   this._utilities.getPricesFromField(data.Items[0].Prices),
+                                                   this._utilities.getListStringsFromField(data.Items[0].DoctorUrls));
                 }
                 resolve(returnData);
             } else {

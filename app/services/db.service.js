@@ -119,7 +119,7 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].ShowOnMainPage), _this._utilities.getBooleanFromField(data.Items[index].IsPopular), _this._utilities.getStringFromField(data.Items[index].Url), [], []));
+                                    returnItems.push(new service_1.Service(_this._utilities.getStringFromField(data.Items[index].Title), _this._utilities.getStringFromField(data.Items[index].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[index].IconName), _this._utilities.getStringFromField(data.Items[index].Group), _this._utilities.getBooleanFromField(data.Items[index].ShowOnMainPage), _this._utilities.getBooleanFromField(data.Items[index].IsPopular), _this._utilities.getStringFromField(data.Items[index].Url), [], [], []));
                                 }
                             }
                             resolve(returnItems);
@@ -144,7 +144,7 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
                         if (err == null) {
                             var returnData = void 0;
                             if (data.Count > 0) {
-                                returnData = new service_1.Service(_this._utilities.getStringFromField(data.Items[0].Title), _this._utilities.getStringFromField(data.Items[0].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[0].IconName), _this._utilities.getStringFromField(data.Items[0].Group), _this._utilities.getBooleanFromField(data.Items[0].ShowOnMainPage), _this._utilities.getBooleanFromField(data.Items[0].IsPopular), _this._utilities.getStringFromField(data.Items[0].Url), _this._utilities.getListTextFromField(data.Items[0].Text), _this._utilities.getPricesFromField(data.Items[0].Prices));
+                                returnData = new service_1.Service(_this._utilities.getStringFromField(data.Items[0].Title), _this._utilities.getStringFromField(data.Items[0].Body), config_1.CONFIG.DB.BUCKETS.ICONS_URL + _this._utilities.getStringFromField(data.Items[0].IconName), _this._utilities.getStringFromField(data.Items[0].Group), _this._utilities.getBooleanFromField(data.Items[0].ShowOnMainPage), _this._utilities.getBooleanFromField(data.Items[0].IsPopular), _this._utilities.getStringFromField(data.Items[0].Url), _this._utilities.getListTextFromField(data.Items[0].Text), _this._utilities.getPricesFromField(data.Items[0].Prices), _this._utilities.getListStringsFromField(data.Items[0].DoctorUrls));
                             }
                             resolve(returnData);
                         }

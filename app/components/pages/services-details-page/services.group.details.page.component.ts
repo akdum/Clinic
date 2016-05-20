@@ -7,7 +7,6 @@ import { ServicesGroupPopularComponent } from './services.group.popular.componen
 import { ServicesGroupRestServicesComponent } from './services.group.rest.services.component';
 import { CommonTitleComponent } from '../../common/common.title.component';
 import { CommonBackComponent } from '../../common/common.back.component';
-import { CommonDoctorsComponent } from '../../common/common.doctors.component';
 import { CommonTextComponent } from '../../common/common.text.component';
 import { UtilitiesService } from '../../../services/utilities.service';
 
@@ -17,7 +16,6 @@ import { UtilitiesService } from '../../../services/utilities.service';
                  CommonBackComponent,
                  ServicesGroupPopularComponent, 
                  ServicesGroupRestServicesComponent,
-                 CommonDoctorsComponent,
                  CommonTextComponent]
 })
 export class ServicesGroupDetailsPageComponent implements OnInit {

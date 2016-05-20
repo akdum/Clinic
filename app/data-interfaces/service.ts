@@ -10,5 +10,6 @@ export class Service {
                 public isPopular: boolean,
                 public url: string,
                 public text: IText[],
-                public prices: IPrice[]) {}
+                public prices: IPrice[],
+                public doctorUrls: string[]) {}
 }
