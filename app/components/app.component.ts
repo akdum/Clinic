@@ -13,6 +13,7 @@ import { NewsPageComponent } from './pages/news-page/news.page.component';
 import { ServicesGroupDetailsPageComponent } from './pages/services-details-page/services.group.details.page.component';
 import { ServiceDetailsPageComponent } from './pages/service-details-page/service.details.page.component';
 import { GetDiscountPageComponent } from './pages/get-discount-page/get.discount.page.component';
+import { PricesPageComponent } from './pages/prices-page/prices.page.component';
 
 @Component({
     selector:'clinic-app',
@@ -25,7 +26,8 @@ import { GetDiscountPageComponent } from './pages/get-discount-page/get.discount
                  ContactsPageComponent,
                  DoctorsPageComponent,
                  NewsPageComponent,
-                 GetDiscountPageComponent, 
+                 GetDiscountPageComponent,
+                 PricesPageComponent, 
                  NavComponent]
 })
 @RouteConfig([
@@ -74,6 +76,11 @@ import { GetDiscountPageComponent } from './pages/get-discount-page/get.discount
         path: '/discount',
         name: 'DiscountPage',
         component: GetDiscountPageComponent
+    },
+    {
+        path: '/prices',
+        name: 'PricesPage',
+        component: PricesPageComponent
     }
 ])
 export class AppComponent {

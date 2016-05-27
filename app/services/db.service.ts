@@ -84,7 +84,7 @@ export class DbService {
     getServices():Promise<Service[]> {
         var params = {
             "TableName": "Services",
-            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular", "Url", "ShowOnMainPage"]
+            "AttributesToGet": ["Title", "Body", "IconName","Group", "IsPopular", "Url", "ShowOnMainPage", "Prices"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -99,7 +99,9 @@ export class DbService {
                                                      this._utilities.getBooleanFromField(data.Items[index].ShowOnMainPage),
                                                      this._utilities.getBooleanFromField(data.Items[index].IsPopular),
                                                      this._utilities.getStringFromField(data.Items[index].Url), 
-                                                     [], [], []));
+                                                     [], 
+                                                     this._utilities.getPricesFromField(data.Items[index].Prices), 
+                                                     []));
                     }
                 }
                 resolve(returnItems);

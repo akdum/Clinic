@@ -6,7 +6,7 @@
         <common-text-component [text]="_service.text" [expandFirstPart]="true"></common-text-component>
     </div>
     <div class="tab-content" *ngIf="_activeTab == 'price'">
-        <common-price-component [prices]="_service.prices" ></common-price-component>
+        <common-price-component [prices]="_service.prices" [showMessage]="true"></common-price-component>
     </div>
     <div class="tab-content" *ngIf="_activeTab == 'doctors'">
         <common-doctors-component [urls]="_service.doctorUrls"></common-doctors-component>

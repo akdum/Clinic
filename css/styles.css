@@ -726,6 +726,11 @@ h1.trends {
 .discount-row img {
 	display: block;
 }
+/* prices page */
+.prices-row {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
 /* mobile custom */
 .mobile a {
 	margin-right: 1rem;

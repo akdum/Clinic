@@ -7,4 +7,5 @@ import { IPrice } from '../../data-interfaces/iprice';
 })
 export class CommonPriceComponent {
     @Input() prices:IPrice[] = [];
+    @Input() showMessage:boolean = false;
 }
