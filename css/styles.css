@@ -475,10 +475,15 @@ h1.trends {
 .header-row .slogan .small-slogan-part {
 	background: url("../assets/slogan-bg-2.png") no-repeat transparent scroll left top;
 	color: #fff;
-	cursor: pointer;
 	font-size: 1.5rem;
 	padding: 0.5rem 0rem 0.5rem 1rem;	
 	width: 410px;
+}
+.header-row .slogan .small-slogan-part a {
+	color: #fff;
+}
+.header-row .slogan .small-slogan-part a, .header-row .slogan .small-slogan-part a:hover, .header-row .slogan .small-slogan-part a:active, .header-row .slogan .small-slogan-part a:visited {
+    text-decoration:none;
 }
 .popular-services-row .media {
 	padding: 1rem;
