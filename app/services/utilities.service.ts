@@ -141,4 +141,8 @@ export class UtilitiesService {
             return returnList;
         } else return [];
     }
+    
+    getBlankDoctor():Doctor {
+        return new Doctor("","","","", []);
+    }
 }

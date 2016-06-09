@@ -251,14 +251,14 @@ System.register(['@angular/core', '../config/config', '../data-interfaces/news',
                     var _this = this;
                     var params = {
                         "TableName": "Doctors",
-                        "AttributesToGet": ["Name", "PhotoName", "Therapy", "Url"]
+                        "AttributesToGet": ["Name", "PhotoName", "Therapy", "Url", "Text"]
                     };
                     return new Promise(function (resolve, reject) { return _this._dynamoDB.scan(params, function (err, data) {
                         if (err == null) {
                             var returnItems = [];
                             if (data.Count > 0) {
                                 for (var index = 0; index < data.Count; index++) {
-                                    returnItems.push(new doctor_1.Doctor(_this._utilities.getStringFromField(data.Items[index].Name), _this._utilities.getStringFromField(data.Items[index].Therapy), _this._utilities.getStringFromField(data.Items[index].Url), _this._utilities.getStringFromField(data.Items[index].PhotoName), []));
+                                    returnItems.push(new doctor_1.Doctor(_this._utilities.getStringFromField(data.Items[index].Name), _this._utilities.getStringFromField(data.Items[index].Therapy), _this._utilities.getStringFromField(data.Items[index].Url), _this._utilities.getStringFromField(data.Items[index].PhotoName), _this._utilities.getListTextFromField(data.Items[index].Text)));
                                 }
                             }
                             resolve(returnItems);

@@ -27,12 +27,16 @@ System.register(['@angular/core', '../../data-interfaces/text.viewmodel', '../..
             CommonTextComponent = (function () {
                 function CommonTextComponent() {
                     this._text = [];
+                    this.doctor = false;
                     this.expandFirstPart = false;
                 }
                 Object.defineProperty(CommonTextComponent.prototype, "text", {
                     set: function (text) {
+                        var _this = this;
                         if (text && text.length > 0) {
-                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imageNames.map(function (m) { return config_1.CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m; })); });
+                            this._text = text.map(function (val) { return new text_viewmodel_1.TextViewModel(val.heading, val.value, false, val.imageNames.map(function (m) { return _this.doctor ?
+                                config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + m :
+                                config_1.CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m; })); });
                             if (this.expandFirstPart) {
                                 this._text[0].isExpanded = true;
                             }
@@ -44,6 +48,10 @@ System.register(['@angular/core', '../../data-interfaces/text.viewmodel', '../..
                 CommonTextComponent.prototype.toggle = function (text) {
                     text.isExpanded = !text.isExpanded;
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Boolean)
+                ], CommonTextComponent.prototype, "doctor", void 0);
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Boolean)

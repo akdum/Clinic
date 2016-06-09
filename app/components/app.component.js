@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component', './pages/get-discount-page/get.discount.page.component', './pages/prices-page/prices.page.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './header/header.component', './nav/nav.component', './footer/footer.component', './pages/main-page/main.page.component', './pages/about-page/about.page.component', './pages/services-page/services.page.component', './pages/contacts-page/contacts.page.component', './pages/doctors-page/doctors.page.component', './pages/news-page/news.page.component', './pages/services-details-page/services.group.details.page.component', './pages/service-details-page/service.details.page.component', './pages/get-discount-page/get.discount.page.component', './pages/prices-page/prices.page.component', './pages/doctor-page/doctor.page.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1, get_discount_page_component_1, prices_page_component_1;
+    var core_1, router_deprecated_1, header_component_1, nav_component_1, footer_component_1, main_page_component_1, about_page_component_1, services_page_component_1, contacts_page_component_1, doctors_page_component_1, news_page_component_1, services_group_details_page_component_1, service_details_page_component_1, get_discount_page_component_1, prices_page_component_1, doctor_page_component_1;
     var AppComponent;
     return {
         setters:[
@@ -58,6 +58,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
             },
             function (prices_page_component_1_1) {
                 prices_page_component_1 = prices_page_component_1_1;
+            },
+            function (doctor_page_component_1_1) {
+                doctor_page_component_1 = doctor_page_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -81,6 +84,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
                             news_page_component_1.NewsPageComponent,
                             get_discount_page_component_1.GetDiscountPageComponent,
                             prices_page_component_1.PricesPageComponent,
+                            doctor_page_component_1.DoctorPageComponent,
                             nav_component_1.NavComponent]
                     }),
                     router_deprecated_1.RouteConfig([
@@ -134,6 +138,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './header/header
                             path: '/prices',
                             name: 'PricesPage',
                             component: prices_page_component_1.PricesPageComponent
+                        },
+                        {
+                            path: '/doctor/:url',
+                            name: 'DoctorPage',
+                            component: doctor_page_component_1.DoctorPageComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [router_deprecated_1.Router])

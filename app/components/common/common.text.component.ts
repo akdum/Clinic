@@ -11,6 +11,8 @@ import { CONFIG } from '../../config/config';
 export class CommonTextComponent {
     private _text: TextViewModel[] = [];
     
+    @Input() doctor: boolean = false;
+    
     @Input() expandFirstPart: boolean = false;
     
     @Input()
@@ -19,7 +21,9 @@ export class CommonTextComponent {
             this._text = text.map(val=> new TextViewModel(val.heading, 
                                                           val.value, 
                                                           false, 
-                                                          val.imageNames.map(m=>CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m)));
+                                                          val.imageNames.map(m=> this.doctor ? 
+                                                                                    CONFIG.DB.BUCKETS.DOCTORS_PHOTO + m : 
+                                                                                    CONFIG.DB.BUCKETS.TEXT_IMAGES_URL + m)));
             if (this.expandFirstPart) {
                 this._text[0].isExpanded = true;
             }

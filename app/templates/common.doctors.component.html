@@ -13,7 +13,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <img [src]="doctor.photoUrl" class="doctor-photo" />
             <div class="doctor-info">
-                <div class="doctor-name">{{doctor.name}}<span class="text-link-right"></span></div>
+                <div class="doctor-name" (click)="gotoDoctor(doctor)">{{doctor.name}}<span class="text-link-right"></span></div>
                 <div><span class="doctor-therapy label label-info">{{doctor.therapy}}</span></div>
             </div>
         </div>

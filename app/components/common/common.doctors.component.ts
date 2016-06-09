@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router-deprecated';
 
 import { DoctorsService } from '../../services/doctors.service';
 import { UtilitiesService } from '../../services/utilities.service';
@@ -14,7 +15,9 @@ export class CommonDoctorsComponent {
     private _doctors: DoctorViewModel[]=[];
     public noTitle:boolean;
     
-    constructor(private _doctorsService: DoctorsService, private _utilities:UtilitiesService) {        
+    constructor(private _doctorsService: DoctorsService, 
+                private _utilities:UtilitiesService,
+                private _router: Router) {        
     }
     
     @Input()
@@ -38,4 +41,9 @@ export class CommonDoctorsComponent {
             }.bind(this));
         }
     }    
+    
+    gotoDoctor(doctor: Doctor) {
+        let link = ['DoctorPage', { url: doctor.url }];
+        this._router.navigate(link);
+    }
 }

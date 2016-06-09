@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../data-interfaces/services.group', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/news', '../data-interfaces/about', '../data-interfaces/doctor.viewmodel', '../config/config'], function(exports_1, context_1) {
+System.register(['@angular/core', '../data-interfaces/services.group', '../data-interfaces/service', '../data-interfaces/contacts', '../data-interfaces/doctor', '../data-interfaces/news', '../data-interfaces/about', '../data-interfaces/doctor.viewmodel', '../config/config'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, services_group_1, service_1, contacts_1, news_1, about_1, doctor_viewmodel_1, config_1;
+    var core_1, services_group_1, service_1, contacts_1, doctor_1, news_1, about_1, doctor_viewmodel_1, config_1;
     var UtilitiesService;
     return {
         setters:[
@@ -25,6 +25,9 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
             },
             function (contacts_1_1) {
                 contacts_1 = contacts_1_1;
+            },
+            function (doctor_1_1) {
+                doctor_1 = doctor_1_1;
             },
             function (news_1_1) {
                 news_1 = news_1_1;
@@ -158,6 +161,9 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                     }
                     else
                         return [];
+                };
+                UtilitiesService.prototype.getBlankDoctor = function () {
+                    return new doctor_1.Doctor("", "", "", "", []);
                 };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 
