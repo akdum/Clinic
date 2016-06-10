@@ -128,7 +128,7 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                     }
                 };
                 UtilitiesService.prototype.convertDoctorArrayToDoctorViewModelArray = function (doctors) {
-                    return doctors.map(function (d) { return new doctor_viewmodel_1.DoctorViewModel(d.name, d.therapy, d.url, config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName, d.text); });
+                    return doctors.map(function (d) { return new doctor_viewmodel_1.DoctorViewModel(d.name, d.speciality, d.url, config_1.CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName, d.text); });
                 };
                 UtilitiesService.prototype.findBootstrapEnvironment = function () {
                     var envs = ['xs', 'sm', 'md', 'lg'];
@@ -163,7 +163,7 @@ System.register(['@angular/core', '../data-interfaces/services.group', '../data-
                         return [];
                 };
                 UtilitiesService.prototype.getBlankDoctor = function () {
-                    return new doctor_1.Doctor("", "", "", "", []);
+                    return new doctor_1.Doctor("", [], "", "", []);
                 };
                 UtilitiesService = __decorate([
                     core_1.Injectable(), 

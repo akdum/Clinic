@@ -6,9 +6,9 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             DoctorViewModel = (function () {
-                function DoctorViewModel(name, therapy, url, photoUrl, text) {
+                function DoctorViewModel(name, speciality, url, photoUrl, text) {
                     this.name = name;
-                    this.therapy = therapy;
+                    this.speciality = speciality;
                     this.url = url;
                     this.photoUrl = photoUrl;
                     this.text = text;

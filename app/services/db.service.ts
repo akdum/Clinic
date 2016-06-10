@@ -254,7 +254,7 @@ export class DbService {
     getDoctors():Promise<Doctor[]> {
         var params = {
             "TableName": "Doctors",
-            "AttributesToGet": ["Name", "PhotoName", "Therapy","Url", "Text"]
+            "AttributesToGet": ["Name", "PhotoName", "Speciality","Url", "Text"]
         }
         
         return new Promise((resolve, reject)=> this._dynamoDB.scan(params, (err, data)=>{
@@ -263,7 +263,7 @@ export class DbService {
                 if (data.Count > 0) {
                     for (var index = 0; index < data.Count; index++) {
                         returnItems.push(new Doctor(this._utilities.getStringFromField(data.Items[index].Name),
-                                                    this._utilities.getStringFromField(data.Items[index].Therapy),
+                                                    this._utilities.getListStringsFromField(data.Items[index].Speciality),
                                                     this._utilities.getStringFromField(data.Items[index].Url),
                                                     this._utilities.getStringFromField(data.Items[index].PhotoName),
                                                     this._utilities.getListTextFromField(data.Items[index].Text))); 

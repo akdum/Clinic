@@ -101,7 +101,7 @@ export class UtilitiesService {
     
     convertDoctorArrayToDoctorViewModelArray(doctors: Doctor[]):DoctorViewModel[] {
         return doctors.map(d=>new DoctorViewModel(d.name, 
-                                                d.therapy, 
+                                                d.speciality, 
                                                 d.url,
                                                 CONFIG.DB.BUCKETS.DOCTORS_PHOTO + d.photoName,
                                                 d.text));
@@ -143,6 +143,6 @@ export class UtilitiesService {
     }
     
     getBlankDoctor():Doctor {
-        return new Doctor("","","","", []);
+        return new Doctor("",[],"","", []);
     }
 }
