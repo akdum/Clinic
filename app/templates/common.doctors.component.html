@@ -15,7 +15,7 @@
             <div class="doctor-info">
                 <div class="doctor-name" (click)="gotoDoctor(doctor)">{{doctor.name}}<span class="text-link-right"></span></div>
                 <div *ngFor="let spec of doctor.speciality">
-                    <span class="doctor-therapy label label-info">{{spec}}</span>
+                    <span class="doctor-speciality label label-info">{{spec}}</span>
                 </div>
             </div>
         </div>
