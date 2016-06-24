@@ -1,0 +1,6 @@
+<div class="row prices-row">
+    <div class="row" *ngFor="let service of _services">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><h4>{{service.title}}</h4></div>
+        <common-price-component [prices]="service.prices" [showMessage]="false"></common-price-component>
+    </div>
+</div>

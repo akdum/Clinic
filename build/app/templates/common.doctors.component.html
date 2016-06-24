@@ -1,0 +1,24 @@
+<div class="common-doctors row">
+    <div class="hidden-sm-down" *ngIf="!noTitle">
+        <div class="col-md-12 col-lg-12 title-big">
+            <h4>Врачи</h4>
+        </div>
+    </div>
+    <div class="hidden-md-up" *ngIf="!noTitle">
+        <div class="col-xs-8 col-xs-offset-4 col-sm-offset-4 col-sm-8 title-small">
+            <h4>Врачи</h4>
+        </div>
+    </div>
+    <div *ngFor="let doctor of _doctors" class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <img [src]="doctor.photoUrl" class="doctor-photo" />
+            <div class="doctor-info">
+                <div class="doctor-name" (click)="gotoDoctor(doctor)">{{doctor.name}}<span class="text-link-right"></span></div>
+                <div *ngFor="let spec of doctor.speciality">
+                    <span class="doctor-speciality label label-info">{{spec}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

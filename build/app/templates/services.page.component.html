@@ -1,0 +1,28 @@
+<div class="row services-row">
+    <div *ngFor="let serviceGroup of _servicesData; let i=index">
+        <div class='col-xs-12 col-sm-12 col-md-6 col-lg-4'>
+            <div class='media-alt'>
+                <div class="media-heading" (click)="gotoServicesGroupDetail(serviceGroup)">
+                    <a class='media-left'>
+                        <img [src]="serviceGroup.imageUrl" />
+                    </a>
+                    <h4>{{serviceGroup.title}}</h4>
+                </div>
+                <div class='media-body'>                    
+                    <span>{{serviceGroup.body}}</span>
+                </div>
+                <div class="links">
+                    <links *ngFor="let service of serviceGroup.popular_services;let i=index">
+                        <a (click)="gotoServiceDetails(service)" *ngIf="i<3">{{service.title}}</a>
+                    </links>
+                </div>
+                <div class="all-services-link">
+                    <a class="link-button" (click)="gotoServicesGroupDetail(serviceGroup)">Все услуги</a>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="(i+1)%2==0" class='clearfix hidden-sm-down hidden-lg-up'></div>
+        <div *ngIf="(i+1)%3==0" class='clearfix hidden-md-down'></div>
+    </div>
+</div>
+<div class="row services-offset-row"></div>

@@ -1,0 +1,9 @@
+<div class="comments row">
+    <div *ngFor="let comment of _comments" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="label label-success comment-theme">{{comment.theme}}</div>
+        <div [innerHTML]="comment.short"></div>
+        <div class="see-more" [class.hidden]="comment.isExpanded"><a class="link-button" (click)="toggle(comment)">Читать дальше</a></div>        
+        <div [class.hidden]="!comment.isExpanded" [innerHTML] = "comment.extended"></div>
+        <div class="comment-divider"></div>
+    </div>
+</div>

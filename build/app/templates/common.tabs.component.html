@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="hidden-md-down">
+        <ul class="tabs clearfix">
+            <li class="tab" *ngFor="let tab of _tabs" [class.active-tab]="IsTabActive(tab.internalName)" data-id="{{tab.internalName}}" (click)="SetActiveTab($event)">
+                {{tab.displayName}}
+            </li>
+        </ul>
+    </div>
+    <div class="hidden-lg-up">
+        <ul class="menu">
+            <li class="menu-item" *ngFor="let tab of _tabs" [class.active-tab]="IsTabActive(tab.internalName)" data-id="{{tab.internalName}}" (click)="SetActiveTab($event)">
+                {{tab.displayName}}
+            </li>
+        </ul>
+    </div>
+</div>

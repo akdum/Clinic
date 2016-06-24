@@ -1,0 +1,11 @@
+<div class="row common-price">
+    <div class="row" *ngIf="showMessage">
+        <div class="alert alert-info">
+            Прием считается повторным, если со дня первичного приема этого же специалиста прошло менее 1 месяца.
+        </div>
+    </div>
+    <div class="row" *ngFor="let price of prices">
+        <div class="col-xs-6 col-sm-8 col-md-8 col-lg-10">{{price.title}}</div>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2"><strong>{{price.amount}} рублей</strong></div>
+    </div>
+</div>
