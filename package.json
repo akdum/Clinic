@@ -3,7 +3,8 @@
   "version": "0.0.3",
   "author": "Ivan Steblenko",
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    /*"start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",*/
+    "start": "node index.js",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
