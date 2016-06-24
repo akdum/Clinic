@@ -8,7 +8,7 @@ var staticRoot = __dirname + '/';
 app.set('port', (process.env.PORT || 3000));
 
 app.use(express.static(staticRoot));
-
+app.use(require('prerender-node').set('prerenderToken', 'bBlwtpId3jTCCsou8MRN'));
 app.use(function(req, res, next){
 
     // if the request is not html then move along
