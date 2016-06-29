@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { PopularServicesComponent } from './popular.services.component'
 import { SpecialOffersComponent } from './special.offers.component';
-import { NewsComponent } from './news.component';
 
 @Component({
     templateUrl: '../app/templates/main.page.component.html',
-    directives: [PopularServicesComponent, SpecialOffersComponent, NewsComponent]
+    directives: [PopularServicesComponent, SpecialOffersComponent]
 })
 export class MainPageComponent {
     
